@@ -1,2 +1,2 @@
-# tjandnina.github.io
+# tjandnina.com
 Our wedding website
