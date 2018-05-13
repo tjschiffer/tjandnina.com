@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="{{ language }}">
+
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Welcome!</title>
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="../favicon.png"/>
   <style>
     body, html {
       margin: 0;
@@ -38,18 +40,23 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72237523-2"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    gtag('config', 'UA-72237523-2');
+      gtag('config', 'UA-72237523-2');
   </script>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-  <div class="tj--main-image" style="background-image: url('assets/img/tjandnina.jpg')">
+  <div class="tj--main-image" style="background-image: url('../img/tjandnina.jpg')">
   </div>
   <div class="tj--hero-text">
-    <span>Coming soon...</span>
+    <span>{{ ComingSoon }}</span>
   </div>
 </body>
 </html>
