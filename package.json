@@ -1,0 +1,23 @@
+{
+  "name": "tjandnina.com",
+  "version": "1.0.0",
+  "description": "Our wedding website",
+  "main": "build/makeSite.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjschiffer/tjandnina.com.git"
+  },
+  "author": "T.J. Schiffer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tjschiffer/tjandnina.com/issues"
+  },
+  "homepage": "https://github.com/tjschiffer/tjandnina.com#readme",
+  "dependencies": {
+    "multi-language-site-generator": "git+https://github.com/tjschiffer/multi-language-site-generator.git",
+    "node-sass": "^4.9.0"
+  }
+}
