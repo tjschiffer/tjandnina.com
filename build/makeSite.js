@@ -3,16 +3,16 @@ const sass = require('node-sass');
 const path = require('path');
 const fs = require('fs');
 
-const templateDirPath = path.resolve('../staging/templates');
-const templateDataPath = path.resolve('../staging/templates/languageData.json');
-const outputFolder = path.resolve('../staging/');
+const templateDirPath = path.resolve('../templates');
+const templateDataPath = path.resolve('../templates/languageData.json');
+const outputFolder = path.resolve('../output/');
 
 generator.render(templateDirPath, templateDataPath, outputFolder, err => {
   if (err) throw err;
 });
 
-const sassFile = path.resolve('../staging/scss/main.scss');
-const outFile = path.resolve('../staging/css/main.css');
+const sassFile = path.resolve('../scss/main.scss');
+const outFile = path.resolve('../output/css/main.css');
 
 sass.render({
   file: sassFile,
