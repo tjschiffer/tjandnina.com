@@ -2,3 +2,4 @@
 node_modules
 output/**/*.html
 output/css/*
+.DS_Store
