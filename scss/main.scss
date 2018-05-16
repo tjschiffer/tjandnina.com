@@ -1,5 +1,11 @@
+body, html {
+  font-family: 'CoreSans', Helvetica Neue, Helvetica, sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Lobster');
 
 @import 'normalize';
 @import 'main-image';
 @import 'navigation';
 @import 'helpers';
+@import 'grid-flex';

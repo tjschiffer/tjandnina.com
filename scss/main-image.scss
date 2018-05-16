@@ -1,11 +1,16 @@
 
-.tj__main-image {
+.tj-main-image {
   background: none no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   height: 100vh;
+}
+
+.tj-main-image__text {
+  font-size: 10em;
+  margin-bottom: 125px;
 }
 
 /* ==========================================================================

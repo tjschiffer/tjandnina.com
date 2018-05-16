@@ -17,7 +17,7 @@
 
     gtag('js', new Date());
 
-    gtag('config', 'UA-72237523-2');
+    // gtag('config', 'UA-72237523-2');
   </script>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,10 +25,24 @@
   <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-<div class="tj__navigation">
-
+<div class="tj-navigation
+            tj-grid-flex
+            tj-grid-flex--justify-center
+            tj--position-absolute
+            tj--width-full
+            tj--position-top
+            tj--z-index-10
+            tj--font-size-20">
+  <a class="tj-navigation-link tj-grid-flex tj-grid-flex--align-center tj--padding-vert-3 tj--font-white"><div>{{ Home }}</div></a>
+  <a class="tj-navigation-link tj-grid-flex tj-grid-flex--align-center tj--padding-vert-3 tj--font-white"><div>{{ Details }}</div></a>
+  <a class="tj-navigation-link tj-grid-flex tj-grid-flex--align-center tj--padding-vert-3 tj--font-white"><div>Registry</div></a>
+  <a class="tj-navigation-link tj-grid-flex tj-grid-flex--align-center tj--padding-vert-3 tj--font-white"><div>Photos</div></a>
 </div>
-<div class="tj__main-image" style="background-image: url('../img/tjandnina.jpg')">
+<div class="tj-main-image
+            tj-grid-flex
+            tj-grid-flex--align-center
+            tj-grid-flex--justify-center" style="background-image: url('../img/paris.jpg')">
+  <div class="tj-main-image__text tj--font-lobster tj--font-white">T.J. &amp; Nina</div>
 </div>
 </body>
 </html>

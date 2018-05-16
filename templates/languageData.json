@@ -1,8 +1,10 @@
 {
   "en": {
-    "ComingSoon": "Coming Soon..."
+    "Home": "Home",
+    "Details": "Details"
   },
   "fr": {
-    "ComingSoon": "À venir..."
+    "Home": "Page d'Accueil",
+    "Details": "Détails"
   }
 }
