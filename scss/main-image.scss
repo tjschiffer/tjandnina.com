@@ -1,24 +1,42 @@
 
+@keyframes deblur {
+  from { filter: blur(20px); }
+  to { filter: blur(0px); }
+}
+
 .tj-main-image {
+  height: 100vh;
+}
+
+.tj-main-image__image, .tj-main-image__image-mask {
   background: none no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100vh;
+  animation: deblur 1s linear 1;
 }
+
+.tj-main-image__image-mask {
+  // Remove the edge bleed caused by blur
+  transform: scale(1.05);
+}
+
 
 .tj-main-image__text {
   font-size: 10em;
   margin-bottom: 125px;
 }
 
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
+@media only screen and (max-width: 1007px) {
+  .tj-main-image__text {
+    font-size: 7em;
+  }
+}
 
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+
+@media only screen and (max-width: 640px) {
+  .tj-main-image__text {
+    font-size: 4.25em;
+  }
 }
