@@ -1,7 +1,6 @@
 
 .tj-language-chooser {
-  height: 125px;
-  width: 800px;
+  width: 50%;
 }
 
 @include bp-tablet {
@@ -11,5 +10,6 @@
 }
 
 .tj-language-chooser__language {
-  border-radius: 10px;
+  border-radius: 5px;
+  padding-bottom: 52%;
 }

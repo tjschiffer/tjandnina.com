@@ -31,8 +31,16 @@
   z-index: 0;
 }
 
+.tj--z-index-neg-1 {
+  z-index: -1;
+}
+
 .tj--padding-5 {
   padding: 25px;
+}
+
+.tj--padding-20 {
+  padding: 100px;
 }
 
 .tj--padding-hor-3 {
@@ -69,6 +77,13 @@
 .tj--font-dark-gray {
   color: #4b4b4b;
 }
+.tj--text-shadow-black {
+  text-shadow:
+          0 0 0.3em #000,
+          0 0 0.3em #000,
+          0 0 0.3em #000,
+          0 0 0.3em #000;
+}
 
 .tj--text-align-center {
   text-align: center;
@@ -84,4 +99,22 @@
 
 .tj--border-white-1 {
   border: solid 1px #fff;
+}
+
+.tj--bg-image-cover {
+  background: none no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.tj--opacity-0 {
+  opacity: 0;
+}
+
+@include bp-tablet {
+  .tj--padding-10--tab {
+    padding: 50px;
+  }
 }
