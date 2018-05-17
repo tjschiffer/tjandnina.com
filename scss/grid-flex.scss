@@ -7,6 +7,29 @@
   align-items: center;
 }
 
+.tj-grid-flex--align-stretch {
+  align-items: stretch;
+}
+
 .tj-grid-flex--justify-center {
   justify-content: center;
 }
+
+.tj-grid-flex--justify-space-between {
+  justify-content: space-between;
+}
+
+.tj-grid-flex__cell-1-3 {
+  flex: 0 0 33.3%;
+}
+
+@include bp-mobile {
+  .tj-grid-flex__cell-1-1--mob {
+    flex: 0 0 100%;
+  }
+
+  .tj-grid-flex--wrap-tab {
+    flex-wrap: wrap;
+  }
+}
+

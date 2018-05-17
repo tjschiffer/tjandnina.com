@@ -1,0 +1,15 @@
+
+.tj-language-chooser {
+  height: 125px;
+  width: 800px;
+}
+
+@include bp-tablet {
+  .tj-language-chooser {
+    width: 80%;
+  }
+}
+
+.tj-language-chooser__language {
+  border-radius: 10px;
+}

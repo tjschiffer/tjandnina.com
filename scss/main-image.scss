@@ -1,41 +1,52 @@
 
-@keyframes deblur {
+@include keyframes(de-blur) {
   from { filter: blur(20px); }
   to { filter: blur(0px); }
+}
+
+@include keyframes(fade-in) {
+  from { opacity: 0; }
+  to { opacity: 1; }
+
 }
 
 .tj-main-image {
   height: 100vh;
 }
 
-.tj-main-image__image, .tj-main-image__image-mask {
+.tj-main-image__image {
   background: none no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  animation: deblur 1s linear 1;
-}
-
-.tj-main-image__image-mask {
   // Remove the edge bleed caused by blur
   transform: scale(1.05);
 }
 
+.tj-main-image__image--deblur {
+  filter: blur(0px);
+  @include animation(#{de-blur 1s linear 1});
+}
+
+.tj-main-image__image--blur {
+  filter: blur(20px);
+}
 
 .tj-main-image__text {
   font-size: 10em;
   margin-bottom: 125px;
+  @include animation(#{fade-in 1s linear 1});
 }
 
-@media only screen and (max-width: 1007px) {
+@include bp-tablet {
   .tj-main-image__text {
     font-size: 7em;
   }
 }
 
 
-@media only screen and (max-width: 640px) {
+@include bp-mobile {
   .tj-main-image__text {
     font-size: 4.25em;
   }

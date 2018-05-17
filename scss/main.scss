@@ -1,11 +1,16 @@
 body, html {
   font-family: 'CoreSans', Helvetica Neue, Helvetica, sans-serif;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 
+@import 'mixins';
 @import 'normalize';
 @import 'main-image';
 @import 'navigation';
 @import 'helpers';
 @import 'grid-flex';
+@import 'language-chooser';
