@@ -1,12 +1,7 @@
 
 .tj-language-chooser {
-  width: 50%;
-}
-
-@include bp-tablet {
-  .tj-language-chooser {
-    width: 80%;
-  }
+  max-width: 1000px;
+  width: 100%;
 }
 
 .tj-language-chooser__language {

@@ -356,11 +356,11 @@ template {
   -moz-animation: fade-in 1s linear 1;
   animation: fade-in 1s linear 1; }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 900px) {
   .tj-main-image__text {
     font-size: 7em; } }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 600px) {
   .tj-main-image__text {
     font-size: 4.25em; } }
 
@@ -463,7 +463,7 @@ template {
 .tj--opacity-0 {
   opacity: 0; }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 900px) {
   .tj--padding-10--tab {
     padding: 50px; } }
 
@@ -479,18 +479,15 @@ template {
 .tj-grid-flex__cell-1-2 {
   flex: 0 0 50%; }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 600px) {
   .tj-grid-flex__cell-1-1--mob {
     flex: 0 0 100%; }
-  .tj-grid-flex--wrap-tab {
+  .tj-grid-flex--wrap-mob {
     flex-wrap: wrap; } }
 
 .tj-language-chooser {
-  width: 50%; }
-
-@media only screen and (max-width: 1000px) {
-  .tj-language-chooser {
-    width: 80%; } }
+  max-width: 1000px;
+  width: 100%; }
 
 .tj-language-chooser__language {
   border-radius: 5px;

@@ -1,12 +1,12 @@
 // http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/
 @mixin bp-tablet {
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 900px) {
     @content;
   }
 }
 
 @mixin bp-mobile {
-  @media only screen and (max-width: 640px) {
+  @media only screen and (max-width: 600px) {
     @content;
   }
 }
