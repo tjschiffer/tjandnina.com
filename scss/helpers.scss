@@ -35,8 +35,8 @@
   z-index: -1;
 }
 
-.tj--padding-5 {
-  padding: 25px;
+.tj--padding-1 {
+  padding: 5px;
 }
 
 .tj--padding-20 {
@@ -63,7 +63,7 @@
 }
 
 .tj--font-size-20 {
-  font-size: 1.125em;
+  font-size: 1.25em;
 }
 
 .tj--font-size-24 {
@@ -114,7 +114,15 @@
 }
 
 @include bp-tablet {
-  .tj--padding-10--tab {
-    padding: 50px;
+  .tj--padding-15--tab {
+    padding: 75px;
   }
 }
+
+@include bp-mobile {
+  .tj--padding-vert-10--mob {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
