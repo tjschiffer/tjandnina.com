@@ -2,22 +2,40 @@ const path = require('path');
 const fs = require('fs');
 const mustache = require('mustache');
 
-const templatePath = path.resolve('./tpl.head.mustache');
+const templatePath = path.join(__dirname, './tpl.head.mustache');
 
-const headComponent = {
-  render: function render(view, cb) {
-    view = Object.assign({
-      title: 'Welcome!'
-    }, view);
+const headComponent = function() {
 
+  /**
+   *
+   * @param cb
+   */
+  this.render = cb => {
+    const _this = this;
     fs.readFile(templatePath, 'utf-8', (err, template) => {
       mustache.parse(template, ['<%', '%>']);
-      const rendered = mustache.render(template, view);
+      const rendered = mustache.render(template, _this);
       cb(err, rendered);
     });
+  };
+
+  /**
+   *
+   * @param title
+   * @returns {headComponent}
+   */
+  this.setTitle = title => {
+    this.title = title;
+    return this;
+  };
+
+  /**
+   *
+   * @returns {string}
+   */
+  this.getTitle = () => {
+    return this.title || 'Welcome!';
   }
 };
-
-// headComponent.render(null, (err, data) => console.log(data));
 
 module.exports = headComponent;

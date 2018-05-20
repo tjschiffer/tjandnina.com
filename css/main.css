@@ -357,6 +357,8 @@ template {
   animation: fade-in 1s linear 1; }
 
 @media only screen and (max-width: 900px) {
+  .tj-main-image__image {
+    transform: scale(1.1); }
   .tj-main-image__text {
     font-size: 7em; } }
 

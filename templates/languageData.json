@@ -1,10 +1,14 @@
 {
   "en": {
     "Home": "Home",
-    "Details": "Details"
+    "Details": "Details",
+    "Registry": "Registry",
+    "Photos": "Photos"
   },
   "fr": {
     "Home": "Page d'Accueil",
-    "Details": "Détails"
+    "Details": "Détails",
+    "Registry": "Registry",
+    "Photos": "Photos"
   }
 }

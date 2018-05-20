@@ -40,6 +40,11 @@
 }
 
 @include bp-tablet {
+  .tj-main-image__image {
+    // Remove the edge bleed caused by blur
+    transform: scale(1.1);
+  }
+
   .tj-main-image__text {
     font-size: 7em;
   }
