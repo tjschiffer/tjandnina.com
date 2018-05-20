@@ -34,7 +34,7 @@ const headComponent = function() {
    * @returns {string}
    */
   this.getTitle = () => {
-    return this.title || 'Welcome!';
+    return this.title || 'T.J. & Nina';
   }
 };
 

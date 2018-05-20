@@ -13,9 +13,10 @@ body, html {
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 
 @import 'mixins';
-@import 'normalize';
-@import 'main-image';
-@import 'navigation';
+// Load helpers first to allow override
 @import 'helpers';
+@import 'normalize';
+@import 'hero-image';
+@import 'navigation';
 @import 'grid-flex';
 @import 'language-chooser';

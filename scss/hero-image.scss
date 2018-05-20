@@ -10,11 +10,11 @@
 
 }
 
-.tj-main-image {
+.tj-hero-image {
   height: 100vh;
 }
 
-.tj-main-image__image {
+.tj-hero-image__image {
   background: none no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -24,35 +24,35 @@
   transform: scale(1.05);
 }
 
-.tj-main-image__image--deblur {
+.tj-hero-image__image--deblur {
   filter: blur(0px);
   @include animation(#{de-blur 1s linear 1});
 }
 
-.tj-main-image__image--blur {
+.tj-hero-image__image--blur {
   filter: blur(20px);
 }
 
-.tj-main-image__text {
+.tj-hero-image__text {
   font-size: 10em;
   margin-bottom: 125px;
   @include animation(#{fade-in 1s linear 1});
 }
 
 @include bp-tablet {
-  .tj-main-image__image {
+  .tj-hero-image__image {
     // Remove the edge bleed caused by blur
     transform: scale(1.1);
   }
 
-  .tj-main-image__text {
+  .tj-hero-image__text {
     font-size: 7em;
   }
 }
 
 
 @include bp-mobile {
-  .tj-main-image__text {
+  .tj-hero-image__text {
     font-size: 4.25em;
   }
 }

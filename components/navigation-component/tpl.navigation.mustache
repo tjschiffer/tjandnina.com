@@ -1,17 +1,32 @@
 <div class="tj-navigation
             tj-grid-flex
             tj-grid-flex--justify-center
-            tj--position-absolute
             tj--width-full
+            tj--overflow-hidden
+            <%# isOverlay %>
+            tj--position-absolute
             tj--position-top
+            <%/ isOverlay %>
+            <%^ isOverlay %>
+            tj--position-relative
+            <%/ isOverlay %>
             tj--z-index-10
             tj--font-size-20">
+  <%^ isOverlay %>
+  <div class="tj--navigation__background
+              tj--position-absolute
+              tj--position-top
+              tj--width-full
+              tj--z-index-neg-1"
+              style="background-image: url('/img/paris.jpg')"></div>
+  <%/ isOverlay %>
   <%# navigationLinks %>
-  <a href="{{ language }}/<% linkAddress %>"
-      class="tj-navigation-link
+  <a href="<% linkAddress %>"
+     class="tj-navigation-link
             tj-grid-flex
             tj-grid-flex--align-center
             tj--padding-hor-3
+            tj--text-decoration-none
             tj--font-white"><div>{{ <% linkName %> }}</div></a>
   <%/ navigationLinks %>
 </div>

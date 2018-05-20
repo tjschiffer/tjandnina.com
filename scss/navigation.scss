@@ -3,16 +3,27 @@
   height: 60px;
 }
 
-.tj-navigation-link {
-  height: 100%;
+.tj--navigation__background {
+  background: none no-repeat center top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  transform: scale(1.05);
 }
 
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
+.tj-navigation-link {
+  height: 100%;
 
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+  &:hover {
+    text-shadow: 0 0 2.5em #000;
+  }
+}
+
+@include bp-tablet {
+  .tj--navigation__background {
+    // Match the hero image background
+    transform: scale(1.1);
+  }
 }

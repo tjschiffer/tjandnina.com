@@ -2,9 +2,9 @@ const path = require('path');
 const fs = require('fs');
 const mustache = require('mustache');
 
-const templatePath = path.join(__dirname, './tpl.landing-page.mustache');
+const templatePath = path.join(__dirname, './tpl.language-chooser.mustache');
 
-const landingPageComponent = function() {
+const languageChooserComponent = function() {
 
   /**
    *
@@ -33,4 +33,4 @@ const landingPageComponent = function() {
   }
 };
 
-module.exports = landingPageComponent;
+module.exports = languageChooserComponent;
