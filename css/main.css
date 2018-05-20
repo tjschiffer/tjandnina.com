@@ -8,6 +8,100 @@ body, html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
+.tj--position-absolute {
+  position: absolute; }
+
+.tj--position-relative {
+  position: relative; }
+
+.tj--height-full {
+  height: 100%; }
+
+.tj--width-full {
+  width: 100%; }
+
+.tj--overflow-hidden {
+  overflow: hidden; }
+
+.tj--position-top {
+  top: 0; }
+
+.tj--z-index-10 {
+  z-index: 10; }
+
+.tj--z-index-0 {
+  z-index: 0; }
+
+.tj--z-index-neg-1 {
+  z-index: -1; }
+
+.tj--padding-1 {
+  padding: 5px; }
+
+.tj--padding-20 {
+  padding: 100px; }
+
+.tj--padding-hor-3 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.tj--padding-hor-5 {
+  padding-left: 25px;
+  padding-right: 25px; }
+
+.tj--padding-vert-5 {
+  padding-top: 25px;
+  padding-bottom: 25px; }
+
+.tj--margin-bottom-5 {
+  margin-bottom: 25px; }
+
+.tj--font-size-20 {
+  font-size: 1.25em; }
+
+.tj--font-size-24 {
+  font-size: 1.5em; }
+
+.tj--font-white {
+  color: #fff; }
+
+.tj--font-dark-gray {
+  color: #4b4b4b; }
+
+.tj--text-shadow-black {
+  text-shadow: 0 0 0.3em #000, 0 0 0.3em #000, 0 0 0.3em #000, 0 0 0.3em #000; }
+
+.tj--text-align-center {
+  text-align: center; }
+
+.tj--text-decoration-none {
+  text-decoration: none; }
+
+.tj--font-lobster {
+  font-family: 'Lobster', cursive; }
+
+.tj--border-white-1 {
+  border: solid 1px #fff; }
+
+.tj--bg-image-cover {
+  background: none no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+.tj--opacity-0 {
+  opacity: 0; }
+
+@media only screen and (max-width: 900px) {
+  .tj--padding-15--tab {
+    padding: 75px; } }
+
+@media only screen and (max-width: 600px) {
+  .tj--padding-vert-10--mob {
+    padding-top: 50px;
+    padding-bottom: 50px; } }
+
 /*! normalize.scss v8.0.0 | MIT License | github.com/necolas/normalize.scss */
 /* Document
    ========================================================================== */
@@ -331,10 +425,10 @@ template {
   to {
     opacity: 1; } }
 
-.tj-main-image {
+.tj-hero-image {
   height: 100vh; }
 
-.tj-main-image__image {
+.tj-hero-image__image {
   background: none no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -342,137 +436,50 @@ template {
   background-size: cover;
   transform: scale(1.05); }
 
-.tj-main-image__image--deblur {
+.tj-hero-image__image--deblur {
   filter: blur(0px);
   -moz-animation: de-blur 1s linear 1;
   animation: de-blur 1s linear 1; }
 
-.tj-main-image__image--blur {
+.tj-hero-image__image--blur {
   filter: blur(20px); }
 
-.tj-main-image__text {
+.tj-hero-image__text {
   font-size: 10em;
   margin-bottom: 125px;
   -moz-animation: fade-in 1s linear 1;
   animation: fade-in 1s linear 1; }
 
 @media only screen and (max-width: 900px) {
-  .tj-main-image__image {
+  .tj-hero-image__image {
     transform: scale(1.1); }
-  .tj-main-image__text {
+  .tj-hero-image__text {
     font-size: 7em; } }
 
 @media only screen and (max-width: 600px) {
-  .tj-main-image__text {
+  .tj-hero-image__text {
     font-size: 4.25em; } }
 
 .tj-navigation {
   height: 60px; }
 
-.tj-navigation-link {
-  height: 100%; }
-
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */ }
-
-.tj--position-absolute {
-  position: absolute; }
-
-.tj--position-relative {
-  position: relative; }
-
-.tj--height-full {
-  height: 100%; }
-
-.tj--width-full {
-  width: 100%; }
-
-.tj--overflow-hidden {
-  overflow: hidden; }
-
-.tj--position-top {
-  top: 0; }
-
-.tj--z-index-10 {
-  z-index: 10; }
-
-.tj--z-index-0 {
-  z-index: 0; }
-
-.tj--z-index-neg-1 {
-  z-index: -1; }
-
-.tj--padding-1 {
-  padding: 5px; }
-
-.tj--padding-20 {
-  padding: 100px; }
-
-.tj--padding-hor-3 {
-  padding-left: 15px;
-  padding-right: 15px; }
-
-.tj--padding-hor-5 {
-  padding-left: 25px;
-  padding-right: 25px; }
-
-.tj--padding-vert-5 {
-  padding-top: 25px;
-  padding-bottom: 25px; }
-
-.tj--margin-bottom-5 {
-  margin-bottom: 25px; }
-
-.tj--font-size-20 {
-  font-size: 1.25em; }
-
-.tj--font-size-24 {
-  font-size: 1.5em; }
-
-.tj--font-white {
-  color: #fff; }
-
-.tj--font-dark-gray {
-  color: #4b4b4b; }
-
-.tj--text-shadow-black {
-  text-shadow: 0 0 0.3em #000, 0 0 0.3em #000, 0 0 0.3em #000, 0 0 0.3em #000; }
-
-.tj--text-align-center {
-  text-align: center; }
-
-.tj--text-decoration-none {
-  text-decoration: none; }
-
-.tj--font-lobster {
-  font-family: 'Lobster', cursive; }
-
-.tj--border-white-1 {
-  border: solid 1px #fff; }
-
-.tj--bg-image-cover {
-  background: none no-repeat center center;
+.tj--navigation__background {
+  background: none no-repeat center top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; }
+  background-size: cover;
+  height: 100vh;
+  transform: scale(1.05); }
 
-.tj--opacity-0 {
-  opacity: 0; }
+.tj-navigation-link {
+  height: 100%; }
+  .tj-navigation-link:hover {
+    text-shadow: 0 0 2.5em #000; }
 
 @media only screen and (max-width: 900px) {
-  .tj--padding-15--tab {
-    padding: 75px; } }
-
-@media only screen and (max-width: 600px) {
-  .tj--padding-vert-10--mob {
-    padding-top: 50px;
-    padding-bottom: 50px; } }
+  .tj--navigation__background {
+    transform: scale(1.1); } }
 
 .tj-grid-flex {
   display: flex; }

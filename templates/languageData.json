@@ -3,12 +3,14 @@
     "Home": "Home",
     "Details": "Details",
     "Registry": "Registry",
-    "Photos": "Photos"
+    "Photos": "Photos",
+    "ComingSoon": "Coming Soon..."
   },
   "fr": {
     "Home": "Page d'Accueil",
     "Details": "Détails",
-    "Registry": "Registry",
-    "Photos": "Photos"
+    "Registry": "Liste de Mariage",
+    "Photos": "Photos",
+    "ComingSoon": "À venir..."
   }
 }
