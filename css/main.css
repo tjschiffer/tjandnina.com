@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lobster");
 body, html {
-  font-family: 'CoreSans', Helvetica Neue, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   box-sizing: border-box; }
   body ::-webkit-scrollbar, html ::-webkit-scrollbar {
     display: none; }
@@ -82,6 +82,9 @@ body, html {
 
 .tj--border-white-1 {
   border: solid 1px #fff; }
+
+.tj--font-weight-light {
+  font-weight: 300; }
 
 .tj--bg-image-cover {
   background: none no-repeat center center;
@@ -464,7 +467,7 @@ template {
   height: 60px; }
 
 .tj--navigation__background {
-  background: none no-repeat center top;
+  background: none no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
