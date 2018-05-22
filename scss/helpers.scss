@@ -23,6 +23,10 @@
   top: 0;
 }
 
+.tj--position-right {
+  right: 0;
+}
+
 .tj--z-index-10 {
   z-index: 10;
 }
@@ -41,6 +45,11 @@
 
 .tj--padding-20 {
   padding: 100px;
+}
+
+.tj--padding-hor-2 {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .tj--padding-hor-3 {
@@ -101,6 +110,10 @@
   border: solid 1px #fff;
 }
 
+.tj--border-radius-3 {
+  border-radius: 3px;
+}
+
 .tj--font-weight-light {
   font-weight: 300;
 }
@@ -117,9 +130,17 @@
   opacity: 0;
 }
 
+.tj--display-block {
+  display: block;
+}
+
 @include bp-tablet {
   .tj--padding-15--tab {
     padding: 75px;
+  }
+
+  .tj--hide-tablet {
+    display: none;
   }
 }
 

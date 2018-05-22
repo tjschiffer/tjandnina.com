@@ -1,33 +1,41 @@
 <div class="tj-navigation
-            tj-grid-flex
-            tj-grid-flex--justify-center
-            tj--width-full
             tj--overflow-hidden
+            tj--z-index-10
+            tj--width-full
             <%# isOverlay %>
             tj--position-absolute
             tj--position-top
             <%/ isOverlay %>
             <%^ isOverlay %>
             tj--position-relative
-            <%/ isOverlay %>
-            tj--z-index-10
-            tj--font-size-20
-            tj--font-weight-light">
+            <%/ isOverlay %>">
+  <div class="tj--hide-tablet tj--height-full tj--width-full">
+    <div class="tj-grid-flex
+                tj-grid-flex--justify-center
+                tj--height-full
+                tj--width-full
+                tj--font-size-20
+                tj--font-weight-light">
+      <%# navigationLinks %>
+      <a href="<% linkAddress %>"
+         class="tj-navigation-link
+              tj-grid-flex
+              tj-grid-flex--align-center
+              tj--padding-hor-3
+              tj--text-decoration-none
+              tj--font-white">
+        <div>{{ <% linkName %> }}</div>
+      </a>
+      <%/ navigationLinks %>
+      <%& navigationLanguageChooser %>
+    </div>
+  </div>
   <%^ isOverlay %>
   <div class="tj--navigation__background
-              tj--position-absolute
-              tj--position-top
-              tj--width-full
-              tj--z-index-neg-1"
-              style="background-image: url('/img/paris.jpg')"></div>
+                tj--position-absolute
+                tj--position-top
+                tj--width-full
+                tj--z-index-neg-1"
+       style="background-image: url('/img/paris.jpg')"></div>
   <%/ isOverlay %>
-  <%# navigationLinks %>
-  <a href="<% linkAddress %>"
-     class="tj-navigation-link
-            tj-grid-flex
-            tj-grid-flex--align-center
-            tj--padding-hor-3
-            tj--text-decoration-none
-            tj--font-white"><div>{{ <% linkName %> }}</div></a>
-  <%/ navigationLinks %>
 </div>
