@@ -1,15 +1,19 @@
-<div class="tj--position-absolute
+<div class="tj-navigation-language-chooser
+            tj--position-absolute
             tj--position-top
             tj--position-right
             tj-grid-flex
             tj-grid-flex--align-center
             tj--height-full
-            tj--padding-hor-3">
+            tj--padding-hor-3
+            tj--z-index-10">
   <%# languages %>
-  <div class="tj--padding-hor-2">
-    <a href="<% url %>"
-       class="tj-navigation-language-chooser tj--display-block tj--border-radius-3"
-       style="background-image: url('<% flagPath %>')"></a>
-  </div>
+  <a href="<% url %>" class="tj-grid-flex
+                             tj-grid-flex--align-center
+                             tj--padding-hor-2
+                             tj--height-full">
+    <div class="tj-navigation-language-chooser__flag tj--border-radius-3 tj--margin-bottom-1"
+       style="background-image: url('<% flagPath %>')"></div>
+  </a>
   <%/ languages %>
 </div>

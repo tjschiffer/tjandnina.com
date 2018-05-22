@@ -67,6 +67,10 @@
   padding-bottom: 25px;
 }
 
+.tj--margin-bottom-1 {
+  margin-bottom: 5px;
+}
+
 .tj--margin-bottom-5 {
   margin-bottom: 25px;
 }
@@ -132,6 +136,16 @@
 
 .tj--display-block {
   display: block;
+}
+
+@include bp-tablet {
+  .tj--padding-15--tab {
+    padding: 75px;
+  }
+
+  .tj--hide-tablet {
+    display: none;
+  }
 }
 
 @include bp-tablet {

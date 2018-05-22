@@ -13,11 +13,11 @@ body, html {
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 
 @import 'mixins';
+@import 'normalize';
 // Load helpers first to allow override
 @import 'helpers';
-@import 'normalize';
-@import 'hero-image';
-@import 'navigation';
 @import 'grid-flex';
-@import 'language-chooser';
-@import 'navigation-language-chooser';
+@import '../components/hero-image-component/hero-image';
+@import '../components/navigation-component/navigation';
+@import '../components/language-chooser-component/language-chooser';
+@import '../components/navigation-language-chooser-component/navigation-language-chooser';
