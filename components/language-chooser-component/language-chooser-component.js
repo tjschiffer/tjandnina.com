@@ -15,11 +15,13 @@ const languageChooserComponent = function() {
       languages: [
         {
           languageLandingPageUrl: 'fr/index.html',
+          language: 'fr',
           flagPath: '/img/franceflag.svg',
           languageMessage: 'Je parle français.'
         },
         {
           languageLandingPageUrl: 'en/index.html',
+          language: 'en',
           flagPath: '/img/americaflag.svg',
           languageMessage: '<div>I took Spanish</div><div>in High School.</div>'
         }

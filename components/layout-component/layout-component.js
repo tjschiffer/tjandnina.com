@@ -43,6 +43,8 @@ const layoutComponent = function() {
         }
       }, (err, view) => {
         if (err) { cb(err) }
+        view = Object.assign(view, _this);
+
         fs.readFile(templatePath, 'utf-8', (err, template) => {
           mustache.parse(template, ['<%', '%>']);
           const rendered = mustache.render(template, view);
@@ -90,6 +92,17 @@ const layoutComponent = function() {
     this.footerComponent = footerComponent;
     return this;
   };
+
+  /**
+   * Set to true to define the langauge
+   *
+   * @param defineLanguage bool
+   * @return {layoutComponent}
+   */
+  this.setDefineLanguage = defineLanguage => {
+    this.defineLanguage = defineLanguage;
+    return this;
+  }
 };
 
 module.exports = layoutComponent;
