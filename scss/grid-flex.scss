@@ -3,6 +3,10 @@
   display: flex;
 }
 
+.tj-grid-flex--dir-column {
+  flex-direction:column;
+}
+
 .tj-grid-flex--align-center {
   align-items: center;
 }

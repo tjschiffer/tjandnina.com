@@ -138,12 +138,12 @@
   display: block;
 }
 
-@include bp-tablet {
-  .tj--padding-15--tab {
-    padding: 75px;
-  }
+.tj--display-none {
+  display: none;
+}
 
-  .tj--hide-tablet {
+@include bp-desktop {
+  .tj--hide-desktop {
     display: none;
   }
 }
