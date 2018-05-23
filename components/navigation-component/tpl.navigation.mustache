@@ -1,13 +1,14 @@
-<div class="tj-navigation
-            tj--z-index-10
-            tj--width-full
-            <%# isOverlay %>
-            tj--position-absolute
-            tj--position-top
-            <%/ isOverlay %>
-            <%^ isOverlay %>
-            tj--position-relative
-            <%/ isOverlay %>">
+<div data-tj-navigation
+    class="tj-navigation
+           tj--z-index-10
+           tj--width-full
+           <%# isOverlay %>
+           tj--position-absolute
+           tj--position-top
+           <%/ isOverlay %>
+           <%^ isOverlay %>
+           tj--position-relative
+           <%/ isOverlay %>">
   <div class="tj--hide-tablet tj--height-full tj--width-full">
     <nav class="tj-grid-flex
                 tj-grid-flex--justify-center
@@ -30,7 +31,8 @@
     <div class="tj--position-absolute
                 tj--position-top
                 tj--position-right
-                tj--height-full">
+                tj--height-full
+                tj--padding-bottom-1">
       <%& navigationLanguageChooser %>
     </div>
   </div>
@@ -42,6 +44,21 @@
                 tj--position-left
                 tj--height-full">
       <%& navigationLanguageChooser %>
+    </div>
+    <div onclick="(function(){ $('[data-tj-navigation]').toggleClass('tj-navigation--open'); })();"
+        class="tj--position-absolute
+               tj--position-right
+               tj--position-top
+               tj--position-right
+               tj--height-full
+               tj-grid-flex
+               tj-grid-flex--align-center
+               tj--padding-hor-3">
+      <div class="tj--border-white-1 tj--border-radius-3">
+        <div class="tj-navigation__mob-menu-line tj--border-white-1 tj--margin-hor-1 tj--border-radius-3"></div>
+        <div class="tj-navigation__mob-menu-line tj--border-white-1 tj--margin-hor-1 tj--border-radius-3"></div>
+        <div class="tj-navigation__mob-menu-line tj--border-white-1 tj--margin-hor-1 tj--border-radius-3"></div>
+      </div>
     </div>
     <nav class="tj-navigation__links-mob
                 tj--display-none
