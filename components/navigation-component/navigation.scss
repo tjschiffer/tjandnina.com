@@ -56,4 +56,10 @@ $navigation-height: 60px;
     transform: scale(1.1);
     top: $navigation-height * -1;
   }
+
+  .tj-navigation__mob-menu-line {
+    width: 25px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
 }
