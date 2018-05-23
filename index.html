@@ -1,55 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="{{ language }}">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome!</title>
-  <link rel="icon" type="image/png" href="favicon.png"/>
-  <style>
-    body, html {
-      margin: 0;
-      font-family: 'CoreSans', Helvetica Neue, Helvetica, sans-serif;
-    }
-    .tj-hero-image {
-      background: none no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-      height: 100vh;
-    }
-    .tj--hero-text {
-      color: #fff;
-      position: absolute;
-      text-align: center;
-      text-shadow: 0 0 5px #000;
-      top: 60vh;
-      font-size: 5rem;
-      width: 100%;
-    }
-
-    @media screen and (max-width: 768px) {
-      .tj--hero-text {
-        font-size: 3rem;
-      }
-
-    }
-
-  </style>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>T.J. &amp; Nina</title>
+  <link rel="icon" type="image/png" href="/favicon.png"/>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72237523-2"></script>
+  <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-72237523-2"></script>-->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    // window.dataLayer = window.dataLayer || [];
+    //
+    // function gtag() {
+    //   dataLayer.push(arguments);
+    // }
+    //
+    // gtag('js', new Date());
 
-    gtag('config', 'UA-72237523-2');
+    // gtag('config', 'UA-72237523-2');
   </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-  <div class="tj-hero-image" style="background-image: url('assets/img/tjandnina.jpg')">
+
+<div class="tj-hero-image
+            tj--position-relative
+            tj-grid-flex
+            tj-grid-flex--align-center
+            tj-grid-flex--justify-center
+            tj--overflow-hidden">
+  <div class="tj-hero-image__image
+              tj-hero-image__image--blur
+              tj--position-absolute
+              tj--height-full
+              tj--width-full
+              tj--z-index-0" style="background-image: url('img/paris.jpg')"></div>
+  <div class="tj-language-chooser
+              tj-grid-flex
+              tj-grid-flex--wrap-mob
+              tj--position-relative
+              tj--z-index-10
+              tj--margin-bottom-5">
+    <div class="tj-grid-flex__cell-1-2
+                tj-grid-flex__cell-1-1--mob
+                tj--padding-20
+                tj--padding-15--tab
+                tj--padding-vert-10--mob">
+      <a href="fr&#x2F;index.html"
+         class="tj-language-chooser__language
+                tj-grid-flex
+                tj-grid-flex--align-center
+                tj-grid-flex--justify-center
+                tj--border-white-1
+                tj--position-relative
+                tj--overflow-hidden">
+        <div class="tj--position-absolute
+                    tj--position-top
+                    tj--bg-image-cover
+                    tj--height-full
+                    tj--width-full"
+             style="background-image: url('&#x2F;img&#x2F;franceflag.svg')"></div>
+        <div class="tj--position-absolute
+                    tj--position-top
+                    tj--height-full
+                    tj--width-full
+                    tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj-grid-flex--justify-center
+                    tj--padding-1">
+          <div class="tj--font-white
+                      tj--font-size-20
+                      tj--text-align-center
+                      tj--text-decoration-none
+                      tj--text-shadow-black">Je parle français.</div>
+        </div>
+      </a>
+    </div>
+    <div class="tj-grid-flex__cell-1-2
+                tj-grid-flex__cell-1-1--mob
+                tj--padding-20
+                tj--padding-15--tab
+                tj--padding-vert-10--mob">
+      <a href="en&#x2F;index.html"
+         class="tj-language-chooser__language
+                tj-grid-flex
+                tj-grid-flex--align-center
+                tj-grid-flex--justify-center
+                tj--border-white-1
+                tj--position-relative
+                tj--overflow-hidden">
+        <div class="tj--position-absolute
+                    tj--position-top
+                    tj--bg-image-cover
+                    tj--height-full
+                    tj--width-full"
+             style="background-image: url('&#x2F;img&#x2F;americaflag.svg')"></div>
+        <div class="tj--position-absolute
+                    tj--position-top
+                    tj--height-full
+                    tj--width-full
+                    tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj-grid-flex--justify-center
+                    tj--padding-1">
+          <div class="tj--font-white
+                      tj--font-size-20
+                      tj--text-align-center
+                      tj--text-decoration-none
+                      tj--text-shadow-black"><div>I took Spanish</div><div>in High School.</div></div>
+        </div>
+      </a>
+    </div>
   </div>
-  <div class="tj--hero-text">
-    <span>Coming soon...</span>
-  </div>
+</div>
+<div class="tj--position-absolute tj--font-lobster tj--position-top tj--opacity-0 tj--z-index-neg-1">
+  Look at me! I'm a dirty hack to make sure you have the Lobster font cached before you go to the next page to avoid FOIT
+</div>
+
+
 </body>
 </html>

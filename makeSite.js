@@ -107,7 +107,7 @@ layoutComponent
   .setFooterComponent(null)
   .render((err, renderedTemplate) => {
     if (err) throw err;
-    fs.writeFile('./index1.html', renderedTemplate, err => {
+    fs.writeFile('./index.html', renderedTemplate, err => {
       if(err) throw err;
     });
   });
