@@ -16,29 +16,6 @@ const navigationComponent = function () {
   this.render = cb => {
     const _this = this;
     async.parallel({
-      isOverlay: cb => {
-        cb(null, _this.isOverlay);
-      },
-      navigationLinks: cb => {
-        cb(null, [
-          {
-            linkAddress: 'index.html',
-            linkName: 'Home'
-          },
-          {
-            linkAddress: 'details.html',
-            linkName: 'Details'
-          },
-          {
-            linkAddress: 'registry.html',
-            linkName: 'Registry'
-          },
-          {
-            linkAddress: 'photos.html',
-            linkName: 'Photos'
-          }
-        ]);
-      },
       navigationLanguageChooser: cb => {
         navigationLanguageChooser.render(cb);
       }
@@ -46,6 +23,8 @@ const navigationComponent = function () {
       if (err) {
         cb(err)
       }
+      view = Object.assign(view, _this);
+
       fs.readFile(templatePath, 'utf-8', (err, template) => {
         mustache.parse(template, ['<%', '%>']);
         const rendered = mustache.render(template, view);
@@ -53,6 +32,25 @@ const navigationComponent = function () {
       });
     });
   };
+
+  this.navigationLinks = [
+    {
+      linkAddress: 'index.html',
+      linkName: 'Home'
+    },
+    {
+      linkAddress: 'details.html',
+      linkName: 'Details'
+    },
+    {
+      linkAddress: 'registry.html',
+      linkName: 'Registry'
+    },
+    {
+      linkAddress: 'photos.html',
+      linkName: 'Photos'
+    }
+  ];
 
   /**
    *

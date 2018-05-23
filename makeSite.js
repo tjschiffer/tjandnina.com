@@ -29,6 +29,7 @@ function renderLanguages() {
 async.series([
     cb => {
       layoutComponent
+        .setDefineLanguage(true)
         .setHeadComponent(headComponent)
         .setContentComponent(heroImageComponent)
         .setNavigationComponent(navigationComponent.setIsOverlay(true))
@@ -45,6 +46,7 @@ async.series([
     },
     cb => {
       layoutComponent
+        .setDefineLanguage(true)
         .setHeadComponent(headComponent.setTitle('T.J. & Nina | {{ Details }}'))
         .setContentComponent(detailsComponent)
         .setNavigationComponent(navigationComponent.setIsOverlay(false))
@@ -61,6 +63,7 @@ async.series([
     },
     cb => {
       layoutComponent
+        .setDefineLanguage(true)
         .setHeadComponent(headComponent.setTitle('T.J. & Nina | {{ Registry }}'))
         .setContentComponent(registryComponent)
         .setNavigationComponent(navigationComponent.setIsOverlay(false))
@@ -77,6 +80,7 @@ async.series([
     },
     cb => {
       layoutComponent
+        .setDefineLanguage(true)
         .setHeadComponent(headComponent.setTitle('T.J. & Nina | {{ Photos }}'))
         .setContentComponent(photosComponent)
         .setNavigationComponent(navigationComponent.setIsOverlay(false))
@@ -101,6 +105,7 @@ async.series([
 // Render landing page with no header or footer
 const landingPageComponent = new (require('./components/language-chooser-component/language-chooser-component'))();
 layoutComponent
+  .setDefineLanguage(false)
   .setHeadComponent(headComponent)
   .setContentComponent(landingPageComponent)
   .setNavigationComponent(null)
