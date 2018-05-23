@@ -411,6 +411,13 @@ template {
 .tj--display-block {
   display: block; }
 
+.tj--display-none {
+  display: none; }
+
+@media only screen and (min-width: 901px) {
+  .tj--hide-desktop {
+    display: none; } }
+
 @media only screen and (max-width: 900px) {
   .tj--padding-15--tab {
     padding: 75px; }
@@ -424,6 +431,9 @@ template {
 
 .tj-grid-flex {
   display: flex; }
+
+.tj-grid-flex--dir-column {
+  flex-direction: column; }
 
 .tj-grid-flex--align-center {
   align-items: center; }
@@ -440,6 +450,12 @@ template {
   .tj-grid-flex--wrap-mob {
     flex-wrap: wrap; } }
 
+@-webkit-keyframes de-blur {
+  from {
+    filter: blur(20px); }
+  to {
+    filter: blur(0px); } }
+
 @-moz-keyframes de-blur {
   from {
     filter: blur(20px); }
@@ -451,6 +467,12 @@ template {
     filter: blur(20px); }
   to {
     filter: blur(0px); } }
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 
 @-moz-keyframes fade-in {
   from {
@@ -476,6 +498,7 @@ template {
 
 .tj-hero-image__image--deblur {
   filter: blur(0px);
+  -webkit-animation: de-blur 1s linear 1;
   -moz-animation: de-blur 1s linear 1;
   animation: de-blur 1s linear 1; }
 
@@ -485,6 +508,7 @@ template {
 .tj-hero-image__text {
   font-size: 10em;
   margin-bottom: 125px;
+  -webkit-animation: fade-in 1s linear 1;
   -moz-animation: fade-in 1s linear 1;
   animation: fade-in 1s linear 1; }
 
@@ -509,14 +533,27 @@ template {
   height: 100vh;
   transform: scale(1.05); }
 
-.tj-navigation-link {
+.tj-navigation__link {
   height: 100%; }
-  .tj-navigation-link:hover {
+  .tj-navigation__link:hover {
     text-shadow: 0 0 2.5em #000; }
+
+.tj-navigation__links-mob {
+  top: 60px; }
+
+.tj-navigation__link-mob {
+  height: 60px; }
+
+.tj-navigation__language-chooser-mob {
+  height: 60px; }
 
 @media only screen and (max-width: 900px) {
   .tj--navigation__background {
-    transform: scale(1.1); } }
+    transform: scale(1.1); }
+  .tj-navigation--open {
+    overflow: visible; }
+    .tj-navigation--open .tj-navigation__language-chooser-mob {
+      display: block; } }
 
 .tj-language-chooser {
   margin-bottom: 125px;
