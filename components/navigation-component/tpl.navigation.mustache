@@ -1,5 +1,4 @@
 <div class="tj-navigation
-            tj--overflow-hidden
             tj--z-index-10
             tj--width-full
             <%# isOverlay %>
@@ -28,20 +27,29 @@
       </a>
       <%/ navigationLinks %>
     </nav>
-    <%& navigationLanguageChooser %>
+    <div class="tj--position-absolute
+                tj--position-top
+                tj--position-right
+                tj--height-full">
+      <%& navigationLanguageChooser %>
+    </div>
   </div>
-  <div class="tj--hide-desktop tj--height-full tj--width-full">
-    <div class="tj-navigation__language-chooser-mob tj--position-relative tj--display-none">
+  <div class="tj--hide-desktop tj--height-full tj--width-full tj--border-bottom-white-1">
+    <div class="tj-navigation__language-chooser-mob
+                tj--display-none
+                tj--position-absolute
+                tj--position-top
+                tj--position-left
+                tj--height-full">
       <%& navigationLanguageChooser %>
     </div>
     <nav class="tj-navigation__links-mob
-                tj-grid-flex
-                tj-grid-flex--dir-column
-                tj-grid-flex--justify-center
+                tj--display-none
                 tj--position-absolute
                 tj--width-full
                 tj--font-size-20
-                tj--font-weight-light">
+                tj--font-weight-light
+                tj--border-bottom-white-1">
       <%# navigationLinks %>
       <a href="<% linkAddress %>"
          class="tj-navigation__link-mob
@@ -53,14 +61,29 @@
         <div>{{ <% linkName %> }}</div>
       </a>
       <%/ navigationLinks %>
+      <div class="tj--position-absolute
+                  tj--position-top
+                  tj--width-full
+                  tj--height-full
+                  tj--overflow-hidden
+                  tj--z-index-neg-1">
+        <div class="tj--navigation__background-nav-links
+                    tj--position-absolute
+                    tj--width-full"
+             style="background-image: url('/img/paris.jpg')"></div>
+      </div>
     </nav>
   </div>
   <%^ isOverlay %>
-  <div class="tj--navigation__background
-                tj--position-absolute
-                tj--position-top
-                tj--width-full
-                tj--z-index-neg-1"
-       style="background-image: url('/img/paris.jpg')"></div>
+  <div class="tj--position-absolute
+              tj--position-top
+              tj--width-full
+              tj--height-full
+              tj--overflow-hidden
+              tj--z-index-neg-1">
+    <div class="tj--navigation__background
+                tj--width-full"
+                style="background-image: url('/img/paris.jpg')"></div>
+  </div>
   <%/ isOverlay %>
 </div>

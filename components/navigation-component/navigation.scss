@@ -42,8 +42,18 @@ $navigation-height: 60px;
   .tj-navigation--open {
     overflow: visible;
 
-    .tj-navigation__language-chooser-mob {
+    .tj-navigation__language-chooser-mob, .tj-navigation__links-mob {
       display: block;
     }
+  }
+
+  .tj--navigation__background-nav-links {
+    background: none no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    transform: scale(1.1);
+    top: $navigation-height * -1;
   }
 }
