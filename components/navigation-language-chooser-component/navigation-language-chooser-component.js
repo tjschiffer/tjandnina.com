@@ -14,11 +14,11 @@ const navigationLanguageChooserComponent = function () {
     const view = {
       languages: [
         {
-          url: '/fr/{{ templateOutput }}',
+          url: '/fr',
           flagPath: '/img/franceflag.svg'
         },
         {
-          url: '/en/{{ templateOutput }}',
+          url: '/en',
           flagPath: '/img/americaflag.svg'
         }
       ]

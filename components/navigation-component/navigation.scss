@@ -1,6 +1,7 @@
+$navigation-height: 60px;
 
 .tj-navigation {
-  height: 60px;
+  height: $navigation-height;
 }
 
 .tj--navigation__background {
@@ -12,7 +13,7 @@
   transform: scale(1.05);
 }
 
-.tj-navigation-link {
+.tj-navigation__link {
   height: 100%;
 
   &:hover {
@@ -20,9 +21,29 @@
   }
 }
 
+.tj-navigation__links-mob {
+  top: $navigation-height;
+}
+
+.tj-navigation__link-mob {
+  height: $navigation-height;
+}
+
+.tj-navigation__language-chooser-mob {
+  height: $navigation-height;
+}
+
 @include bp-tablet {
   .tj--navigation__background {
     // Match the hero image background
     transform: scale(1.1);
+  }
+  
+  .tj-navigation--open {
+    overflow: visible;
+
+    .tj-navigation__language-chooser-mob {
+      display: block;
+    }
   }
 }
