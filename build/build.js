@@ -34,7 +34,7 @@ async.series([
         .setDefineLanguage(true)
         .setHeadComponent(headComponent)
         .setContentComponent(heroImageComponent)
-        .setNavigationComponent(navigationComponent.setIsOverlay(true))
+        .setNavigationComponent(navigationComponent.setIsOverlay(true).setActiveLink('Home'))
         .setFooterComponent(footerComponent)
         .render((err, renderedTemplate) => {
           if (err) {
@@ -51,7 +51,7 @@ async.series([
         .setDefineLanguage(true)
         .setHeadComponent(headComponent.setTitle('T.J. & Nina | {{ Details }}'))
         .setContentComponent(detailsComponent)
-        .setNavigationComponent(navigationComponent.setIsOverlay(false))
+        .setNavigationComponent(navigationComponent.setIsOverlay(false).setActiveLink('Details'))
         .setFooterComponent(footerComponent)
         .render((err, renderedTemplate) => {
           if (err) {
@@ -68,7 +68,7 @@ async.series([
         .setDefineLanguage(true)
         .setHeadComponent(headComponent.setTitle('T.J. & Nina | {{ Registry }}'))
         .setContentComponent(registryComponent)
-        .setNavigationComponent(navigationComponent.setIsOverlay(false))
+        .setNavigationComponent(navigationComponent.setIsOverlay(false).setActiveLink('Registry'))
         .setFooterComponent(footerComponent)
         .render((err, renderedTemplate) => {
           if (err) {
@@ -85,7 +85,7 @@ async.series([
         .setDefineLanguage(true)
         .setHeadComponent(headComponent.setTitle('T.J. & Nina | {{ Photos }}'))
         .setContentComponent(photosComponent)
-        .setNavigationComponent(navigationComponent.setIsOverlay(false))
+        .setNavigationComponent(navigationComponent.setIsOverlay(false).setActiveLink('Photos'))
         .setFooterComponent(footerComponent)
         .render((err, renderedTemplate) => {
           if (err) {
