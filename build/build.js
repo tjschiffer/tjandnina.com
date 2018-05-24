@@ -6,19 +6,19 @@ const async = require('async');
 const webpack = require('webpack');
 const webpackConfig = require(path.join(__dirname, './webpack.config'));
 
-const layoutComponent = new (require('../components/layout-component/layout-component'))();
-const headComponent = new (require('../components/head-component/head-component'))();
-const navigationComponent = new (require('../components/navigation-component/navigation-component'))();
-const footerComponent = new (require('../components/footer-component/footer-component'))();
+const layoutComponent = new (require('./components/layout-component/layout-component'))();
+const headComponent = new (require('./components/head-component/head-component'))();
+const navigationComponent = new (require('./components/navigation-component/navigation-component'))();
+const footerComponent = new (require('./components/footer-component/footer-component'))();
 
-const heroImageComponent = new (require('../components/hero-image-component/hero-image-component'))();
-const detailsComponent = new (require('../components/details-component/details-component'))();
-const registryComponent = new (require('../components/registry-component/registry-component'))();
-const photosComponent = new (require('../components/photos-component/photos-component'))();
+const heroImageComponent = new (require('./components/hero-image-component/hero-image-component'))();
+const detailsComponent = new (require('./components/details-component/details-component'))();
+const registryComponent = new (require('./components/registry-component/registry-component'))();
+const photosComponent = new (require('./components/photos-component/photos-component'))();
 
 function renderLanguages() {
-  const templateDirPath = path.join(__dirname, '../templates');
-  const templateDataPath = path.join(__dirname, '../templates/languageData.json');
+  const templateDirPath = path.join(__dirname, './templates');
+  const templateDataPath = path.join(__dirname, './templates/languageData.json');
   const outputFolder = path.join(__dirname, '../');
 
   generator.render(templateDirPath, templateDataPath, outputFolder, err => {
@@ -41,7 +41,7 @@ async.series([
             cb(err);
             return;
           }
-          fs.writeFile(path.join(__dirname, '../templates/index.mustache'), renderedTemplate, err => {
+          fs.writeFile(path.join(__dirname, './templates/index.mustache'), renderedTemplate, err => {
             cb(err);
           });
         });
@@ -58,7 +58,7 @@ async.series([
             cb(err);
             return;
           }
-          fs.writeFile(path.join(__dirname, '../templates/details.mustache'), renderedTemplate, err => {
+          fs.writeFile(path.join(__dirname, './templates/details.mustache'), renderedTemplate, err => {
             cb(err);
           });
         });
@@ -75,7 +75,7 @@ async.series([
             cb(err);
             return;
           }
-          fs.writeFile(path.join(__dirname, '../templates/registry.mustache'), renderedTemplate, err => {
+          fs.writeFile(path.join(__dirname, './templates/registry.mustache'), renderedTemplate, err => {
             cb(err);
           });
         });
@@ -92,7 +92,7 @@ async.series([
             cb(err);
             return;
           }
-          fs.writeFile(path.join(__dirname, '../templates/photos.mustache'), renderedTemplate, err => {
+          fs.writeFile(path.join(__dirname, './templates/photos.mustache'), renderedTemplate, err => {
             cb(err);
           });
         });
@@ -105,7 +105,7 @@ async.series([
 );
 
 // Render landing page with no header or footer
-const landingPageComponent = new (require('../components/language-chooser-component/language-chooser-component'))();
+const landingPageComponent = new (require('./components/language-chooser-component/language-chooser-component'))();
 layoutComponent
   .setDefineLanguage(false)
   .setHeadComponent(headComponent)
@@ -120,7 +120,7 @@ layoutComponent
   });
 
 // Generate css
-const sassFile = path.join(__dirname, '../scss/main.scss');
+const sassFile = path.join(__dirname, './scss/main.scss');
 const outFile = path.join(__dirname, '../css/main.css');
 
 sass.render({
