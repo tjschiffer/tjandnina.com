@@ -33,24 +33,33 @@ const navigationComponent = function () {
     });
   };
 
-  this.navigationLinks = [
-    {
-      linkAddress: 'index.html',
-      linkName: 'Home'
-    },
-    {
-      linkAddress: 'details.html',
-      linkName: 'Details'
-    },
-    {
-      linkAddress: 'registry.html',
-      linkName: 'Registry'
-    },
-    {
-      linkAddress: 'photos.html',
-      linkName: 'Photos'
-    }
-  ];
+  this.navigationLinks = () => {
+    const navigationLinks = [
+      {
+        linkAddress: 'index.html',
+        linkName: 'Home'
+      },
+      {
+        linkAddress: 'details.html',
+        linkName: 'Details'
+      },
+      {
+        linkAddress: 'registry.html',
+        linkName: 'Registry'
+      },
+      {
+        linkAddress: 'photos.html',
+        linkName: 'Photos'
+      }
+    ];
+    const _this = this;
+    return navigationLinks.map(link => {
+      if (link.linkName === _this.activeLink) {
+        link.isActive = true;
+      }
+      return link;
+    });
+  };
 
   /**
    *
@@ -61,6 +70,11 @@ const navigationComponent = function () {
     this.isOverlay = isOverlay;
     return this;
   };
+
+  this.setActiveLink = activeLink => {
+    this.activeLink = activeLink;
+    return this;
+  }
 };
 
 module.exports = navigationComponent;

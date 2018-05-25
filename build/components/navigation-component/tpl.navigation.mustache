@@ -24,7 +24,20 @@
               tj--padding-hor-3
               tj--text-decoration-none
               tj--font-white">
-        <div>{{ <% linkName %> }}</div>
+        <div class="tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj--height-full
+                    tj--position-relative">
+          <div>{{ <% linkName %> }}</div>
+        <%# isActive %>
+        <div class="tj--position-absolute
+                    tj--width-full
+                    tj--position-left
+                    tj--position-bottom
+                    tj--border-bottom-white-3"></div>
+        <%/ isActive %>
+        </div>
+
       </a>
       <%/ navigationLinks %>
     </nav>
@@ -71,11 +84,23 @@
       <a href="<% linkAddress %>"
          class="tj-navigation__link-mob
                 tj-grid-flex
-                tj-grid-flex--align-center
                 tj-grid-flex--justify-center
+                tj--display-block
                 tj--text-decoration-none
-                tj--font-white">
-        <div>{{ <% linkName %> }}</div>
+                tj--font-white
+                tj--border-bottom-transparent-1">
+        <div class="tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj--position-relative">
+          <div>{{ <% linkName %> }}</div>
+          <%# isActive %>
+          <div class="tj--position-absolute
+                      tj--width-full
+                      tj--position-left
+                      tj--position-bottom
+                      tj--border-bottom-white-3"></div>
+          <%/ isActive %>
+        </div>
       </a>
       <%/ navigationLinks %>
       <div class="tj--position-absolute

@@ -21,6 +21,7 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/js/main.js"></script>
 
   <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -45,7 +46,13 @@
               tj--padding-hor-3
               tj--text-decoration-none
               tj--font-white">
-        <div>{{ Home }}</div>
+        <div class="tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj--height-full
+                    tj--position-relative">
+          <div>{{ Home }}</div>
+        </div>
+
       </a>
       <a href="details.html"
          class="tj-navigation__link
@@ -54,7 +61,13 @@
               tj--padding-hor-3
               tj--text-decoration-none
               tj--font-white">
-        <div>{{ Details }}</div>
+        <div class="tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj--height-full
+                    tj--position-relative">
+          <div>{{ Details }}</div>
+        </div>
+
       </a>
       <a href="registry.html"
          class="tj-navigation__link
@@ -63,7 +76,13 @@
               tj--padding-hor-3
               tj--text-decoration-none
               tj--font-white">
-        <div>{{ Registry }}</div>
+        <div class="tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj--height-full
+                    tj--position-relative">
+          <div>{{ Registry }}</div>
+        </div>
+
       </a>
       <a href="photos.html"
          class="tj-navigation__link
@@ -72,7 +91,18 @@
               tj--padding-hor-3
               tj--text-decoration-none
               tj--font-white">
-        <div>{{ Photos }}</div>
+        <div class="tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj--height-full
+                    tj--position-relative">
+          <div>{{ Photos }}</div>
+        <div class="tj--position-absolute
+                    tj--width-full
+                    tj--position-left
+                    tj--position-bottom
+                    tj--border-bottom-white-3"></div>
+        </div>
+
       </a>
     </nav>
     <div class="tj--position-absolute
@@ -157,38 +187,63 @@
       <a href="index.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
-                tj-grid-flex--align-center
                 tj-grid-flex--justify-center
+                tj--display-block
                 tj--text-decoration-none
-                tj--font-white">
-        <div>{{ Home }}</div>
+                tj--font-white
+                tj--border-bottom-transparent-1">
+        <div class="tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj--position-relative">
+          <div>{{ Home }}</div>
+        </div>
       </a>
       <a href="details.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
-                tj-grid-flex--align-center
                 tj-grid-flex--justify-center
+                tj--display-block
                 tj--text-decoration-none
-                tj--font-white">
-        <div>{{ Details }}</div>
+                tj--font-white
+                tj--border-bottom-transparent-1">
+        <div class="tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj--position-relative">
+          <div>{{ Details }}</div>
+        </div>
       </a>
       <a href="registry.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
-                tj-grid-flex--align-center
                 tj-grid-flex--justify-center
+                tj--display-block
                 tj--text-decoration-none
-                tj--font-white">
-        <div>{{ Registry }}</div>
+                tj--font-white
+                tj--border-bottom-transparent-1">
+        <div class="tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj--position-relative">
+          <div>{{ Registry }}</div>
+        </div>
       </a>
       <a href="photos.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
-                tj-grid-flex--align-center
                 tj-grid-flex--justify-center
+                tj--display-block
                 tj--text-decoration-none
-                tj--font-white">
-        <div>{{ Photos }}</div>
+                tj--font-white
+                tj--border-bottom-transparent-1">
+        <div class="tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj--position-relative">
+          <div>{{ Photos }}</div>
+          <div class="tj--position-absolute
+                      tj--width-full
+                      tj--position-left
+                      tj--position-bottom
+                      tj--border-bottom-white-3"></div>
+        </div>
       </a>
       <div class="tj--position-absolute
                   tj--position-top
