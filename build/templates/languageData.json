@@ -4,13 +4,17 @@
     "Details": "Details",
     "Registry": "Registry",
     "Photos": "Photos",
-    "ComingSoon": "Coming Soon..."
+    "ComingSoon": "Coming Soon...",
+    "WeddingDate": "Sunday, February 17th, 2019",
+    "CocktailAttire": "Attire: Cocktail"
   },
   "fr": {
     "Home": "Page d'Accueil",
     "Details": "Détails",
     "Registry": "Liste de Mariage",
     "Photos": "Photos",
-    "ComingSoon": "À venir..."
+    "ComingSoon": "À venir...",
+    "WeddingDate": "Dimanche, 17 février 2019",
+    "CocktailAttire": "Tenue de Cocktail"
   }
 }
