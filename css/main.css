@@ -319,6 +319,15 @@ template {
 .tj--width-full {
   width: 100%; }
 
+.tj--width-half {
+  width: 50%; }
+
+.tj--max-width-full {
+  max-width: 100%; }
+
+.tj--max-width-1020 {
+  max-width: 1020px; }
+
 .tj--overflow-hidden {
   overflow: hidden; }
 
@@ -349,6 +358,9 @@ template {
 .tj--padding-20 {
   padding: 100px; }
 
+.tj--padding-top-5 {
+  padding-top: 25px; }
+
 .tj--padding-hor-2 {
   padding-left: 10px;
   padding-right: 10px; }
@@ -368,12 +380,19 @@ template {
 .tj--padding-bottom-1 {
   padding-bottom: 5px; }
 
+.tj--margin-hor-auto {
+  margin-left: auto;
+  margin-right: auto; }
+
 .tj--margin-hor-1 {
   margin-left: 5px;
   margin-right: 5px; }
 
 .tj--margin-bottom-1 {
   margin-bottom: 5px; }
+
+.tj--margin-top-5 {
+  margin-top: 25px; }
 
 .tj--margin-bottom-5 {
   margin-bottom: 25px; }
@@ -430,6 +449,9 @@ template {
   -o-background-size: cover;
   background-size: cover; }
 
+.tj--bg-floral-white {
+  background-color: #FFFAF0; }
+
 .tj--opacity-0 {
   opacity: 0; }
 
@@ -452,7 +474,9 @@ template {
 @media only screen and (max-width: 600px) {
   .tj--padding-vert-10--mob {
     padding-top: 50px;
-    padding-bottom: 50px; } }
+    padding-bottom: 50px; }
+  .tj--width-full--mob {
+    width: 100%; } }
 
 .tj-grid-flex {
   display: flex; }
