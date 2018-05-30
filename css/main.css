@@ -407,6 +407,9 @@ template {
 .tj--font-size-20 {
   font-size: 1.25em; }
 
+.tj--font-size-22 {
+  font-size: 1.375em; }
+
 .tj--font-size-24 {
   font-size: 1.5em; }
 
@@ -415,6 +418,9 @@ template {
 
 .tj--font-white {
   color: #fff; }
+
+.tj--font-black {
+  color: #000; }
 
 .tj--font-dark-gray {
   color: #4b4b4b; }

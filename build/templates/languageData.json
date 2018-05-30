@@ -6,7 +6,8 @@
     "Photos": "Photos",
     "ComingSoon": "Coming Soon...",
     "WeddingDate": "Sunday, February 17th, 2019",
-    "CocktailAttire": "Attire: Cocktail"
+    "CocktailAttire": "Attire: Cocktail",
+    "ContactUs": "Please feel free to reach out to us if your have any questions!"
   },
   "fr": {
     "Home": "Page d'Accueil",
@@ -15,6 +16,7 @@
     "Photos": "Photos",
     "ComingSoon": "À venir...",
     "WeddingDate": "Dimanche, 17 février 2019",
-    "CocktailAttire": "Tenue de Cocktail"
+    "CocktailAttire": "Tenue de Cocktail",
+    "ContactUs": "N'hésitez pas à nous écrire si vous avez des questions !"
   }
 }
