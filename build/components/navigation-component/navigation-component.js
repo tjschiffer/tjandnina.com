@@ -3,7 +3,7 @@ const fs = require('fs');
 const mustache = require('mustache');
 const async = require('async');
 
-const navigationLanguageChooser = new (require(path.join(__dirname, '../navigation-language-chooser-component/navigation-language-chooser-component.js')))();
+const navigationLanguageChooserComponent = new (require(path.join(__dirname, '../navigation-language-chooser-component/navigation-language-chooser-component.js')))();
 
 const templatePath = path.join(__dirname, './tpl.navigation.mustache');
 
@@ -17,7 +17,7 @@ const navigationComponent = function () {
     const _this = this;
     async.parallel({
       navigationLanguageChooser: cb => {
-        navigationLanguageChooser.render(cb);
+        navigationLanguageChooserComponent.render(cb);
       }
     }, (err, view) => {
       if (err) {

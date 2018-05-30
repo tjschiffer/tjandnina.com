@@ -35,6 +35,15 @@ const headComponent = function() {
    */
   this.getTitle = () => {
     return this.title || 'T.J. & Nina';
+  };
+
+  /**
+   * Bump the static tag on every build
+   *
+   * @returns {string}
+   */
+  this.getStaticTag = () => {
+    return (new Date()).getTime().toString();
   }
 };
 
