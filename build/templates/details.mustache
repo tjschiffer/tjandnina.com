@@ -21,8 +21,9 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/js/main.js"></script>
 
-  <link rel="stylesheet" href="/css/main.css?1527946365985">
+  <link rel="stylesheet" href="/css/main.css?1528553233983">
 </head>
 <body>
 <div data-tj-navigation
@@ -133,8 +134,9 @@
     </div>
   </div>
   <div class="tj--hide-desktop tj--height-full tj--width-full tj--border-bottom-white-1">
-    <div class="tj-navigation__language-chooser-mob
-                tj--display-none
+    <div v-if="open"
+         v-cloak
+         class="tj-navigation__language-chooser-mob
                 tj--position-absolute
                 tj--position-top
                 tj--position-left
@@ -161,7 +163,7 @@
   </a>
 </div>
     </div>
-    <div onclick="(function(){ $('[data-tj-navigation]').toggleClass('tj-navigation--open'); })();"
+    <div v-on:click="toggleOpen"
         class="tj--position-absolute
                tj--position-right
                tj--position-top
@@ -176,14 +178,16 @@
         <div class="tj-navigation__mob-menu-line tj--border-white-1 tj--margin-hor-1 tj--border-radius-3"></div>
       </div>
     </div>
-    <nav class="tj-navigation__links-mob
-                tj--display-none
+    <nav v-if="open"
+         v-cloak
+         class="tj-navigation__links-mob
                 tj--position-absolute
                 tj--width-full
                 tj--font-size-20
                 tj--font-weight-light
                 tj--border-bottom-white-1">
-      <a href="index.html"
+      <a v-on:click="close"
+         href="index.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
                 tj-grid-flex--justify-center
@@ -197,7 +201,8 @@
           <div>{{ Home }}</div>
         </div>
       </a>
-      <a href="details.html"
+      <a v-on:click="close"
+         href="details.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
                 tj-grid-flex--justify-center
@@ -216,7 +221,8 @@
                       tj--border-bottom-white-3"></div>
         </div>
       </a>
-      <a href="registry.html"
+      <a v-on:click="close"
+         href="registry.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
                 tj-grid-flex--justify-center
@@ -230,7 +236,8 @@
           <div>{{ Registry }}</div>
         </div>
       </a>
-      <a href="photos.html"
+      <a v-on:click="close"
+         href="photos.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
                 tj-grid-flex--justify-center
