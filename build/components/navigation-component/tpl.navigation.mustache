@@ -50,15 +50,16 @@
     </div>
   </div>
   <div class="tj--hide-desktop tj--height-full tj--width-full tj--border-bottom-white-1">
-    <div class="tj-navigation__language-chooser-mob
-                tj--display-none
+    <div v-if="open"
+         v-cloak
+         class="tj-navigation__language-chooser-mob
                 tj--position-absolute
                 tj--position-top
                 tj--position-left
                 tj--height-full">
       <%& navigationLanguageChooser %>
     </div>
-    <div onclick="(function(){ $('[data-tj-navigation]').toggleClass('tj-navigation--open'); })();"
+    <div v-on:click="toggleOpen"
         class="tj--position-absolute
                tj--position-right
                tj--position-top
@@ -73,15 +74,17 @@
         <div class="tj-navigation__mob-menu-line tj--border-white-1 tj--margin-hor-1 tj--border-radius-3"></div>
       </div>
     </div>
-    <nav class="tj-navigation__links-mob
-                tj--display-none
+    <nav v-if="open"
+         v-cloak
+         class="tj-navigation__links-mob
                 tj--position-absolute
                 tj--width-full
                 tj--font-size-20
                 tj--font-weight-light
                 tj--border-bottom-white-1">
       <%# navigationLinks %>
-      <a href="<% linkAddress %>"
+      <a v-on:click="close"
+         href="<% linkAddress %>"
          class="tj-navigation__link-mob
                 tj-grid-flex
                 tj-grid-flex--justify-center

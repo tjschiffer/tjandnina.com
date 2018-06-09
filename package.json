@@ -17,12 +17,14 @@
   },
   "homepage": "https://github.com/tjschiffer/tjandnina.com#readme",
   "dependencies": {
-    "vue": "^2.5.16"
+    "vue": "^2.5.16",
+    "vuejs-storage": "^2.4.0"
   },
   "devDependencies": {
     "ajv": "^6.5.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
     "cross-env": "^5.1.6",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
