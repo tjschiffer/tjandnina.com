@@ -355,6 +355,9 @@ template {
 .tj--z-index-neg-1 {
   z-index: -1; }
 
+.tj--padding-0 {
+  padding: 0; }
+
 .tj--padding-1 {
   padding: 5px; }
 
@@ -384,6 +387,9 @@ template {
 .tj--padding-bottom-1 {
   padding-bottom: 5px; }
 
+.tj--margin-0 {
+  margin: 0; }
+
 .tj--margin-hor-auto {
   margin-left: auto;
   margin-right: auto; }
@@ -394,6 +400,9 @@ template {
 
 .tj--margin-bottom-1 {
   margin-bottom: 5px; }
+
+.tj--margin-bottom-2 {
+  margin-bottom: 10px; }
 
 .tj--margin-top-5 {
   margin-top: 25px; }
@@ -455,6 +464,12 @@ template {
 .tj--font-weight-light {
   font-weight: 300; }
 
+.tj--plain-link {
+  color: #646464;
+  text-decoration: none; }
+  .tj--plain-link:hover {
+    color: #000; }
+
 .tj--bg-image-cover {
   background: none no-repeat center center;
   -webkit-background-size: cover;
@@ -476,6 +491,9 @@ template {
 
 .tj--display-none {
   display: none; }
+
+.tj--list-style-none {
+  list-style: none; }
 
 @media only screen and (min-width: 901px) {
   .tj--hide-desktop {
