@@ -63,6 +63,10 @@
   z-index: -1;
 }
 
+.tj--padding-0 {
+  padding: 0;
+}
+
 .tj--padding-1 {
   padding: 5px;
 }
@@ -100,6 +104,10 @@
   padding-bottom: 5px;
 }
 
+.tj--margin-0 {
+  margin: 0;
+}
+
 .tj--margin-hor-auto {
   margin-left: auto;
   margin-right: auto;
@@ -112,6 +120,10 @@
 
 .tj--margin-bottom-1 {
   margin-bottom: 5px;
+}
+
+.tj--margin-bottom-2 {
+  margin-bottom: 10px;
 }
 
 .tj--margin-top-5 {
@@ -197,6 +209,14 @@
   font-weight: 300;
 }
 
+.tj--plain-link {
+  color: #646464;
+  text-decoration: none;
+  &:hover {
+    color: #000;
+  }
+}
+
 .tj--bg-image-cover {
   background: none no-repeat center center;
   -webkit-background-size: cover;
@@ -223,6 +243,10 @@
 
 .tj--display-none {
   display: none;
+}
+
+.tj--list-style-none {
+  list-style: none;
 }
 
 @include bp-desktop {
