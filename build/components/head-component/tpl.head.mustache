@@ -4,6 +4,7 @@
   <title><% getTitle %></title>
   <link rel="icon" type="image/png" href="/favicon.png"/>
   <!-- Global site tag (gtag.js) - Google Analytics -->
+  <%# isProduction %>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72237523-2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -16,8 +17,8 @@
 
     gtag('config', 'UA-72237523-2');
   </script>
+  <%/ isProduction %>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="/js/main.js"></script>
 
   <link rel="stylesheet" href="/css/main.css?<% getStaticTag %>">

@@ -44,6 +44,14 @@ const headComponent = function() {
    */
   this.getStaticTag = () => {
     return (new Date()).getTime().toString();
+  };
+
+  /**
+   *
+   * @returns {boolean}
+   */
+  this.isProduction = () => {
+    return process.env.NODE_ENV === 'production';
   }
 };
 

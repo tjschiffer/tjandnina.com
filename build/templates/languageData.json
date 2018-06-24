@@ -8,7 +8,31 @@
     "WeddingDate": "Sunday, February 17th, 2019",
     "CocktailAttire": "Attire: Cocktail",
     "WeddingDay": "Wedding Day",
-    "ContactUs": "Please feel free to reach out to us if your have any questions!"
+    "ContactUs": "Please feel free to reach out to us if your have any questions!",
+    "ParisRecommendations": {
+      "WhereToStay": [
+        "For a full Parisian experience, we recommend that out-of-town guests stay at an <a class=\"tj--plain-link\" href=\"https://www.airbnb.com/s/Paris--France\" target=\"_blank\">Airbnb</a>.",
+        "If you prefer hotels, you can also find great options from <a class=\"tj--plain-link\" href=\"https://www.timeout.com/paris/en/hotels\" target=\"_blank\">Timeout</a>.",
+        "<a class=\"tj--plain-link\" href=\"https://www.adagio-city.com/gb/hotel-6790-aparthotel-adagio-paris-centre-tour-eiffel/index.shtml\" target=\"_blank\">Apartment hotels</a>, which offer the services of a hotel with a full kitchen and apartment-like setup, are also a great option for families",
+        "For a first visit, we recommend that you look for accommodations in a central location, such as the 1st, 4th, 5th, 6th or 7th arrondissement.",
+        "The Shangri-La is accessible by bus or subway (line 9). And your Uber app will work in Paris!"
+      ],
+      "WhereToEatAndDrink": [
+        "Sit down at Le Cafe des Magots or Le Cafe de Flore with a book or newspaper, order a coffee and a croissant and watch people go by.",
+        "Order a hot cocoa and pastries at the famous Angelina (near the Louvre), or stop by La Patisserie des Reves.",
+        "Go for a stroll in Le Marais and stop by L'As du Falafel for an out-of-this-world falafel or lunch at Miznon.",
+        "A few other favorites: Balagan (1st arrondissement), Liza (2nd arrondissement), Ober Mamma (11th arrondissement), Roberta (18th arrondissement), Boulom (18th arrondissement), Le Caulaincourt (18th arrondissement), Mama Shelter (20th arrondissement, also a hotel)",
+        "T.J.'s tip: buy two baguettes at a boulangerie, eat one on the way home (or wherever you're going) and one when you get there."
+      ],
+      "WhatToSee": [
+        "For museum lovers: the Musee d'Orsay, the Musee de l'Orangerie (where you can admire Monet's Water Lillies), the Louis Vuitton Foundation, the Louvre",
+        "If it's not too cold: the Jardin du Luxembourg and Jardin des Tuileries",
+        "The Palais Garnier, for the opera or the ceiling painted by Chagall",
+        "For a view of the Eiffel Tower: the Trocadero, a short walk from the Shangri-La",
+        "Versailles, of course.  You can get there by car or with the RER train. The line for the palace can be very long, so we recommend you buy passes with an entry time. Weather permitting, take a walk in the gardens!",
+        "T.J.'s tip: avoid the touristy Champs-Elysees and prefer a walk around la place de la Concorde."
+      ]
+    }
   },
   "fr": {
     "Home": "Page d'Accueil",
