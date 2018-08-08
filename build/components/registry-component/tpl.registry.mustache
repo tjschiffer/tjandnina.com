@@ -1,25 +1,39 @@
 <div class="tj--bg-floral-white tj--padding-vert-5">
-  <div class="tj--max-width-1020 tj--margin-hor-auto">
-    <div class="tj--margin-top-5 tj--text-align-center tj--line-height-1-5 tj--padding-hor-1">
-      We are registered on Zola.
+  <div class="tj--margin-hor-auto">
+    <div class="tj--text-align-center tj--line-height-1-5 tj--padding-hor-1">
+      We are registered on Zola. Click <a class="tj--plain-link" target="_blank" href="//www.zola.com/registry/tjandnina">here</a> to see the registry.
     </div>
     <!-- Begin Zola Registry block -->
-    <a href="https://www.zola.com/registry/tjandnina" class="tj--display-block tj--position-relative tj--text-decoration-none zola-registry-block">
+    <a href="//www.zola.com/registry/tjandnina"
+       target="_blank"
+       class="zola-registry-block
+              tj--margin-top-5
+              tj--margin-bottom-5
+              tj--display-block
+              tj--position-relative
+              tj--text-decoration-none">
       <style>
+        /**
+         * This style block is taken from the Zola registry site in order to match that look.
+         */
+        @font-face {
+          font-family: 'Aleo';
+          font-weight: 300;
+          src: url('//d1tntvpcrzvon2.cloudfront.net/vzassets/1.2.143/fonts/Aleo-Regular.otf')
+        }
+
         .zola-registry-block .registry-header {
           min-height: 78px;
           position: absolute;
           width: 100%;
           top: 0;
-          z-index: 10;
+          z-index: 1;
           font-size: 16px;
         }
 
         .zola-registry-block .registry-nav {
-          z-index: 10;
+          z-index: 1;
           color: #fff;
-          font-family: "Aleo",'Georgia',serif;
-          font-weight: 500
         }
 
         .zola-registry-block .registry-nav .logo {
@@ -33,20 +47,20 @@
           background-size: 100px 60px;
           width: 100px;
           height: 60px;
-          background-image: url(../images/logos/zola-registry-logo-white.svg);
+          background-image: url(//d1tntvpcrzvon2.cloudfront.net/vzassets/1.2.143/images/logos/zola-registry-logo-white.svg);
           background-repeat: no-repeat;
         }
 
         .zola-registry-block .registry-hero {
+          height: 430px;
           position: relative;
-          max-width: 1280px;
           margin-right: auto;
           margin-left: auto;
+          max-width: 1280px;
           -webkit-background-size: cover;
           -moz-background-size: cover;
           -o-background-size: cover;
           background-size: cover;
-          -ms-behavior: url(/assets/backgroundsize.htc);
           background-position: center;
           padding-bottom: 15.625%;
         }
@@ -71,21 +85,23 @@
         .zola-registry-block .registry-hero .registry-hero-content .registry-title {
           margin-top: 20px;
           margin-bottom: 10px;
-        }
-
-        .zola-registry-block .registry-hero .registry-hero-content .registry-title,
-        .zola-registry-block .registry-hero .registry-hero-content .registry-date {
-          color: #fff;
-          position: relative;
-          font-size: 72px;
           text-transform: uppercase;
           font-weight: 500;
+          font-size: 72px;
         }
 
         .zola-registry-block .registry-hero .registry-hero-content .registry-date {
           font-weight: 300;
           font-family: "Aleo",'Georgia',serif;
           font-size: 18px;
+        }
+
+        .zola-registry-block .registry-hero .registry-hero-content .registry-title,
+        .zola-registry-block .registry-hero .registry-hero-content .registry-date {
+          color: #fff;
+          position: relative;
+          text-shadow: 1px 1px 15px rgba(0,0,0,0.4);
+          font-family: "Aleo",'Georgia',serif;
         }
 
         .zola-registry-block .couple-img-circle {
@@ -102,6 +118,41 @@
           border-radius: 50%;
           display: block;
           max-width: 100%;
+        }
+
+        @media (max-width: 767px) {
+          .zola-registry-block .registry-hero .couple-img-circle {
+            width: 90px;
+            height: 90px;
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            margin-left: -45px;
+          }
+
+          .zola-registry-block .registry-hero {
+            height: auto;
+          }
+
+          .zola-registry-block .registry-hero .registry-hero-content {
+            padding-top: 60px;
+          }
+
+          .zola-registry-block .registry-nav .logo {
+            background-size: 70px 42px;
+            width: 70px;
+            height: 42px;
+            margin-left: -35px;
+          }
+
+          .zola-registry-block .registry-hero .registry-hero-content .registry-title {
+            font-size: 36px;
+            margin-top: 0;
+          }
+          .zola-registry-block .registry-hero .registry-hero-content .registry-date {
+            font-size: 16px;
+            margin-bottom: 25px;
+          }
         }
 
       </style>
