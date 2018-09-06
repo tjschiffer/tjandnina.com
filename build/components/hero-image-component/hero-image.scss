@@ -32,8 +32,7 @@
   filter: blur(20px);
 }
 
-.tj-hero-image__text {
-  font-size: 10em;
+.tj-hero-image__logo {
   margin-bottom: 125px;
   @include animation(#{fade-in 1s linear 1});
 }
@@ -42,16 +41,5 @@
   .tj-hero-image__image {
     // Remove the edge bleed caused by blur
     transform: scale(1.1);
-  }
-
-  .tj-hero-image__text {
-    font-size: 7em;
-  }
-}
-
-
-@include bp-mobile {
-  .tj-hero-image__text {
-    font-size: 4.25em;
   }
 }
