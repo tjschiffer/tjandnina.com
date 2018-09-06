@@ -32,9 +32,12 @@
   filter: blur(20px);
 }
 
-.tj-hero-image__text {
-  font-size: 10em;
-  margin-bottom: 125px;
+.tj-hero-image__logo {
+  background: none center center / contain no-repeat;
+  height: 400px;
+  margin-bottom: 15vh;
+  max-height: 45vh; // For landscape phones
+  width: 400px;
   @include animation(#{fade-in 1s linear 1});
 }
 
@@ -43,15 +46,10 @@
     // Remove the edge bleed caused by blur
     transform: scale(1.1);
   }
-
-  .tj-hero-image__text {
-    font-size: 7em;
-  }
 }
 
-
 @include bp-mobile {
-  .tj-hero-image__text {
-    font-size: 4.25em;
+  .tj-hero-image__logo {
+    width: 300px;
   }
 }
