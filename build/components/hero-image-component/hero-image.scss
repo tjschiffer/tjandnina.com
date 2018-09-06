@@ -33,7 +33,11 @@
 }
 
 .tj-hero-image__logo {
-  margin-bottom: 125px;
+  background: none center center / contain no-repeat;
+  height: 400px;
+  margin-bottom: 15vh;
+  max-height: 45vh; // For landscape phones
+  width: 400px;
   @include animation(#{fade-in 1s linear 1});
 }
 
@@ -41,5 +45,11 @@
   .tj-hero-image__image {
     // Remove the edge bleed caused by blur
     transform: scale(1.1);
+  }
+}
+
+@include bp-mobile {
+  .tj-hero-image__logo {
+    width: 300px;
   }
 }
