@@ -9,17 +9,22 @@
        class="zola-registry-block
               tj--margin-top-5
               tj--margin-bottom-5
+              tj--margin-hor-auto
               tj--display-block
               tj--position-relative
               tj--text-decoration-none">
       <style>
         /**
-         * This style block is taken from the Zola registry site in order to match that look.
+         * This style block is taken from the Zola registry site in order to match that banner.
          */
         @font-face {
           font-family: 'Aleo';
           font-weight: 300;
           src: url('//d1tntvpcrzvon2.cloudfront.net/vzassets/1.2.143/fonts/Aleo-Regular.otf')
+        }
+
+        .zola-registry-block {
+          max-width: 1280px;
         }
 
         .zola-registry-block .registry-header {
@@ -54,9 +59,6 @@
         .zola-registry-block .registry-hero {
           height: 430px;
           position: relative;
-          margin-right: auto;
-          margin-left: auto;
-          max-width: 1280px;
           -webkit-background-size: cover;
           -moz-background-size: cover;
           -o-background-size: cover;
