@@ -15,6 +15,7 @@ const heroImageComponent = new (require('./components/hero-image-component/hero-
 const detailsComponent = new (require('./components/details-component/details-component'))();
 const registryComponent = new (require('./components/registry-component/registry-component'))();
 const photosComponent = new (require('./components/photos-component/photos-component'))();
+const rsvpComponent = new (require('./components/rsvp-component/rsvp-component'))();
 
 function renderLanguages() {
   const templateDirPath = path.join(__dirname, './templates');
@@ -93,6 +94,23 @@ async.series([
             return;
           }
           fs.writeFile(path.join(__dirname, './templates/photos.mustache'), renderedTemplate, err => {
+            cb(err);
+          });
+        });
+    },
+    cb => {
+      layoutComponent
+        .setDefineLanguage(true)
+        .setHeadComponent(headComponent.setTitle('T.J. & Nina | {{ RSVP }}'))
+        .setContentComponent(rsvpComponent)
+        .setNavigationComponent(navigationComponent.setIsOverlay(false).setActiveLink('RSVP'))
+        .setFooterComponent(footerComponent)
+        .render((err, renderedTemplate) => {
+          if (err) {
+            cb(err);
+            return;
+          }
+          fs.writeFile(path.join(__dirname, './templates/rsvp.mustache'), renderedTemplate, err => {
             cb(err);
           });
         });

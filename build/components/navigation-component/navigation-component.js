@@ -50,6 +50,10 @@ const navigationComponent = function () {
       {
         linkAddress: 'photos.html',
         linkName: 'Photos'
+      },
+      {
+        linkAddress: 'rsvp.html',
+        linkName: 'RSVP'
       }
     ];
     const _this = this;

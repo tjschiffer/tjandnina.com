@@ -4,6 +4,7 @@
     "Details": "Details",
     "Registry": "Registry",
     "Photos": "Photos",
+    "RSVP": "RSVP",
     "ComingSoon": "Coming Soon...",
     "WeddingDate": "Sunday, February 17th, 2019",
     "CocktailAttire": "Attire: Cocktail",
@@ -33,17 +34,20 @@
         "Versailles, of course.  You can get there by car or with the RER train. The line for the palace can be very long, so we recommend you buy passes with an entry time. Weather permitting, take a walk in the gardens!",
         "T.J.'s tip: avoid the touristy Champs-Elysees and prefer a walk around la place de la Concorde."
       ]
-    }
+    },
+    "FindYourInvitation": "Find Your Invitation"
   },
   "fr": {
     "Home": "Page d'Accueil",
     "Details": "Détails",
     "Registry": "Liste de Mariage",
     "Photos": "Photos",
+    "RSVP": "RSVP",
     "ComingSoon": "À venir...",
     "WeddingDate": "Dimanche, 17 février 2019",
     "CocktailAttire": "Tenue de Cocktail",
     "WeddingDay": "Cérémonie et Réception",
-    "ContactUs": "N'hésitez pas à nous écrire si vous avez des questions !"
+    "ContactUs": "N'hésitez pas à nous écrire si vous avez des questions !",
+    "FindYourInvitation": "Find Your Invitationaire"
   }
 }

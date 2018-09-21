@@ -122,6 +122,10 @@
   margin-right: 5px;
 }
 
+.tj--margin-right-1 {
+  margin-right: 5px;
+}
+
 .tj--margin-bottom-1 {
   margin-bottom: 5px;
 }
@@ -259,6 +263,10 @@
 
 .tj--list-style-none {
   list-style: none;
+}
+
+.tj--white-space-no-wrap {
+  white-space: nowrap;
 }
 
 @include bp-desktop {
