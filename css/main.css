@@ -1,5 +1,9 @@
+@font-face {
+  font-family: 'Aleo';
+  src: url(/fonts/aleo.regular.woff2) format("woff2"); }
+
 body, html {
-  font-family: Helvetica, sans-serif;
+  font-family: 'Aleo', serif;
   box-sizing: border-box; }
   body ::-webkit-scrollbar, html ::-webkit-scrollbar {
     display: none; }
@@ -9,7 +13,7 @@ body, html {
 
 @font-face {
   font-family: 'Blacksword';
-  src: url(/fonts/Blacksword.woff2) format("woff2"); }
+  src: url(/fonts/blacksword.woff2) format("woff2"); }
 
 /*! normalize.scss v8.0.0 | MIT License | github.com/necolas/normalize.scss */
 /* Document
@@ -452,6 +456,9 @@ template {
 .tj--text-align-center {
   text-align: center; }
 
+.tj--text-align-right {
+  text-align: right; }
+
 .tj--text-decoration-none {
   text-decoration: none; }
 
@@ -545,6 +552,10 @@ template {
 .tj-grid-flex--justify-center {
   justify-content: center; }
 
+.tj-grid-flex__cell {
+  flex: 1;
+  max-width: 100%; }
+
 .tj-grid-flex__cell-1-2 {
   flex: 0 0 50%;
   max-width: 50%; }
@@ -559,6 +570,22 @@ template {
     max-width: 100%; }
   .tj-grid-flex--wrap-mob {
     flex-wrap: wrap; } }
+
+.tj-input {
+  border: thin solid #4b4b4b;
+  border-radius: 3px;
+  padding: 2px;
+  outline: none; }
+  .tj-input:focus {
+    box-shadow: 0 0 2px navy; }
+
+.tj-button {
+  border: thin solid transparent;
+  border-radius: 3px;
+  background: url("/img/paris.jpg") no-repeat top center;
+  color: #fff;
+  padding: 5px 10px;
+  outline: none; }
 
 @-webkit-keyframes de-blur {
   from {
@@ -637,7 +664,7 @@ template {
   height: 60px; }
 
 .tj--navigation__background {
-  background: none no-repeat center center;
+  background: url("/img/paris.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
