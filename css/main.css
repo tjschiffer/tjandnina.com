@@ -580,10 +580,11 @@ template {
     box-shadow: 0 0 2px navy; }
 
 .tj-button {
+  background-color: #4e5766;
   border: thin solid transparent;
   border-radius: 3px;
-  background: url("/img/paris.jpg") no-repeat top center;
   color: #fff;
+  cursor: pointer;
   padding: 5px 10px;
   outline: none; }
 
