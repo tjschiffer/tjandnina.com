@@ -564,6 +564,13 @@ template {
   flex: 0 0 33.33%;
   max-width: 33.33%; }
 
+@media only screen and (max-width: 900px) {
+  .tj-grid-flex__cell-1-1--tab {
+    flex: 0 0 100%;
+    max-width: 100%; }
+  .tj-grid-flex--wrap-tab {
+    flex-wrap: wrap; } }
+
 @media only screen and (max-width: 600px) {
   .tj-grid-flex__cell-1-1--mob {
     flex: 0 0 100%;
