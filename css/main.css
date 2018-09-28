@@ -552,6 +552,9 @@ template {
 .tj-grid-flex--justify-center {
   justify-content: center; }
 
+.tj-grid-flex--wrap {
+  flex-wrap: wrap; }
+
 .tj-grid-flex__cell {
   flex: 1;
   max-width: 100%; }

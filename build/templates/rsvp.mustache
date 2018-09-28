@@ -8,9 +8,9 @@
   <link rel="icon" type="image/png" href="/favicon.png"/>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script src="/js/main.js?1538090019723"></script>
+  <script src="/js/main.js?1538168343189"></script>
 
-  <link rel="stylesheet" href="/css/main.css?1538090019723">
+  <link rel="stylesheet" href="/css/main.css?1538168343189">
 </head>
 <body>
 <div data-tj-navigation
@@ -298,7 +298,7 @@
     <div class="tj--font-size-24 tj--text-align-center tj--font-blacksword tj--margin-bottom-1 tj--line-height-1-5">{{ FindYourInvitation }}</div>
     <div class="tj--margin-top-5 tj--text-align-center tj--line-height-1-5 tj--padding-hor-1 tj--width-half tj--width-full--mob tj--margin-hor-auto">
       <form v-on:submit.prevent="findRsvp">
-        <div class="tj-grid-flex tj-grid-flex--wrap-tab tj--width-full">
+        <div class="tj-grid-flex tj-grid-flex--wrap tj--width-full">
           <div class="tj-grid-flex__cell-1-2
                       tj-grid-flex__cell-1-1--tab
                       tj-grid-flex
@@ -306,7 +306,7 @@
                       tj--padding-hor-1
                       tj--margin-bottom-2">
             <label for="firstname" class="tj--white-space-no-wrap tj--margin-right-1">First Name:</label>
-            <div class="tj-grid-flex__cell"><input id="firstname" type="text" class="tj-input tj--width-full"></div>
+            <div class="tj-grid-flex__cell"><input id="firstname" type="text" class="tj-input tj--width-full" required></div>
           </div>
           <div class="tj-grid-flex__cell-1-2
                       tj-grid-flex__cell-1-1--tab
@@ -315,7 +315,16 @@
                       tj--padding-hor-1
                       tj--margin-bottom-2">
             <label for="lastname" class="tj--white-space-no-wrap tj--margin-right-1">Last Name:</label>
-            <div class="tj-grid-flex__cell"><input id="lastname" type="text" class="tj-input tj--width-full"></div>
+            <div class="tj-grid-flex__cell"><input id="lastname" type="text" class="tj-input tj--width-full" required></div>
+          </div>
+          <div class="tj-grid-flex__cell-1-2
+                      tj-grid-flex__cell-1-1--tab
+                      tj-grid-flex
+                      tj-grid-flex--align-center
+                      tj--padding-hor-1
+                      tj--margin-bottom-2">
+            <label for="zipcode" class="tj--white-space-no-wrap tj--margin-right-1">Zip Code:</label>
+            <div class="tj-grid-flex__cell"><input id="zipcode" type="text" class="tj-input tj--width-full" required></div>
           </div>
         </div>
         <div class="tj--text-align-right tj--padding-hor-1">
