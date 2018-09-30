@@ -15,6 +15,10 @@
   justify-content: center;
 }
 
+.tj-grid-flex--wrap {
+  flex-wrap: wrap;
+}
+
 .tj-grid-flex__cell {
   flex: 1;
   max-width: 100%;
@@ -30,6 +34,17 @@
   max-width: 33.33%;
 }
 
+@include bp-tablet {
+  .tj-grid-flex__cell-1-1--tab {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .tj-grid-flex--wrap-tab {
+    flex-wrap: wrap;
+  }
+}
+
 @include bp-mobile {
   .tj-grid-flex__cell-1-1--mob {
     flex: 0 0 100%;
@@ -40,4 +55,3 @@
     flex-wrap: wrap;
   }
 }
-

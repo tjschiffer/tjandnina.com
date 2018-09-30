@@ -1,23 +1,27 @@
-import Vue from 'vue'
-
-import LoadGoogleAPI from 'load-google-api'
-import options from '../../auth.json'
-
-const contacts = new LoadGoogleAPI(options);
-
+import vue from 'vue'
+import vuex from 'vuex'
+import weddingInvites from '../../vuex-modules/wedding-invites/wedding-invites'
 
 export default (el) => {
   el.querySelectorAll('[data-tj-rsvp]').forEach((rsvp) => {
-    console.log(contacts);
-    new Vue({
+    new vue({
       el: rsvp,
+      store: weddingInvites,
       data: {
         foundRsvp: false,
         rsvped: false
       },
+      created() {
+        this.$store.dispatch('initialize')
+      },
+      computed: vuex.mapState({
+          isLoaded: (state) => {
+              return state[this.modelId].hasMaterialGroupSelected;
+          },
+      }),
       methods: {
         findRsvp() {
-
+          this.$store.dispatch('findRsvp', )
         }
       }
     });
