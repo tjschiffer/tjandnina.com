@@ -21,30 +21,40 @@ const createDatabase = async() => {
     'INSERT INTO `' + dbconfig.connection.database + '`.`' + dbconfig.users_table + '` \
     (`id`, `username`, `password_hash`) \
     VALUES \
-    (1, \'tj\', \'$argon2i$v=19$m=4096,t=3,p=1$sOr9QWi2qUsHG4nb0/13yQ$kRP8u3MHBRHzKtUmUIFXh01qZMVP+V1Nfdsts1xBWSM\'), \
-    (2, \'api\', \'$argon2i$v=19$m=4096,t=3,p=1$gZv4zQqByDmPWwccHdanrA$IcN7WyV1TrkRPIeteKzK0cHNEUd6EDYC1MGEdwV+4lw\')',
+    (1, \'' + dbconfig.app.user + '\', \'' + dbconfig.app.password_hash + '\')',
 
-    'CREATE TABLE `' + dbconfig.connection.database + '`.`' + dbconfig.time_series_data_table + '` ( \
+    'CREATE TABLE `' + dbconfig.connection.database + '`.`' + dbconfig.rsvp_table + '` ( \
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
-    `sensor_id` SMALLINT UNSIGNED NOT NULL, \
-    `timestamp` TIMESTAMP NOT NULL, \
-    `value` FLOAT NOT NULL, \
+    `zip_code` VARCHAR(20) NOT NULL, \
+    `note` TEXT, \
         PRIMARY KEY (`id`), \
     UNIQUE INDEX `id_UNIQUE` (`id` ASC))',
 
-    'CREATE TABLE `' + dbconfig.connection.database + '`.`' + dbconfig.sensors_table + '` ( \
+    'CREATE TABLE `' + dbconfig.connection.database + '`.`' + dbconfig.guests_table + '` ( \
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
-    `location` VARCHAR(30) NOT NULL, \
-    `measurement` VARCHAR(30) NOT NULL, \
-    `units` VARCHAR(20), \
+    `rsvp_id` INT UNSIGNED NOT NULL, \
+    `first_name` VARCHAR(30) NOT NULL, \
+    `last_name` VARCHAR(30) NOT NULL, \
+    `attending` BOOLEAN, \
+    `attending_welcome_event` BOOLEAN, \
+    `attending_after_party` BOOLEAN, \
         PRIMARY KEY (`id`), \
-    UNIQUE INDEX `id_UNIQUE` (`id` ASC))',
+    UNIQUE INDEX `id_UNIQUE` (`id` ASC), \
+    FOREIGN KEY (rsvp_id) \
+    REFERENCES `tjandnina`.rsvp(id) \
+    ON UPDATE CASCADE ON DELETE RESTRICT)',
 
-    'INSERT INTO `' + dbconfig.connection.database + '`.`' + dbconfig.sensors_table + '` \
-    (`id`, `location`, `measurement`, `units`) \
-    VALUES \
-    (1, \'Living Room\', \'Temperature\', \'°C\'), \
-    (2, \'Living Room\', \'Humidity\', \'%\')'
+    'CREATE TABLE `' + dbconfig.connection.database + '`.`' + dbconfig.guests_history_table + '` ( \
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
+    `guests_id` INT UNSIGNED NOT NULL, \
+    `rsvp_id` INT UNSIGNED NOT NULL, \
+    `first_name` VARCHAR(30) NOT NULL, \
+    `last_name` VARCHAR(30) NOT NULL, \
+    `attending` BOOLEAN, \
+    `attending_welcome_event` BOOLEAN, \
+    `attending_after_party` BOOLEAN, \
+        PRIMARY KEY (`id`), \
+    UNIQUE INDEX `id_UNIQUE` (`id` ASC))'
   ];
 
   // Drop the database if the argument "--drop" is present
