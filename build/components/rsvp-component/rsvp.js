@@ -9,7 +9,10 @@ export default (el) => {
       store: weddingInvites,
       data: {
         foundRsvp: false,
-        rsvped: false
+        rsvped: false,
+        firstName: null,
+        lastName: null,
+        zipCode: null
       },
       created() {
         this.$store.dispatch('initialize')
