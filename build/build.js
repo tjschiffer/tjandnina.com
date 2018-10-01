@@ -132,7 +132,7 @@ layoutComponent
   .setFooterComponent(null)
   .render((err, renderedTemplate) => {
     if (err) console.error(err.stack || err);
-    fs.writeFile(path.join(__dirname, '../index.html'), renderedTemplate, err => {
+    fs.writeFile(path.join(__dirname, '../static/index.html'), renderedTemplate, err => {
       if(err) console.error(err.stack || err);
     });
   });
