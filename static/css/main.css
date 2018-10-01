@@ -642,7 +642,9 @@ template {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  transform: scale(1.05); }
+  left: 0;
+  transform: scale(1.05);
+  top: 0; }
 
 .tj-hero-image__image--deblur {
   filter: blur(0px);
@@ -735,6 +737,6 @@ template {
   -moz-background-size: cover;
   background-size: cover;
   width: 40px;
-  padding-bottom: 52%; }
+  height: 21px; }
 
 /*# sourceMappingURL=main.css.map */

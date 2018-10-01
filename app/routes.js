@@ -1,9 +1,15 @@
 const buildUrl = require('build-url');
 const querystring = require('querystring');
 const urls = require('./urls');
+const path = require('path');
 
 // app/routes.js
 module.exports = (app, passport) => {
+
+  // Homepage
+  app.get(urls.homepage, (req, res) => {
+      res.sendFile(path.join(__dirname, '../index.html'));
+  });
 
   // Process the login form
   app.post(urls.login,

@@ -5,7 +5,8 @@
   },
   "dependencies": {
     "vue": "^2.5.16",
-    "vuejs-storage": "^2.4.0"
+    "vuejs-storage": "^2.4.0",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "ajv": "^6.5.0",

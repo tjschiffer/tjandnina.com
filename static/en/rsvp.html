@@ -1,16 +1,17 @@
 <!doctype html>
-<html class="no-js" lang="fr">
+<html class="no-js" lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>T.J. &amp; Nina | RSVP</title>
-  <link rel="icon" type="image/png" href="/favicon.png"/>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script src="/js/main.js?1538168343189"></script>
+  <script src="/js/main.js?1538423422186"></script>
 
-  <link rel="stylesheet" href="/css/main.css?1538168343189">
+  <link rel="stylesheet" href="/css/main.css?1538423422186">
 </head>
 <body>
 <div data-tj-navigation
@@ -37,7 +38,7 @@
                     tj-grid-flex--align-center
                     tj--height-full
                     tj--position-relative">
-          <div>Page d&#39;Accueil</div>
+          <div>Home</div>
         </div>
 
       </a>
@@ -52,7 +53,7 @@
                     tj-grid-flex--align-center
                     tj--height-full
                     tj--position-relative">
-          <div>Détails</div>
+          <div>Details</div>
         </div>
 
       </a>
@@ -67,7 +68,7 @@
                     tj-grid-flex--align-center
                     tj--height-full
                     tj--position-relative">
-          <div>Liste de Mariage</div>
+          <div>Registry</div>
         </div>
 
       </a>
@@ -200,7 +201,7 @@
         <div class="tj-grid-flex
                     tj-grid-flex--align-center
                     tj--position-relative">
-          <div>Page d&#39;Accueil</div>
+          <div>Home</div>
         </div>
       </a>
       <a v-on:click="close"
@@ -215,7 +216,7 @@
         <div class="tj-grid-flex
                     tj-grid-flex--align-center
                     tj--position-relative">
-          <div>Détails</div>
+          <div>Details</div>
         </div>
       </a>
       <a v-on:click="close"
@@ -230,7 +231,7 @@
         <div class="tj-grid-flex
                     tj-grid-flex--align-center
                     tj--position-relative">
-          <div>Liste de Mariage</div>
+          <div>Registry</div>
         </div>
       </a>
       <a v-on:click="close"
@@ -295,7 +296,7 @@
 <div data-tj-rsvp class="tj--bg-floral-white tj--padding-vert-5">
   <div class="tj--max-width-1020 tj--margin-hor-auto tj--padding-hor-1 tj--min-height-100vh-minus-nav">
     <div class="tj--font-size-32 tj--text-align-center tj--font-blacksword tj--margin-bottom-1 tj--line-height-1-5">RSVP</div>
-    <div class="tj--font-size-24 tj--text-align-center tj--font-blacksword tj--margin-bottom-1 tj--line-height-1-5">Find Your Invitationaire</div>
+    <div class="tj--font-size-24 tj--text-align-center tj--font-blacksword tj--margin-bottom-1 tj--line-height-1-5">Find Your Invitation</div>
     <div class="tj--margin-top-5 tj--text-align-center tj--line-height-1-5 tj--padding-hor-1 tj--width-half tj--width-full--mob tj--margin-hor-auto">
       <form v-on:submit.prevent="findRsvp">
         <div class="tj-grid-flex tj-grid-flex--wrap tj--width-full">
@@ -305,8 +306,8 @@
                       tj-grid-flex--align-center
                       tj--padding-hor-1
                       tj--margin-bottom-2">
-            <label for="firstname" class="tj--white-space-no-wrap tj--margin-right-1">First Name:</label>
-            <div class="tj-grid-flex__cell"><input id="firstname" type="text" class="tj-input tj--width-full" required></div>
+            <label for="firstName" class="tj--white-space-no-wrap tj--margin-right-1">First Name:</label>
+            <div class="tj-grid-flex__cell"><input id="firstname" type="text" class="tj-input tj--width-full" v-model="firstName" required></div>
           </div>
           <div class="tj-grid-flex__cell-1-2
                       tj-grid-flex__cell-1-1--tab
@@ -314,8 +315,8 @@
                       tj-grid-flex--align-center
                       tj--padding-hor-1
                       tj--margin-bottom-2">
-            <label for="lastname" class="tj--white-space-no-wrap tj--margin-right-1">Last Name:</label>
-            <div class="tj-grid-flex__cell"><input id="lastname" type="text" class="tj-input tj--width-full" required></div>
+            <label for="lastName" class="tj--white-space-no-wrap tj--margin-right-1">Last Name:</label>
+            <div class="tj-grid-flex__cell"><input id="lastname" type="text" class="tj-input tj--width-full" v-model="lastName" required></div>
           </div>
           <div class="tj-grid-flex__cell-1-2
                       tj-grid-flex__cell-1-1--tab
@@ -323,8 +324,8 @@
                       tj-grid-flex--align-center
                       tj--padding-hor-1
                       tj--margin-bottom-2">
-            <label for="zipcode" class="tj--white-space-no-wrap tj--margin-right-1">Zip Code:</label>
-            <div class="tj-grid-flex__cell"><input id="zipcode" type="text" class="tj-input tj--width-full" required></div>
+            <label for="zipCode" class="tj--white-space-no-wrap tj--margin-right-1">Zip Code:</label>
+            <div class="tj-grid-flex__cell"><input id="zipcode" type="text" class="tj-input tj--width-full" v-model="zipCode" required></div>
           </div>
         </div>
         <div class="tj--text-align-right tj--padding-hor-1">

@@ -1,24 +1,26 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>T.J. &amp; Nina | Registry</title>
-  <link rel="icon" type="image/png" href="/favicon.png"/>
+  <title>T.J. &amp; Nina</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script src="/js/main.js?1538168342599"></script>
+  <script src="/js/main.js?1538423421091"></script>
 
-  <link rel="stylesheet" href="/css/main.css?1538168342599">
+  <link rel="stylesheet" href="/css/main.css?1538423421091">
 </head>
 <body>
 <div data-tj-navigation
     class="tj-navigation
            tj--z-index-10
            tj--width-full
-           tj--position-relative
-           ">
+           tj--position-absolute
+           tj--position-top
+">
   <div class="tj--hide-tablet tj--height-full tj--width-full">
     <nav class="tj-grid-flex
                 tj-grid-flex--justify-center
@@ -38,6 +40,11 @@
                     tj--height-full
                     tj--position-relative">
           <div>Home</div>
+        <div class="tj--position-absolute
+                    tj--width-full
+                    tj--position-left
+                    tj--position-bottom
+                    tj--border-bottom-white-3"></div>
         </div>
 
       </a>
@@ -68,11 +75,6 @@
                     tj--height-full
                     tj--position-relative">
           <div>Registry</div>
-        <div class="tj--position-absolute
-                    tj--width-full
-                    tj--position-left
-                    tj--position-bottom
-                    tj--border-bottom-white-3"></div>
         </div>
 
       </a>
@@ -118,14 +120,14 @@
             tj--height-full
             tj--padding-hor-3
             tj--z-index-10">
-  <a href="&#x2F;fr/registry.html" class="tj-grid-flex
+  <a href="&#x2F;fr/index.html" class="tj-grid-flex
                              tj-grid-flex--align-center
                              tj--padding-hor-2
                              tj--height-full">
     <div class="tj-navigation-language-chooser__flag tj--border-radius-3"
        style="background-image: url('&#x2F;img&#x2F;franceflag.svg')"></div>
   </a>
-  <a href="&#x2F;en/registry.html" class="tj-grid-flex
+  <a href="&#x2F;en/index.html" class="tj-grid-flex
                              tj-grid-flex--align-center
                              tj--padding-hor-2
                              tj--height-full">
@@ -149,14 +151,14 @@
             tj--height-full
             tj--padding-hor-3
             tj--z-index-10">
-  <a href="&#x2F;fr/registry.html" class="tj-grid-flex
+  <a href="&#x2F;fr/index.html" class="tj-grid-flex
                              tj-grid-flex--align-center
                              tj--padding-hor-2
                              tj--height-full">
     <div class="tj-navigation-language-chooser__flag tj--border-radius-3"
        style="background-image: url('&#x2F;img&#x2F;franceflag.svg')"></div>
   </a>
-  <a href="&#x2F;en/registry.html" class="tj-grid-flex
+  <a href="&#x2F;en/index.html" class="tj-grid-flex
                              tj-grid-flex--align-center
                              tj--padding-hor-2
                              tj--height-full">
@@ -201,6 +203,11 @@
                     tj-grid-flex--align-center
                     tj--position-relative">
           <div>Home</div>
+          <div class="tj--position-absolute
+                      tj--width-full
+                      tj--position-left
+                      tj--position-bottom
+                      tj--border-bottom-white-3"></div>
         </div>
       </a>
       <a v-on:click="close"
@@ -231,11 +238,6 @@
                     tj-grid-flex--align-center
                     tj--position-relative">
           <div>Registry</div>
-          <div class="tj--position-absolute
-                      tj--width-full
-                      tj--position-left
-                      tj--position-bottom
-                      tj--border-bottom-white-3"></div>
         </div>
       </a>
       <a v-on:click="close"
@@ -281,22 +283,20 @@
       </div>
     </nav>
   </div>
-  <div class="tj--position-absolute
-              tj--position-top
-              tj--width-full
-              tj--height-full
-              tj--overflow-hidden
-              tj--z-index-neg-1">
-    <div class="tj--navigation__background
-                tj--width-full"></div>
-  </div>
 </div>
 
-<div class="tj-grid-flex tj-grid-flex--justify-center tj-grid-flex--align-center"
-     style="height: calc(100vh - 60px);">
-  <div style="font-size: 4em; margin-bottom: 125px;"
-       class="tj--padding-hor-3 tj--font-blacksword tj--text-align-center tj--font-dark-gray">
-    Coming Soon...
+<div class="tj-hero-image
+            tj-grid-flex
+            tj-grid-flex--align-center
+            tj-grid-flex--justify-center
+            tj--position-relative
+            tj--overflow-hidden">
+  <div class="tj-hero-image__image
+              tj-hero-image__image--deblur
+              tj--position-absolute
+              tj--height-full
+              tj--width-full" style="background-image: url('/img/paris.jpg')"></div>
+  <div class="tj-hero-image__logo tj--max-width-full tj--position-relative tj--z-index-1" style="background-image: url('/img/TJNina.png')">
   </div>
 </div>
 <div class="tj--padding-vert-5 tj--text-align-center tj--font-dark-gray">

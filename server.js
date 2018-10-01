@@ -8,6 +8,8 @@ const port = process.env.PORT || 3001;
 const passport = require('passport');
 const flash = require('connect-flash');
 const secrets = require('./config/secrets');
+const path = require('path');
+var favicon = require('serve-favicon');
 
 require('./passport/passport')(passport); // pass passport for configuration
 
@@ -15,18 +17,21 @@ require('./passport/passport')(passport); // pass passport for configuration
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({
-	extended: true
+    extended: true
 }));
 app.use(bodyParser.json());
 
-app.set('view engine', 'ejs'); // set up ejs for templating
+// expose all the static file folders
+app.use('/', express.static(path.join(__dirname, 'static')));
+
+app.use(favicon(path.join(__dirname, 'favicon.ico')));
 
 // required for passport
 app.use(session({
-	secret: secrets.sessionSecret,
-	resave: true,
-	saveUninitialized: true
- } )); // session secret
+  secret: secrets.sessionSecret,
+  resave: true,
+  saveUninitialized: true
+})); // session secret
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());

@@ -20,7 +20,7 @@ const rsvpComponent = new (require('./components/rsvp-component/rsvp-component')
 function renderLanguages() {
   const templateDirPath = path.join(__dirname, './templates');
   const templateDataPath = path.join(__dirname, './templates/languageData.json');
-  const outputFolder = path.join(__dirname, '../');
+  const outputFolder = path.join(__dirname, '../static');
 
   generator.render(templateDirPath, templateDataPath, outputFolder, err => {
     if (err) console.error(err.stack || err);
@@ -139,7 +139,7 @@ layoutComponent
 
 // Generate css
 const sassFile = path.join(__dirname, './scss/main.scss');
-const outFile = path.join(__dirname, '../css/main.css');
+const outFile = path.join(__dirname, '../static/css/main.css');
 
 sass.render({
   file: sassFile,
