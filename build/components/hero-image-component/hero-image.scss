@@ -1,3 +1,4 @@
+@import '../../scss/mixins';
 
 @include keyframes(de-blur) {
   from { filter: blur(20px); }

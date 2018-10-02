@@ -1,7 +1,8 @@
 const path = require('path');
 const fs = require('fs');
-const mustache = require('mustache');
 const async = require('async');
+const mustache = require('mustache');
+const styleTagComponent = new (require('../style-tag-component/style-tag-component'))();
 
 const navigationLanguageChooserComponent = new (require(path.join(__dirname, '../navigation-language-chooser-component/navigation-language-chooser-component.js')))();
 
@@ -15,7 +16,13 @@ const navigationComponent = function () {
    */
   this.render = cb => {
     const _this = this;
+    styleTagComponent.setStylesheetPath('/css/navigation.css');
     async.parallel({
+      styleTag: cb => {
+        styleTagComponent.render((err, renderedTemplate) => {
+          cb(err, renderedTemplate);
+        });
+      },
       navigationLanguageChooser: cb => {
         navigationLanguageChooserComponent.render(cb);
       }

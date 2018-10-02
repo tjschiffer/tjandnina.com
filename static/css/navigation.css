@@ -1,10 +1,5 @@
-@import '../../scss/mixins';
-
-$navigation-height: 60px;
-
 .tj-navigation {
-  height: $navigation-height;
-}
+  height: 60px; }
 
 .tj--navigation__background {
   background: url("/img/paris.jpg") no-repeat center center;
@@ -12,43 +7,29 @@ $navigation-height: 60px;
   -moz-background-size: cover;
   background-size: cover;
   height: 100vh;
-  transform: scale(1.05);
-}
+  transform: scale(1.05); }
 
 .tj-navigation__link {
-  height: 100%;
-
-  &:hover {
-    text-shadow: 0 0 2.5em #000;
-  }
-}
+  height: 100%; }
+  .tj-navigation__link:hover {
+    text-shadow: 0 0 2.5em #000; }
 
 .tj-navigation__links-mob {
-  top: $navigation-height;
-}
+  top: 60px; }
 
 .tj-navigation__link-mob {
-  height: $navigation-height;
-}
+  height: 60px; }
 
 .tj-navigation__language-chooser-mob {
-  height: $navigation-height;
-}
+  height: 60px; }
 
-@include bp-tablet {
+@media only screen and (max-width: 900px) {
   .tj--navigation__background {
-    // Match the hero image background
-    transform: scale(1.1);
-  }
-  
+    transform: scale(1.1); }
   .tj-navigation--open {
-    overflow: visible;
-
-    .tj-navigation__language-chooser-mob, .tj-navigation__links-mob {
-      display: block;
-    }
-  }
-
+    overflow: visible; }
+    .tj-navigation--open .tj-navigation__language-chooser-mob, .tj-navigation--open .tj-navigation__links-mob {
+      display: block; }
   .tj--navigation__background-nav-links {
     background: none no-repeat center center;
     -webkit-background-size: cover;
@@ -56,12 +37,10 @@ $navigation-height: 60px;
     background-size: cover;
     height: 100vh;
     transform: scale(1.1);
-    top: $navigation-height * -1;
-  }
-
+    top: -60px; }
   .tj-navigation__mob-menu-line {
     width: 25px;
     margin-top: 6px;
-    margin-bottom: 6px;
-  }
-}
+    margin-bottom: 6px; } }
+
+/*# sourceMappingURL=navigation.css.map */

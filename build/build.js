@@ -137,22 +137,32 @@ layoutComponent
     });
   });
 
-// Generate css
-const sassFile = path.join(__dirname, './scss/main.scss');
-const outFile = path.join(__dirname, '../static/css/main.css');
+// Generate css files
+const sassFilesToBuild = [
+  path.join(__dirname, './scss/main.scss'),
+  path.join(__dirname, './components/hero-image-component/hero-image.scss'),
+  path.join(__dirname, './components/navigation-component/navigation.scss'),
+  path.join(__dirname, './components/language-chooser-component/language-chooser.scss'),
+  path.join(__dirname, './components/navigation-language-chooser-component/navigation-language-chooser.scss')
+];
+const cssStaticFolder = path.join(__dirname, '../static/css');
 
-sass.render({
-  file: sassFile,
-  sourceMap: true,
-  outFile: outFile,
-  outputStyle: 'nested'
-}, function(err, result) {
-  if (err) console.error(err.stack || err);
-  fs.writeFile(outFile, result.css, err => {
-    if(err) console.error(err.stack || err);
-  });
-  fs.writeFile(outFile + '.map', result.map, err => {
-    if(err) console.error(err.stack || err);
+sassFilesToBuild.forEach((sassFile) => {
+  const basename = path.parse(sassFile).name;
+  const outputPath = path.join(cssStaticFolder, basename) + '.css';
+  sass.render({
+    file: sassFile,
+    sourceMap: true,
+    outFile: outputPath,
+    outputStyle: 'nested'
+  }, function (err, result) {
+    if (err) console.error(err.stack || err);
+    fs.writeFile(outputPath, result.css, err => {
+      if (err) console.error(err.stack || err);
+    });
+    fs.writeFile(outputPath + '.map', result.map, err => {
+      if (err) console.error(err.stack || err);
+    });
   });
 });
 

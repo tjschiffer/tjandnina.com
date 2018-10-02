@@ -1,14 +1,10 @@
-@import '../../scss/mixins';
-
 .tj-language-chooser {
   margin-bottom: 125px;
   max-width: 900px;
-  width: 100%;
-}
+  width: 100%; }
 
 .tj-language-chooser__container {
-  height: 100vh;
-}
+  height: 100vh; }
 
 .tj-language-chooser__hero-image {
   background: none no-repeat center center;
@@ -17,25 +13,19 @@
   background-size: cover;
   filter: blur(20px);
   left: 0;
-  // Remove the edge bleed caused by blur
   transform: scale(1.05);
-  top: 0;
-}
+  top: 0; }
 
 .tj-language-chooser__language {
   border-radius: 5px;
-  padding-bottom: 52%;
-}
+  padding-bottom: 52%; }
 
-@include bp-tablet {
+@media only screen and (max-width: 900px) {
   .tj-language-chooser__hero-image {
-    // Remove the edge bleed caused by blur
-    transform: scale(1.1);
-  }
-}
+    transform: scale(1.1); } }
 
-@include bp-mobile {
+@media only screen and (max-width: 600px) {
   .tj-language-chooser {
-    margin-bottom: 50px;
-  }
-}
+    margin-bottom: 50px; } }
+
+/*# sourceMappingURL=language-chooser.css.map */
