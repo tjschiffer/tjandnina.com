@@ -15,6 +15,7 @@
     "babel-preset-env": "^1.7.0",
     "cross-env": "^5.1.6",
     "css-loader": "^0.28.7",
+    "csurf": "^1.9.0",
     "file-loader": "^1.1.4",
     "multi-language-site-generator": "git+https://github.com/tjschiffer/multi-language-site-generator.git",
     "node-sass": "^4.9.0",

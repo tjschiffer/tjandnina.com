@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 const dbconfig = require('../config/database');
 const fs = require('fs');
+const argon2 = require('argon2');
 
 const createDatabase = async() => {
   const connectionConfig = Object.assign({}, dbconfig.connection);
@@ -26,6 +27,7 @@ const createDatabase = async() => {
 
     'CREATE TABLE `' + dbconfig.connection.database + '`.`' + dbconfig.invites_table + '` ( \
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
+    `hash` CHAR(32) NOT NULL, \
     `zip_code` VARCHAR(20) NOT NULL, \
     `invite_welcome_event` BOOLEAN NOT NULL, \
     `invite_after_party` BOOLEAN NOT NULL, \
@@ -68,14 +70,23 @@ const createDatabase = async() => {
   }
 
   const inviteData = await new Promise(resolve => {
-    fs.readFile('./config/invites.csv', 'utf-8', (err, data) => {
-      const insertValues = data.replace(new RegExp(',,', 'g'), ',NULL,').split('\r\n').slice(1, data.length - 1).join('),\r\n(');
+    fs.readFile('./config/invites.csv', 'utf-8', async (err, data) => {
+      const pInsertValuesRows = data
+        .split('\r\n') // Split the rows
+        .slice(1, data.length - 1) // Remove the header row
+        .map(async row => { // Create the secure hash for the row
+          const hash = await argon2.hash(row);
+          return row + ',\'' + hash.substr(hash.length - 32) + '\''; // only use the last 32 chars of the hash
+        });
+      const insertValuesRows = await Promise.all(pInsertValuesRows);
+      const insertValues = insertValuesRows.join('),\r\n(') // Rejoin the array with '(,('
+        .replace(new RegExp(',,', 'g'), ',NULL,'); // Replace any empty values with null;
       resolve('(' + insertValues + ')');
     });
   });
 
   queries.push('INSERT INTO `' + dbconfig.connection.database + '`.`' + dbconfig.invites_table + '` \
-    (`id`, `zip_code`, `invite_welcome_event`, `invite_after_party`) \
+    (`id`, `zip_code`, `invite_welcome_event`, `invite_after_party`, `hash`) \
     VALUES \
     ' + inviteData);
 
