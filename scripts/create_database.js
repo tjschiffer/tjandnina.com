@@ -47,7 +47,7 @@ const createDatabase = async() => {
         PRIMARY KEY (`id`), \
     UNIQUE INDEX `id_UNIQUE` (`id` ASC), \
     FOREIGN KEY (`invite_id`) \
-    REFERENCES `tjandnina`.invite(id) \
+    REFERENCES `' + dbconfig.connection.database + '`.' + dbconfig.invites_table + '(id) \
     ON UPDATE CASCADE ON DELETE RESTRICT)',
 
     'CREATE TABLE `' + dbconfig.connection.database + '`.`' + dbconfig.guests_history_table + '` ( \
@@ -89,6 +89,22 @@ const createDatabase = async() => {
     (`id`, `zip_code`, `invite_welcome_event`, `invite_after_party`, `hash`) \
     VALUES \
     ' + inviteData);
+
+  const guestData = await new Promise(resolve => {
+    fs.readFile('./config/guests.csv', 'utf-8', async (err, data) => {
+      const insertValues = data
+        .split('\r\n') // Split the rows
+        .slice(1, data.length - 1) // Remove the header row
+        .join('),\r\n(') // Rejoin the array with '(,('
+        .replace(new RegExp(',,', 'g'), ',NULL,'); // Replace any empty values with null;
+      resolve('(' + insertValues + ')');
+    });
+  });
+
+  queries.push('INSERT INTO `' + dbconfig.connection.database + '`.`' + dbconfig.guests_table + '` \
+    (`invite_id`, `first_name`, `last_name`) \
+    VALUES \
+    ' + guestData);
 
 
   for (const query of queries) {
