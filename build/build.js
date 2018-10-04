@@ -2,6 +2,7 @@ const generator = require('multi-language-site-generator');
 const sass = require('node-sass');
 const path = require('path');
 const fs = require('fs');
+const mustache = require('mustache');
 const async = require('async');
 const webpack = require('webpack');
 const webpackConfig = require(path.join(__dirname, './webpack.config'));
@@ -16,19 +17,22 @@ const detailsComponent = new (require('./components/details-component/details-co
 const registryComponent = new (require('./components/registry-component/registry-component'))();
 const photosComponent = new (require('./components/photos-component/photos-component'))();
 const rsvpComponent = new (require('./components/rsvp-component/rsvp-component'))();
+const landingPageComponent = new (require('./components/language-chooser-component/language-chooser-component'))();
+const loginComponent = new (require('./components/login-component/login-component'))();
+
+const templateLanguageDataPath = path.join(__dirname, './templates/languageData.json');
 
 function renderLanguages() {
   const templateDirPath = path.join(__dirname, './templates');
-  const templateDataPath = path.join(__dirname, './templates/languageData.json');
   const outputFolder = path.join(__dirname, '../static');
 
-  generator.render(templateDirPath, templateDataPath, outputFolder, err => {
+  generator.render(templateDirPath, templateLanguageDataPath, outputFolder, err => {
     if (err) console.error(err.stack || err);
   });
 }
 
 // Generate each page of the site and save the template to be rendered for each language
-// Use series so that singleton components do not clash
+// Use series so that state on singleton components do not clash
 async.series([
     cb => {
       layoutComponent
@@ -114,6 +118,46 @@ async.series([
             cb(err);
           });
         });
+    },
+    // Render landing page with no header or footer
+    cb => {
+      layoutComponent
+        .setDefineLanguage(false)
+        .setHeadComponent(headComponent)
+        .setContentComponent(landingPageComponent)
+        .setNavigationComponent(null)
+        .setFooterComponent(null)
+        .render((err, renderedPage) => {
+          if (err) console.error(err.stack || err);
+          fs.writeFile(path.join(__dirname, '../static/index.html'), renderedPage, err => {
+            cb(err);
+          });
+        });
+    },
+    // Render login page
+    cb => {
+      layoutComponent
+        .setDefineLanguage(false)
+        .setHeadComponent(headComponent.setTitle('T.J. & Nina | Login'))
+        .setContentComponent(loginComponent)
+        .setNavigationComponent(navigationComponent
+          .setIsOverlay(false)
+          .setActiveLink(null)
+          .setShowNavigationLanguageChooser(false))
+        .setFooterComponent(footerComponent)
+        .render((err, renderedTemplate) => {
+          if (err) console.error(err.stack || err);
+          // Special case for login page since it is being forced with en data
+          fs.readFile(templateLanguageDataPath, 'utf-8', (err, languageData) => {
+            if (err) console.error(err.stack || err);
+            const englishData = JSON.parse(languageData)['en'];
+            englishData['language'] = 'en';
+            const loginPage = mustache.render(renderedTemplate, englishData);
+            fs.writeFile(path.join(__dirname, '../static/login.html'), loginPage, err => {
+              cb(err);
+            });
+          });
+        });
     }
   ],
   (err) => {
@@ -121,21 +165,6 @@ async.series([
     renderLanguages();
   }
 );
-
-// Render landing page with no header or footer
-const landingPageComponent = new (require('./components/language-chooser-component/language-chooser-component'))();
-layoutComponent
-  .setDefineLanguage(false)
-  .setHeadComponent(headComponent)
-  .setContentComponent(landingPageComponent)
-  .setNavigationComponent(null)
-  .setFooterComponent(null)
-  .render((err, renderedTemplate) => {
-    if (err) console.error(err.stack || err);
-    fs.writeFile(path.join(__dirname, '../static/index.html'), renderedTemplate, err => {
-      if(err) console.error(err.stack || err);
-    });
-  });
 
 // Generate css files
 const sassFilesToBuild = [

@@ -2,25 +2,31 @@ const buildUrl = require('build-url');
 const querystring = require('querystring');
 const urls = require('./urls');
 const path = require('path');
+const csrf = require('csurf');
+
+const csrfProtection = csrf({ cookie: true })
 
 // app/routes.js
 module.exports = (app, passport) => {
 
-  // Homepage
-  app.get(urls.homepage, (req, res) => {
-      res.sendFile(path.join(__dirname, '../static/index.html'));
+  // Login page
+  app.get(urls.login, (req, res) => {
+      res.sendFile(path.join(__dirname, '../static/login.html'));
+  });
+
+  app.get('/csrf', csrfProtection, (req, res) => {
+    res.send({ csrf: 'fff' }); // req.csrfToken() });
   });
 
   // Process the login form
   app.post(urls.login,
+    csrfProtection,
     isLoggedIn,
     (req, res, next) => {
-      passport.authenticate('local-login', {
-        failureFlash : true // allow flash messages
-      }, (err, user) => {
+      passport.authenticate('local-login', (err, user) => {
         if (err) { return next(err); }
-        // Redirect back to the login url if auth fails
-        if (!user) { return res.redirect(req.originalUrl); }
+        // Send error message on login failure
+        if (!user) { return res.send({errorMessage: "You're username or password are incorrect"}); }
         if (req.body.remember) {
          req.session.cookie.maxAge = 24 * 60 * 60; // 24 hours
         } else {
@@ -30,8 +36,8 @@ module.exports = (app, passport) => {
           if (err) {
             return next(err);
           }
-          // If the query string has a redirectUrl, else go to dashboard
-          res.redirect(req.query.redirectUrl || urls.dashboard);
+          // If the query string has a redirectUrl, else go to invites
+          res.send({redirectUrl: req.query.redirectUrl || urls.invites});
         });
       })(req, res, next);
   });

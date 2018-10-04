@@ -474,6 +474,9 @@ template {
 .tj--border-bottom-white-3 {
   border-bottom: solid 3px #fff; }
 
+.tj--border-dark-gray {
+  border: 1px solid #4b4b4b; }
+
 .tj--border-top-transparent-1 {
   border-top: solid 1px transparent; }
 
@@ -505,6 +508,9 @@ template {
 .tj--bg-white {
   background-color: #fff; }
 
+.tj--bg-red {
+  background-color: #f2dede; }
+
 .tj--opacity-0 {
   opacity: 0; }
 
@@ -528,7 +534,9 @@ template {
   .tj--padding-15--tab {
     padding: 75px; }
   .tj--hide-tablet {
-    display: none; } }
+    display: none; }
+  .tj--width-full--tab {
+    width: 100%; } }
 
 @media only screen and (max-width: 600px) {
   .tj--padding-vert-10--mob {
@@ -586,7 +594,7 @@ template {
     flex-wrap: wrap; } }
 
 .tj-input {
-  border: thin solid #4b4b4b;
+  border: 1px solid #4b4b4b;
   border-radius: 3px;
   padding: 2px;
   outline: none; }

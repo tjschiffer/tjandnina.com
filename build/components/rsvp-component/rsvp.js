@@ -2,8 +2,8 @@ import vue from 'vue'
 import vuex from 'vuex'
 import weddingInvites from '../../vuex-modules/wedding-invites/wedding-invites'
 
-export default (el) => {
-  el.querySelectorAll('[data-tj-rsvp]').forEach((rsvp) => {
+export default () => {
+  document.querySelectorAll('[data-tj-rsvp]').forEach((rsvp) => {
     new vue({
       el: rsvp,
       store: weddingInvites,
@@ -19,7 +19,7 @@ export default (el) => {
       },
       computed: vuex.mapState({
           isLoaded: (state) => {
-              return state[this.modelId].hasMaterialGroupSelected;
+              return state.isLoaded;
           },
       }),
       methods: {

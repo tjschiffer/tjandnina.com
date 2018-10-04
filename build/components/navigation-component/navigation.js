@@ -3,8 +3,8 @@ import vuejsStorage from 'vuejs-storage'
 
 Vue.use(vuejsStorage);
 
-export default (el) => {
-  el.querySelectorAll('[data-tj-navigation]').forEach((navigation) => {
+export default () => {
+  document.querySelectorAll('[data-tj-navigation]').forEach((navigation) => {
     new Vue({
       el: navigation,
       data: {
@@ -20,7 +20,7 @@ export default (el) => {
       },
       storage: {
       keys: ['open'],
-        //keep data.count in localStorage
+        //keep data.open in localStorage
         namespace: 'tj-navigation'
       }
     });

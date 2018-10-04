@@ -24,6 +24,11 @@ const navigationComponent = function () {
         });
       },
       navigationLanguageChooser: cb => {
+        // Do not render the NavigationLanguageChooserComponent if it is not to be shown
+        if (!_this.getShowNavigationLanguageChooser()) {
+          cb();
+          return;
+        }
         navigationLanguageChooserComponent.render(cb);
       }
     }, (err, view) => {
@@ -82,10 +87,34 @@ const navigationComponent = function () {
     return this;
   };
 
+  /**
+   *
+   * @param activeLink
+   * @return {navigationComponent}
+   */
   this.setActiveLink = activeLink => {
     this.activeLink = activeLink;
     return this;
-  }
+  };
+
+  /**
+   *
+   * @param showNavigationLanguageChooser
+   * @return {navigationComponent}
+   */
+  this.setShowNavigationLanguageChooser = showNavigationLanguageChooser => {
+    this.showNavigationLanguageChooser = showNavigationLanguageChooser;
+    return this;
+  };
+
+  /**
+   * Default to showing the NavigationLanguageChooser
+   *
+   * @return {(function())|*|boolean}
+   */
+  this.getShowNavigationLanguageChooser = () => {
+    return this.showNavigationLanguageChooser === undefined ? true : this.showNavigationLanguageChooser;
+  };
 };
 
 module.exports = navigationComponent;

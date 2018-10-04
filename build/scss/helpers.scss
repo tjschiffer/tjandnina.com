@@ -214,6 +214,10 @@
   border-bottom: solid 3px #fff;
 }
 
+.tj--border-dark-gray {
+  border: 1px solid $dark-gray;
+}
+
 .tj--border-top-transparent-1 {
   border-top: solid 1px transparent;
 }
@@ -254,6 +258,10 @@
   background-color: #fff;
 }
 
+.tj--bg-red {
+  background-color: #f2dede;
+}
+
 .tj--opacity-0 {
   opacity: 0;
 }
@@ -287,6 +295,10 @@
 
   .tj--hide-tablet {
     display: none;
+  }
+
+  .tj--width-full--tab {
+    width: 100%;
   }
 }
 

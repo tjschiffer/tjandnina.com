@@ -4,6 +4,7 @@
     "build": "cross-env NODE_ENV=production node build.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "vue": "^2.5.16",
     "vuejs-storage": "^2.4.0",
     "vuex": "^3.0.1"
