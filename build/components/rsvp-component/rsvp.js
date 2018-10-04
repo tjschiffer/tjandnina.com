@@ -1,30 +1,41 @@
 import vue from 'vue'
-import vuex from 'vuex'
-import weddingInvites from '../../vuex-modules/wedding-invites/wedding-invites'
+import axios from 'axios'
 
 export default () => {
   document.querySelectorAll('[data-tj-rsvp]').forEach((rsvp) => {
     new vue({
       el: rsvp,
-      store: weddingInvites,
       data: {
+        attempted: false,
         foundRsvp: false,
         rsvped: false,
-        firstName: null,
-        lastName: null,
-        zipCode: null
+        error: false,
+        inviteFormData: {
+          firstName: null,
+          lastName: null,
+          zipCode: null,
+          _csrf: null
+        },
+        guests: []
       },
       created() {
         this.$store.dispatch('initialize')
       },
-      computed: vuex.mapState({
-          isLoaded: (state) => {
-              return state.isLoaded;
-          },
-      }),
+      computed: {
+        attemptedNotFound: () => {
+          return this.attempted && !this.foundRsvp;
+        }
+      },
       methods: {
-        findRsvp() {
-          this.$store.dispatch('findRsvp', )
+        async findRsvp() {
+          try {
+            const csrfResponse = await axios.get('/csrf');
+            this.loginFormData._csrf = csrfResponse.data.csrf;
+            const findInviteResponse = await axios.post('/findInvite', this.inviteFormData);
+            this.guests = findInviteResponse.data.guests;
+          } catch (err) {
+            this.error = true;
+          }
         }
       }
     });

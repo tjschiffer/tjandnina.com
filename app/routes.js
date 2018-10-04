@@ -4,18 +4,23 @@ const urls = require('./urls');
 const path = require('path');
 const csrf = require('csurf');
 
-const csrfProtection = csrf({ cookie: true })
+const csrfProtection = csrf({ cookie: true });
 
 // app/routes.js
 module.exports = (app, passport) => {
 
   // Login page
   app.get(urls.login, (req, res) => {
-      res.sendFile(path.join(__dirname, '../static/login.html'));
+    // If the user is already authenticated, redirect to redirect url or invites
+    if (req.isAuthenticated()) {
+      res.redirect(req.query.redirectUrl || urls.invites);
+    }
+
+    res.sendFile(path.join(__dirname, '../static/login.html'));
   });
 
   app.get('/csrf', csrfProtection, (req, res) => {
-    res.send({ csrf: 'fff' }); // req.csrfToken() });
+    res.send({ csrf: req.csrfToken() });
   });
 
   // Process the login form
@@ -26,16 +31,14 @@ module.exports = (app, passport) => {
       passport.authenticate('local-login', (err, user) => {
         if (err) { return next(err); }
         // Send error message on login failure
-        if (!user) { return res.send({errorMessage: "You're username or password are incorrect"}); }
+        if (!user) { return res.send({errorMessage: "Your username or password are incorrect"}); }
         if (req.body.remember) {
          req.session.cookie.maxAge = 24 * 60 * 60; // 24 hours
         } else {
          req.session.cookie.expires = false;
         }
         req.logIn(user, err => {
-          if (err) {
-            return next(err);
-          }
+          if (err) { return next(err); }
           // If the query string has a redirectUrl, else go to invites
           res.send({redirectUrl: req.query.redirectUrl || urls.invites});
         });
@@ -64,6 +67,13 @@ module.exports = (app, passport) => {
     req.logout();
     res.redirect(urls.homepage);
   });
+
+  app.post(urls.findInvite,
+    csrfProtection,
+    (req, res, next) => {
+      res.send({success: true, guests: []});
+      next();
+    });
   
   // 404 Since no other routes have been hit
   app.use((req, res) => {

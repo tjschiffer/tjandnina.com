@@ -21,7 +21,7 @@
                                                  type="text"
                                                  class="tj-input tj--width-full"
                                                  required
-                                                 v-model="loginData.username"></div>
+                                                 v-model="loginFormData.username"></div>
         </div>
         <div class="tj-grid-flex
                     tj-grid-flex--align-center
@@ -31,7 +31,7 @@
                                                  type="password"
                                                  class="tj-input tj--width-full"
                                                  required
-                                                 v-model="loginData.password"></div>
+                                                 v-model="loginFormData.password"></div>
         </div>
         <div class="tj-grid-flex
                     tj-grid-flex--align-center
@@ -39,7 +39,7 @@
           <label for="remember" class="tj--white-space-no-wrap tj--margin-right-1">Remember Me:</label>
           <input id="remember"
                  type="checkbox"
-                 v-model="loginData.remember">
+                 v-model="loginFormData.remember">
         </div>
         <div class="tj--text-align-right">
           <button class="tj-button">Submit</button>
@@ -50,14 +50,14 @@
 </template>
 
 <script>
-  import axios from 'axios';
+  import axios from 'axios'
   const defaultErrorMessage = 'An unknown error has occurred.';
 
   export default {
     name: 'login',
     data() {
       return {
-        loginData: {
+        loginFormData: {
           username: null,
           password: null,
           remember: null,
@@ -70,13 +70,14 @@
       async sumbitForm() {
         try {
           const csrfResponse = await axios.get('/csrf');
-          this.loginData._csrf = csrfResponse.data.csrf;
-          const loginResponse = await axios.post('/login', this.$data.loginData);
+          this.loginFormData._csrf = csrfResponse.data.csrf;
+          // Pass the search query to make sure the redirectUrl works
+          const loginResponse = await axios.post('/login' + window.location.search, this.$data.loginFormData);
           if (loginResponse.data.errorMessage) {
             this.errorMessage = loginResponse.data.errorMessage;
             return;
           }
-          //window.location.href = loginResponse.data.redirectUrl;
+          window.location.href = loginResponse.data.redirectUrl;
         } catch(err) {
           this.errorMessage = defaultErrorMessage;
         }

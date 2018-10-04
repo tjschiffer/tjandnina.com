@@ -123,7 +123,7 @@ async.series([
     cb => {
       layoutComponent
         .setDefineLanguage(false)
-        .setHeadComponent(headComponent)
+        .setHeadComponent(headComponent.setTitle('T.J. & Nina'))
         .setContentComponent(landingPageComponent)
         .setNavigationComponent(null)
         .setFooterComponent(null)

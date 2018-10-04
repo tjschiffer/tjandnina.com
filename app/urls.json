@@ -2,5 +2,6 @@
   "login": "/login",
   "logout": "/logout",
   "homepage": "/",
-  "invites": "/invites"
+  "invites": "/invites",
+  "findInvite": "/findInvite"
 }

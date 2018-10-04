@@ -9,21 +9,21 @@ import vuex from 'vuex'
 vue.use(vuex);
 
 export default new vuex.Store({
-    state: {
-        isLoaded: false
-    },
-    strict: process.env.NODE_ENV !== 'production',
-    mutations: {
-        setLoaded: function (state, payload) {
-            state.isLoaded = payload;
-        }
-    },
-    actions: {
-        initialize(context) {
-
-        },
-        findRsvp(context, payload) {
-
-        }
+  state: {
+    isLoaded: false
+  },
+  strict: process.env.NODE_ENV !== 'production',
+  mutations: {
+    setLoaded: function (state, payload) {
+      state.isLoaded = payload;
     }
+  },
+  actions: {
+    initialize(context) {
+
+    },
+    findRsvp(context, payload) {
+      console.log(arguments);
+    }
+  }
 });

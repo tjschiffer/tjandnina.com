@@ -39,5 +39,12 @@ app.use(flash());
 // Routes
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
+// Custom csrf error handling
+app.use((err, req, res, next) => {
+  if (err.code !== 'EBADCSRFTOKEN') return next(err, req, res);
+  res.status(403);
+  res.send('Forbidden');
+});
+
 app.listen(port);
 console.log('App listening on port ' + port);

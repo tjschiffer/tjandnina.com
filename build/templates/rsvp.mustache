@@ -8,13 +8,13 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script defer src="/js/main.js?1538603213475"></script>
+  <script defer src="/js/main.js?1538692298193"></script>
 
-  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1538603213467">
+  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1538692298165">
 
 </head>
 <body>
-<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1538603213468">
+<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1538692298165">
 
 <div data-tj-navigation
     class="tj-navigation
@@ -115,7 +115,7 @@
                 tj--position-right
                 tj--height-full
                 tj--padding-bottom-1">
-      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1538603213468">
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1538692298165">
 
 <div class="tj-navigation-language-chooser
             tj-grid-flex
@@ -148,7 +148,7 @@
                 tj--position-top
                 tj--position-left
                 tj--height-full">
-      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1538603213468">
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1538692298165">
 
 <div class="tj-navigation-language-chooser
             tj-grid-flex
@@ -313,7 +313,11 @@
                       tj--padding-hor-1
                       tj--margin-bottom-2">
             <label for="firstName" class="tj--white-space-no-wrap tj--margin-right-1">First Name:</label>
-            <div class="tj-grid-flex__cell"><input id="firstname" type="text" class="tj-input tj--width-full" v-model="firstName" required></div>
+            <div class="tj-grid-flex__cell"><input id="firstname"
+                                                   type="text"
+                                                   class="tj-input tj--width-full"
+                                                   v-model="inviteFormData.firstName"
+                                                   required></div>
           </div>
           <div class="tj-grid-flex__cell-1-2
                       tj-grid-flex__cell-1-1--tab
@@ -322,7 +326,11 @@
                       tj--padding-hor-1
                       tj--margin-bottom-2">
             <label for="lastName" class="tj--white-space-no-wrap tj--margin-right-1">Last Name:</label>
-            <div class="tj-grid-flex__cell"><input id="lastname" type="text" class="tj-input tj--width-full" v-model="lastName" required></div>
+            <div class="tj-grid-flex__cell"><input id="lastname"
+                                                   type="text"
+                                                   class="tj-input tj--width-full"
+                                                   v-model="inviteFormData.lastName"
+                                                   required></div>
           </div>
           <div class="tj-grid-flex__cell-2-5
                       tj-grid-flex__cell-1-1--tab
