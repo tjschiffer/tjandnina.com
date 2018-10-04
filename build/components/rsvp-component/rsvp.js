@@ -18,9 +18,6 @@ export default () => {
         },
         guests: []
       },
-      created() {
-        this.$store.dispatch('initialize')
-      },
       computed: {
         attemptedNotFound: () => {
           return this.attempted && !this.foundRsvp;
@@ -28,12 +25,14 @@ export default () => {
       },
       methods: {
         async findRsvp() {
+          this.attempted = true;
           try {
             const csrfResponse = await axios.get('/csrf');
-            this.loginFormData._csrf = csrfResponse.data.csrf;
+            this.inviteFormData._csrf = csrfResponse.data.csrf;
             const findInviteResponse = await axios.post('/findInvite', this.inviteFormData);
             this.guests = findInviteResponse.data.guests;
           } catch (err) {
+            console.log(err);
             this.error = true;
           }
         }

@@ -38,7 +38,11 @@
                       tj--padding-hor-1
                       tj--margin-bottom-2">
             <label for="zipCode" class="tj--white-space-no-wrap tj--margin-right-1">Zip Code:</label>
-            <div class="tj-grid-flex__cell"><input id="zipcode" type="text" class="tj-input tj--width-full" v-model="zipCode" required></div>
+            <div class="tj-grid-flex__cell"><input id="zipcode"
+                                                   type="text"
+                                                   class="tj-input tj--width-full"
+                                                   v-model="inviteFormData.zipCode"
+                                                   required></div>
           </div>
         </div>
         <div class="tj--text-align-right tj--padding-hor-1">
