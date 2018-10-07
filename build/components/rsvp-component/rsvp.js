@@ -9,6 +9,7 @@ export default () => {
         attempted: false,
         rsvped: false,
         error: false,
+        firstNameForEasterEgg: null,
         inviteFormData: {
           firstName: null,
           lastName: null,
@@ -26,15 +27,10 @@ export default () => {
         }
       },
       methods: {
-        async findRsvp(event) {
-          // Rather than using v-model binding,
-          // only update the form data values on findRsvp
-          // This avoids changes to ui while the user is typing
-          this.inviteFormData = event.target
-            .getElementsByTagName('input')
-            .reduce((inviteFormData, input) => {
-              return inviteFormData[input.name] = input.value;
-            }, {});
+        async findRsvp() {
+          // Only update the first name for the Easter Egg on submit
+          // so as to not update ui on first name change
+          this.firstNameForEasterEgg = this.inviteFormData.firstName;
 
           this.attempted = true;
           try {

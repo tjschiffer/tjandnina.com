@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const dbconfig = require('../config/database');
 const fs = require('fs');
 const argon2 = require('argon2');

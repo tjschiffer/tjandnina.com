@@ -4,6 +4,8 @@ const urls = require('./urls');
 const path = require('path');
 const csrf = require('csurf');
 
+const weddingInvites = require('../wedding-invites/wedding-invites');
+
 const csrfProtection = csrf({ cookie: true });
 
 // app/routes.js
@@ -70,9 +72,14 @@ module.exports = (app, passport) => {
 
   app.post(urls.findInvite,
     csrfProtection,
-    (req, res, next) => {
-      res.send({success: true, guests: []});
-      next();
+    (req, res) => {
+      const inviteFormData = req.body;
+      if (!inviteFormData.firstName || !inviteFormData.lastName || !inviteFormData.zipCode) {
+        console.log(inviteFormData.firstName);
+        return res.status(404).send({ error: 'Not found' });
+      }
+      const guestData = weddingInvites.findInvite(inviteFormData);
+      res.send({success: true, guestData: guestData});
     });
   
   // 404 Since no other routes have been hit

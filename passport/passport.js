@@ -1,11 +1,11 @@
 const localStrategy = require('passport-local').Strategy;
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const named = require('yesql').mysql;
 const argon2 = require('argon2');
 const dbconfig = require('../config/database');
 
 const connection = mysql.createConnection(dbconfig.connection);
-// expose this function to our app using module.exports
+
 module.exports = function(passport) {
   // Passport needs ability to serialize and unserialize users out of session
 
@@ -64,14 +64,14 @@ module.exports = function(passport) {
         if (err)
           return done(err);
         if (!rows.length) {
-          return done(null, false, req.flash('loginMessage', 'Incorrect username or password.'));
+          return done(null, false);
         }
         
         argon2.verify(rows[0].password_hash, password).then(match => {
           if (match) {
             return done(null, rows[0]);
           } else {
-            return done(null, false, req.flash('loginMessage', 'Incorrect username or password.'));
+            return done(null, false);
           }
         }).catch(err => {
           return done(err);

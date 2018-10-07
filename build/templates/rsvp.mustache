@@ -8,13 +8,13 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script defer src="/js/main.js?1538772569933"></script>
+  <script defer src="/js/main.js?1538939309509"></script>
 
-  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1538772569862">
+  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1538939309475">
 
 </head>
 <body>
-<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1538772569863">
+<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1538939309475">
 
 <div data-tj-navigation
     class="tj-navigation
@@ -115,7 +115,7 @@
                 tj--position-right
                 tj--height-full
                 tj--padding-bottom-1">
-      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1538772569863">
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1538939309475">
 
 <div class="tj-navigation-language-chooser
             tj-grid-flex
@@ -148,7 +148,7 @@
                 tj--position-top
                 tj--position-left
                 tj--height-full">
-      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1538772569863">
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1538939309475">
 
 <div class="tj-navigation-language-chooser
             tj-grid-flex
@@ -311,7 +311,7 @@
                     tj--font-dark-gray
                     tj--padding-1
                     tj--text-align-center">
-          Your invite was not found. Please use your name as indicated on the invite<span v-if="inviteFormData.firstName === 'Chris'" class="tj--font-style-italic"> Christopher</span>.
+          Your invite was not found. Please use your name as indicated on the invite<span v-if="firstNameForEasterEgg === 'Chris'" class="tj--font-style-italic"> Christopher</span>.
           You may also email us at <a href="mailto:tjandnina2019@gmail.com"
                                       class="tj--text-decoration-none tj--font-black">tjandnina2019@gmail.com</a>
         </div>
@@ -329,7 +329,8 @@
                                                    type="text"
                                                    class="tj-input tj--width-full"
                                                    name="firstName"
-                                                   required></div>
+                                                   required
+                                                   v-model="inviteFormData.firstName"></div>
           </div>
           <div class="tj-grid-flex__cell-1-2
                       tj-grid-flex__cell-1-1--tab
@@ -342,7 +343,8 @@
                                                    type="text"
                                                    class="tj-input tj--width-full"
                                                    name="lastName"
-                                                   required></div>
+                                                   required
+                                                   v-model="inviteFormData.lastName"></div>
           </div>
           <div class="tj-grid-flex__cell-2-5
                       tj-grid-flex__cell-1-1--tab
@@ -355,7 +357,8 @@
                                                    type="text"
                                                    class="tj-input tj--width-full"
                                                    name="zipCode"
-                                                   required></div>
+                                                   required
+                                                   v-model="inviteFormData.zipCode"></div>
           </div>
         </div>
         <div class="tj--text-align-right tj--padding-hor-1">
