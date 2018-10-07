@@ -3,10 +3,12 @@
   src: url(/fonts/aleo.regular.woff2) format("woff2"); }
 
 body, html {
-  font-family: 'Aleo', serif;
   box-sizing: border-box; }
   body ::-webkit-scrollbar, html ::-webkit-scrollbar {
     display: none; }
+
+body {
+  font-family: 'Aleo', serif; }
 
 *, *:before, *:after {
   box-sizing: inherit; }
@@ -438,6 +440,9 @@ template {
 .tj--font-size-32 {
   font-size: 2em; }
 
+.tj--font-style-italic {
+  font-style: italic; }
+
 .tj--line-height-1-5 {
   line-height: 1.5; }
 
@@ -545,9 +550,6 @@ template {
   .tj--width-full--mob {
     width: 100%; } }
 
-[v-cloak] {
-  display: none; }
-
 .tj-grid-flex {
   display: flex; }
 
@@ -609,5 +611,8 @@ template {
   cursor: pointer;
   padding: 5px 10px;
   outline: none; }
+
+[v-cloak] {
+  display: none; }
 
 /*# sourceMappingURL=main.css.map */

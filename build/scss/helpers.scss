@@ -163,6 +163,10 @@
   font-size: 2em;
 }
 
+.tj--font-style-italic {
+  font-style: italic;
+}
+
 .tj--line-height-1-5 {
   line-height: 1.5;
 }
@@ -311,8 +315,4 @@
   .tj--width-full--mob {
     width: 100%;
   }
-}
-
-[v-cloak] {
-  display: none;
 }

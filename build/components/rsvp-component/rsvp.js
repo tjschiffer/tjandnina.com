@@ -7,7 +7,6 @@ export default () => {
       el: rsvp,
       data: {
         attempted: false,
-        foundRsvp: false,
         rsvped: false,
         error: false,
         inviteFormData: {
@@ -19,12 +18,24 @@ export default () => {
         guests: []
       },
       computed: {
-        attemptedNotFound: () => {
-          return this.attempted && !this.foundRsvp;
+        attemptedNotFound() {
+          return this.error || (this.attempted && this.guests.length === 0);
+        },
+        foundGuests() {
+          return this.guests.length > 0;
         }
       },
       methods: {
-        async findRsvp() {
+        async findRsvp(event) {
+          // Rather than using v-model binding,
+          // only update the form data values on findRsvp
+          // This avoids changes to ui while the user is typing
+          this.inviteFormData = event.target
+            .getElementsByTagName('input')
+            .reduce((inviteFormData, input) => {
+              return inviteFormData[input.name] = input.value;
+            }, {});
+
           this.attempted = true;
           try {
             const csrfResponse = await axios.get('/csrf');

@@ -3,11 +3,14 @@
   src: url(/fonts/aleo.regular.woff2) format('woff2');
 }
 body, html {
-  font-family: 'Aleo', serif;
   ::-webkit-scrollbar {
     display: none;
   }
   box-sizing: border-box;
+}
+
+body {
+  font-family: 'Aleo', serif;
 }
 
 *, *:before, *:after {
@@ -26,3 +29,5 @@ body, html {
 @import 'grid-flex';
 @import 'input';
 @import 'button';
+// Load vue helpers last to make sure v-cloak is not overridden
+@import 'vue-helpers';
