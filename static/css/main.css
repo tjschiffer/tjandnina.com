@@ -392,6 +392,10 @@ template {
   padding-left: 25px;
   padding-right: 25px; }
 
+.tj--padding-vert-1 {
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
 .tj--padding-vert-5 {
   padding-top: 25px;
   padding-bottom: 25px; }
@@ -479,8 +483,11 @@ template {
 .tj--border-bottom-white-3 {
   border-bottom: solid 3px #fff; }
 
-.tj--border-dark-gray {
+.tj--border-dark-gray-1 {
   border: 1px solid #4b4b4b; }
+
+.tj--border-left-none {
+  border-left: none; }
 
 .tj--border-top-transparent-1 {
   border-top: solid 1px transparent; }
@@ -490,6 +497,14 @@ template {
 
 .tj--border-radius-3 {
   border-radius: 3px; }
+
+.tj--border-radius-left-3 {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px; }
+
+.tj--border-radius-right-3 {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px; }
 
 .tj--font-weight-light {
   font-weight: 300; }
@@ -604,13 +619,13 @@ template {
     box-shadow: 0 0 2px navy; }
 
 .tj-button {
+  cursor: pointer;
+  outline: none; }
+
+.tj-button--parisian-sky {
   background-color: #4e5766;
   border: thin solid transparent;
-  border-radius: 3px;
-  color: #fff;
-  cursor: pointer;
-  padding: 5px 10px;
-  outline: none; }
+  color: #fff; }
 
 [v-cloak] {
   display: none; }
