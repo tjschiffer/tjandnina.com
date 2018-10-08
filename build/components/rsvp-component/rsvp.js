@@ -1,6 +1,10 @@
 import vue from 'vue'
 import axios from 'axios'
 
+import vuejsStorage from 'vuejs-storage'
+
+vue.use(vuejsStorage);
+
 export default () => {
   document.querySelectorAll('[data-tj-rsvp]').forEach((rsvp) => {
     new vue({
@@ -16,14 +20,17 @@ export default () => {
           zipCode: null,
           _csrf: null
         },
-        guests: []
+        guestData: {
+          invite: {},
+          guests: []
+        }
       },
       computed: {
         attemptedNotFound() {
-          return this.error || (this.attempted && this.guests.length === 0);
+          return this.error || (this.attempted && this.guestData.guests.length === 0);
         },
         foundGuests() {
-          return this.guests.length > 0;
+          return this.guestData.guests.length > 0;
         }
       },
       methods: {
@@ -32,17 +39,26 @@ export default () => {
           // so as to not update ui on first name change
           this.firstNameForEasterEgg = this.inviteFormData.firstName;
 
-          this.attempted = true;
           try {
             const csrfResponse = await axios.get('/csrf');
             this.inviteFormData._csrf = csrfResponse.data.csrf;
             const findInviteResponse = await axios.post('/findInvite', this.inviteFormData);
-            this.guests = findInviteResponse.data.guests;
+            if (findInviteResponse.data.success !== true) {
+              this.error = true;
+              return;
+            }
+            this.guestData.invite = findInviteResponse.data.guestData.invite || {};
+            this.guestData.guests = findInviteResponse.data.guestData.guests || [];
           } catch (err) {
             console.log(err);
             this.error = true;
           }
+          this.attempted = true;
         }
+      },
+      storage: {
+        keys: ['attempted','rsvped','error','firstNameForEasterEgg','inviteFormData','guestData'],
+        namespace: 'tj-rsvp'
       }
     });
   });

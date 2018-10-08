@@ -78,8 +78,9 @@ module.exports = (app, passport) => {
         console.log(inviteFormData.firstName);
         return res.status(404).send({ error: 'Not found' });
       }
-      const guestData = weddingInvites.findInvite(inviteFormData);
-      res.send({success: true, guestData: guestData});
+      weddingInvites.findInvite(inviteFormData).then(guestData => {
+        res.send({success: true, guestData: guestData});
+      });
     });
   
   // 404 Since no other routes have been hit

@@ -1,11 +1,11 @@
-import Vue from 'vue'
+import vue from 'vue'
 import vuejsStorage from 'vuejs-storage'
 
-Vue.use(vuejsStorage);
+vue.use(vuejsStorage);
 
 export default () => {
   document.querySelectorAll('[data-tj-navigation]').forEach((navigation) => {
-    new Vue({
+    new vue({
       el: navigation,
       data: {
         open: false
@@ -19,7 +19,7 @@ export default () => {
         },
       },
       storage: {
-      keys: ['open'],
+        keys: ['open'],
         //keep data.open in localStorage
         namespace: 'tj-navigation'
       }

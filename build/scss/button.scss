@@ -1,11 +1,12 @@
 @import 'variables';
 
 .tj-button {
+  cursor: pointer;
+  outline: none;
+}
+
+.tj-button--parisian-sky {
   background-color: $parisian-sky;
   border: thin solid transparent;
-  border-radius: 3px;
   color: #fff;
-  cursor: pointer;
-  padding: 5px 10px;
-  outline: none;
 }

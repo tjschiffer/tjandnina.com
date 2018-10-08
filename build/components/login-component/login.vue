@@ -42,7 +42,7 @@
                  v-model="loginFormData.remember">
         </div>
         <div class="tj--text-align-right">
-          <button class="tj-button">Submit</button>
+          <button class="tj-button--parisian-sky">Submit</button>
         </div>
       </div>
     </form>
