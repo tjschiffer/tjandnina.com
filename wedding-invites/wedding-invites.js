@@ -13,28 +13,34 @@ module.exports = {
   findInvite: async (inviteFormData) => {
     try {
       const promisePool = pool.promise();
-      const [invite_id,] = await promisePool.query(named(`
-        SELECT invite_id FROM guests g
-        JOIN invites i
+      const [invites,] = await promisePool.query(named(`
+        SELECT i.* FROM ${dbconfig.guests_table} g
+        JOIN ${dbconfig.invites_table} i ON g.invite_id = i.id AND i.zip_code = :zipCode
         WHERE g.first_name = :firstName AND g.last_name = :lastName
+        LIMIT 1
       `)(
         {
           firstName: inviteFormData.firstName,
-          lastName: inviteFormData.lastName
+          lastName: inviteFormData.lastName,
+          zipCode: inviteFormData.zipCode
         }
       ));
-      if (invite_id.length === 0) {
+      if (invites.length === 0) {
         return {};
       }
-      const [invite,] = await promisePool.query(named(`
-        SELECT hash FROM guests g 
-        WHERE g.first_name = :firstName AND g.last_name = :lastName
+      const invite = invites[0];
+      const [guests,] = await promisePool.query(named(`
+        SELECT id, first_name, last_name, attending, attending_welcome_event, attending_after_party FROM guests g 
+        WHERE invite_id = :inviteId
       `)(
         {
-          firstName: inviteFormData.firstName,
-          lastName: inviteFormData.lastName
+          inviteId: invite.id
         }
       ));
+      return {
+        invite: invite,
+        guests: guests
+      }
     } catch(e) {
       return false;
     }
