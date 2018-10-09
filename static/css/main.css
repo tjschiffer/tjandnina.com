@@ -325,6 +325,9 @@ template {
 .tj-grid-flex--align-center {
   align-items: center; }
 
+.tj-grid-flex--align-end {
+  align-items: flex-end; }
+
 .tj-grid-flex--justify-center {
   justify-content: center; }
 
@@ -370,13 +373,18 @@ template {
     box-shadow: 0 0 2px navy; }
 
 .tj-button {
+  background-color: transparent;
   cursor: pointer;
   outline: none; }
+  .tj-button:hover {
+    background-color: rgba(0, 0, 0, 0.04); }
 
 .tj-button--parisian-sky {
   background-color: #4e5766;
   border: thin solid transparent;
   color: #fff; }
+  .tj-button--parisian-sky:hover {
+    background-color: #606b7d; }
 
 .tj--position-absolute {
   position: absolute; }
@@ -398,6 +406,9 @@ template {
 
 .tj--max-width-full {
   max-width: 100%; }
+
+.tj--max-width-510 {
+  max-width: 510px; }
 
 .tj--max-width-1020 {
   max-width: 1020px; }
@@ -472,6 +483,9 @@ template {
   margin-left: auto;
   margin-right: auto; }
 
+.tj--margin-left-auto {
+  margin-left: auto; }
+
 .tj--margin-hor-1 {
   margin-left: 5px;
   margin-right: 5px; }
@@ -491,6 +505,9 @@ template {
 .tj--margin-top-2 {
   margin-top: 10px; }
 
+.tj--margin-top-3 {
+  margin-top: 15px; }
+
 .tj--margin-top-5 {
   margin-top: 25px; }
 
@@ -502,6 +519,9 @@ template {
 
 .tj--font-size-24 {
   font-size: 1.5em; }
+
+.tj--font-size-26 {
+  font-size: 1.625em; }
 
 .tj--font-size-32 {
   font-size: 2em; }
@@ -576,6 +596,9 @@ template {
 .tj--border-radius-right-3 {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px; }
+
+.tj--outline-none {
+  outline: none; }
 
 .tj--font-weight-light {
   font-weight: 300; }

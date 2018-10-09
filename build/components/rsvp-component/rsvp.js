@@ -60,7 +60,40 @@ export default () => {
             return;
           }
           this.guestData.guests[index].attending = newValue;
-        }
+        },
+        updateGuestAttendingWelcomeEvent(index, newValue) {
+          if (index >= this.guestData.guests.length) {
+            return;
+          }
+          this.guestData.guests[index].attending_welcome_event = newValue;
+        },
+        updateGuestAttendingAfterParty(index, newValue) {
+          if (index >= this.guestData.guests.length) {
+            return;
+          }
+          this.guestData.guests[index].attending_after_party = newValue;
+        },
+        gotBackToSearch() {
+          this.attempted = false;
+          this.guestData = {
+            invite: {},
+            guests: []
+          }
+        },
+        async submitRsvp() {
+          try {
+            const submitInviteResponse = await axios.post('/submitInvite', this.guestData);
+            if (submitInviteResponse.data.success !== true) {
+              this.error = true;
+              return;
+            }
+            this.rsvped = true;
+          } catch (err) {
+            console.log(err);
+            this.error = true;
+          }
+          this.attempted = true;
+        },
       },
       storage: {
         keys: ['attempted','rsvped','error','firstNameForEasterEgg','inviteFormData','guestData'],

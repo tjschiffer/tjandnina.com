@@ -1,12 +1,21 @@
 @import 'variables';
 
 .tj-button {
+  background-color: transparent;
   cursor: pointer;
   outline: none;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
 }
 
 .tj-button--parisian-sky {
   background-color: $parisian-sky;
   border: thin solid transparent;
   color: #fff;
+
+  &:hover {
+    background-color: lighten($parisian-sky, 8%);
+  }
 }
