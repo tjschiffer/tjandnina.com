@@ -24,10 +24,10 @@ body {
 
 @import 'mixins';
 @import 'normalize';
-// Load helpers first to allow override
-@import 'helpers';
 @import 'grid-flex';
 @import 'input';
 @import 'button';
+// Load helpers after modules to allow override of default styles
+@import 'helpers';
 // Load vue helpers last to make sure v-cloak is not overridden
 @import 'vue-helpers';

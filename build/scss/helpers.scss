@@ -227,8 +227,20 @@
   border: 1px solid $dark-gray;
 }
 
+.tj--border-dark-gray-left-1 {
+  border-left: 1px solid $dark-gray;
+}
+
+.tj--border-parisian-sky-left-1 {
+  border-left: 1px solid $parisian-sky;
+}
+
 .tj--border-left-none {
   border-left: none;
+}
+
+.tj--border-right-none {
+  border-right: none;
 }
 
 .tj--border-top-transparent-1 {

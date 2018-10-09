@@ -62,7 +62,7 @@
             </div>
           </div>
           <div class="tj--text-align-right tj--padding-hor-1">
-            <button class="tj--button
+            <button class="tj-button
                            tj-button--parisian-sky
                            tj--border-radius-3
                            tj--padding-hor-2
@@ -84,14 +84,18 @@
             <div class="tj-button
                         tj--padding-vert-1
                         tj--padding-hor-2
-                        tj--border-radius-left-3"
-                        v-bind:class="guest.attending === 1 ? 'tj-button--parisian-sky' : 'tj--border-dark-gray-1'">Accept</div>
+                        tj--border-radius-left-3
+                        tj--border-right-none"
+                        v-bind:class="guest.attending === 1 ? 'tj-button--parisian-sky' : 'tj--border-dark-gray-1'"
+                        v-on:click="updateGuestAttending(index, 1)">Accept</div>
+            <div v-bind:class="guest.attending === null ? 'tj--border-dark-gray-left-1' : 'tj--border-parisian-sky-left-1'"></div>
             <div class="tj-button
                         tj--padding-vert-1
                         tj--padding-hor-2
                         tj--border-radius-right-3
                         tj--border-left-none"
-                        v-bind:class="guest.attending === 0 ? 'tj-button--parisian-sky' : 'tj--border-dark-gray-1'">Regret</div>
+                        v-bind:class="guest.attending === 0 ? 'tj-button--parisian-sky' : 'tj--border-dark-gray-1'"
+                        v-on:click="updateGuestAttending(index, 0)">Regret</div>
           </div>
         </div>
       </div>

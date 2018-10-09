@@ -54,6 +54,12 @@ export default () => {
             this.error = true;
           }
           this.attempted = true;
+        },
+        updateGuestAttending(index, newValue) {
+          if (index >= this.guestData.guests.length) {
+            return;
+          }
+          this.guestData.guests[index].attending = newValue;
         }
       },
       storage: {
