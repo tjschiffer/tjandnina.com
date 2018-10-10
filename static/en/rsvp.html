@@ -8,13 +8,13 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script defer src="/js/main.js?1539117567618"></script>
+  <script defer src="/js/main.js?1539133100028"></script>
 
-  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1539117567535">
+  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1539133099810">
 
 </head>
 <body>
-<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1539117567535">
+<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1539133099810">
 
 <div data-tj-navigation
     class="tj-navigation
@@ -115,7 +115,7 @@
                 tj--position-right
                 tj--height-full
                 tj--padding-bottom-1">
-      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539117567535">
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539133099810">
 
 <div class="tj-navigation-language-chooser
             tj-grid-flex
@@ -148,7 +148,7 @@
                 tj--position-top
                 tj--position-left
                 tj--height-full">
-      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539117567535">
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539133099810">
 
 <div class="tj-navigation-language-chooser
             tj-grid-flex
@@ -369,6 +369,18 @@
     </div>
     <div v-else-if="foundGuests && !rsvped" class="tj--margin-top-5
                                                    tj--line-height-1-5">
+      <div v-if="error" class="tj--padding-1 tj--margin-bottom-2">
+        <div class="tj--border-radius-3
+                    tj--bg-red
+                    tj--border-dark-gray
+                    tj--font-dark-gray
+                    tj--padding-1
+                    tj--text-align-center">
+          An error has occurred. Please make sure you are connected to the internet.
+          You may also email us at <a href="mailto:tjandnina2019@gmail.com"
+                                      class="tj--text-decoration-none tj--font-black">tjandnina2019@gmail.com</a>
+        </div>
+      </div>
       <div v-for="(guest, index) in guestData.guests">
         <div class="tj--margin-top-3 tj--text-align-center tj--font-size-26 tj--font-blacksword"
              v-text="guest.first_name + ' ' + guest.last_name"></div>
@@ -470,7 +482,7 @@
                        tj--padding-vert-1
                        tj--padding-hor-2
                        tj--border-radius-3"
-                v-on:click="sbumitRsvp">Submit</button>
+                v-on:click="submitRsvp">Submit</button>
       </div>
     </div>
     <div v-else-if="rsvped" class="tj--margin-top-5
