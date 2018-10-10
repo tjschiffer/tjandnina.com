@@ -11,7 +11,7 @@ module.exports = function(passport) {
 
   // Used to serialize the user for the session
   passport.serializeUser(function(user, done) {
-    done(null, user.id);
+    done(null, user.user_id);
   });
 
   // Used to deserialize the user
@@ -44,7 +44,7 @@ module.exports = function(passport) {
             connection.query(named(insertQuery)(newUserMysql),function(err, rows) {
               if (err)
                 return done(err);
-              newUserMysql.id = rows.insertId;
+              newUserMysql.user_id = rows.insertId;
 
               return done(null, newUserMysql);
             });

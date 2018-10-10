@@ -11,9 +11,10 @@ export default () => {
       el: rsvp,
       data: {
         attempted: false,
-        rsvped: false,
         error: false,
         firstNameForEasterEgg: null,
+        loading: false,
+        rsvped: false,
         inviteFormData: {
           firstName: null,
           lastName: null,
@@ -38,6 +39,7 @@ export default () => {
           // Only update the first name for the Easter Egg on submit
           // so as to not update ui on first name change
           this.firstNameForEasterEgg = this.inviteFormData.firstName;
+          this.error = false;
 
           try {
             const csrfResponse = await axios.get('/csrf');
@@ -81,6 +83,7 @@ export default () => {
           }
         },
         async submitRsvp() {
+          this.error = false;
           try {
             const submitInviteResponse = await axios.post('/submitInvite', this.guestData);
             if (submitInviteResponse.data.success !== true) {
@@ -89,7 +92,6 @@ export default () => {
             }
             this.rsvped = true;
           } catch (err) {
-            console.log(err);
             this.error = true;
           }
           this.attempted = true;

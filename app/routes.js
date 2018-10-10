@@ -75,11 +75,24 @@ module.exports = (app, passport) => {
     (req, res) => {
       const inviteFormData = req.body;
       if (!inviteFormData.firstName || !inviteFormData.lastName || !inviteFormData.zipCode) {
-        console.log(inviteFormData.firstName);
         return res.status(404).send({ error: 'Not found' });
       }
       weddingInvites.findInvite(inviteFormData).then(guestData => {
         res.send({success: true, guestData: guestData});
+      });
+    });
+
+  app.post(urls.submitInvite,
+    (req, res) => {
+      const guestData = req.body;
+      if (!guestData.invite || !guestData.guests || !guestData.guests.length === 0) {
+        return res.status(404).send({ error: 'Not found' });
+      }
+      weddingInvites.submitInvite(guestData).then((result) => {
+        if (!result) {
+          return res.status(404).send({ error: 'Not found' });
+        }
+        res.send({success: result});
       });
     });
   

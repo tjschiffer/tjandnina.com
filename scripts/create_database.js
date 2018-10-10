@@ -13,30 +13,30 @@ const createDatabase = async() => {
     'CREATE DATABASE IF NOT EXISTS `' + dbconfig.connection.database + '`',
 
     'CREATE TABLE `' + dbconfig.connection.database + '`.`' + dbconfig.users_table + '` ( \
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
+    `user_id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
     `username` VARCHAR(20) NOT NULL, \
     `password_hash` CHAR(95) NOT NULL, \
-        PRIMARY KEY (`id`), \
-    UNIQUE INDEX `id_UNIQUE` (`id` ASC), \
+        PRIMARY KEY (`user_id`), \
+    UNIQUE INDEX `id_UNIQUE` (`user_id` ASC), \
     UNIQUE INDEX `username_UNIQUE` (`username` ASC))',
 
     'INSERT INTO `' + dbconfig.connection.database + '`.`' + dbconfig.users_table + '` \
-    (`id`, `username`, `password_hash`) \
+    (`user_id`, `username`, `password_hash`) \
     VALUES \
     (1, \'' + dbconfig.app.user + '\', \'' + dbconfig.app.password_hash + '\')',
 
     'CREATE TABLE `' + dbconfig.connection.database + '`.`' + dbconfig.invites_table + '` ( \
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
+    `invite_id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
     `hash` CHAR(32) NOT NULL, \
     `zip_code` VARCHAR(20) NOT NULL, \
     `invite_welcome_event` BOOLEAN NOT NULL, \
     `invite_after_party` BOOLEAN NOT NULL, \
     `note` TEXT, \
-        PRIMARY KEY (`id`), \
-    UNIQUE INDEX `id_UNIQUE` (`id` ASC))',
+        PRIMARY KEY (`invite_id`), \
+    UNIQUE INDEX `id_UNIQUE` (`invite_id` ASC))',
 
     'CREATE TABLE `' + dbconfig.connection.database + '`.`' + dbconfig.guests_table + '` ( \
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
+    `guest_id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
     `invite_id` INT UNSIGNED NOT NULL, \
     `first_name` VARCHAR(30) NOT NULL, \
     `last_name` VARCHAR(30) NOT NULL, \
@@ -44,15 +44,15 @@ const createDatabase = async() => {
     `attending_welcome_event` BOOLEAN, \
     `attending_after_party` BOOLEAN, \
     `timestamp` TIMESTAMP NOT NULL, \
-        PRIMARY KEY (`id`), \
-    UNIQUE INDEX `id_UNIQUE` (`id` ASC), \
+        PRIMARY KEY (`guest_id`), \
+    UNIQUE INDEX `id_UNIQUE` (`guest_id` ASC), \
     FOREIGN KEY (`invite_id`) \
-    REFERENCES `' + dbconfig.connection.database + '`.' + dbconfig.invites_table + '(id) \
+    REFERENCES `' + dbconfig.connection.database + '`.' + dbconfig.invites_table + '(invite_id) \
     ON UPDATE CASCADE ON DELETE RESTRICT)',
 
     'CREATE TABLE `' + dbconfig.connection.database + '`.`' + dbconfig.guests_history_table + '` ( \
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
-    `guests_id` INT UNSIGNED NOT NULL, \
+    `guest_history_id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
+    `guest_id` INT UNSIGNED NOT NULL, \
     `invite_id` INT UNSIGNED NOT NULL, \
     `first_name` VARCHAR(30) NOT NULL, \
     `last_name` VARCHAR(30) NOT NULL, \
@@ -60,8 +60,8 @@ const createDatabase = async() => {
     `attending_welcome_event` BOOLEAN, \
     `attending_after_party` BOOLEAN, \
     `timestamp` TIMESTAMP NOT NULL, \
-        PRIMARY KEY (`id`), \
-    UNIQUE INDEX `id_UNIQUE` (`id` ASC))'
+        PRIMARY KEY (`guest_history_id`), \
+    UNIQUE INDEX `id_UNIQUE` (`guest_history_id` ASC))'
   ];
 
   // Drop the database if the argument "--drop" is present
@@ -86,7 +86,7 @@ const createDatabase = async() => {
   });
 
   queries.push('INSERT INTO `' + dbconfig.connection.database + '`.`' + dbconfig.invites_table + '` \
-    (`id`, `zip_code`, `invite_welcome_event`, `invite_after_party`, `hash`) \
+    (`invite_id`, `zip_code`, `invite_welcome_event`, `invite_after_party`, `hash`) \
     VALUES \
     ' + inviteData);
 

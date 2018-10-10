@@ -3,5 +3,6 @@
   "logout": "/logout",
   "homepage": "/",
   "invites": "/invites",
-  "findInvite": "/findInvite"
+  "findInvite": "/findInvite",
+  "submitInvite": "/submitInvite"
 }
