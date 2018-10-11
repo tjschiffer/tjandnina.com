@@ -8,13 +8,13 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script defer src="/js/main.js?1539133100028"></script>
+  <script defer src="/js/main.js?1539197967594"></script>
 
-  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1539133099810">
+  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1539197967519">
 
 </head>
 <body>
-<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1539133099810">
+<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1539197967519">
 
 <div data-tj-navigation
     class="tj-navigation
@@ -115,7 +115,7 @@
                 tj--position-right
                 tj--height-full
                 tj--padding-bottom-1">
-      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539133099810">
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539197967519">
 
 <div class="tj-navigation-language-chooser
             tj-grid-flex
@@ -148,7 +148,7 @@
                 tj--position-top
                 tj--position-left
                 tj--height-full">
-      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539133099810">
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539197967519">
 
 <div class="tj-navigation-language-chooser
             tj-grid-flex
@@ -297,7 +297,7 @@
 <div data-tj-rsvp class="tj--bg-floral-white tj--padding-vert-5 tj--min-height-100vh-minus-nav">
   <div class="tj--max-width-510 tj--margin-hor-auto" v-cloak>
     <div class="tj--font-size-32 tj--text-align-center tj--font-blacksword tj--margin-bottom-1 tj--line-height-1-5">RSVP</div>
-    <div v-if="!foundGuests">
+    <div v-if="!foundGuests && !rsvped">
       <div class="tj--font-size-24 tj--text-align-center tj--font-blacksword tj--margin-bottom-1 tj--line-height-1-5">Find Your Invitationaire</div>
       <div class="tj--margin-top-5 tj--text-align-center tj--line-height-1-5 tj--margin-hor-auto">
         <div v-if="attemptedNotFound" class="tj--padding-1 tj--margin-bottom-2">
@@ -475,7 +475,7 @@
                        tj--padding-vert-1
                        tj--padding-hor-2
                        tj--border-radius-3"
-                v-on:click="gotBackToSearch">Go Back</button>
+                v-on:click="goBackToSearch">Go Back</button>
         <button class="tj--margin-left-auto
                        tj-button
                        tj-button--parisian-sky

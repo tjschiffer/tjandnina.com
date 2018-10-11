@@ -30,7 +30,7 @@ module.exports = {
       }
       const invite = invites[0];
       const [guests,] = await promisePool.query(named(`
-        SELECT id, first_name, last_name, attending, attending_welcome_event, attending_after_party FROM guests g 
+        SELECT guest_id, invite_id, first_name, last_name, attending, attending_welcome_event, attending_after_party FROM guests g 
         WHERE invite_id = :inviteId
       `)(
         {
@@ -87,25 +87,64 @@ module.exports = {
       // the user is not invited
       if (!invite.invite_after_party) {
         guestData.guests = guestData.guests.map(guest => {
-          guest.invite_after_party = null;
+          guest.attending_after_party = null;
           return guest;
         });
       }
+
       const guestIdsToUpdate = guestData.guests.reduce((guestIdsToUpdate, guest) => {
         guestIdsToUpdate.push(guest.guest_id);
         return guestIdsToUpdate;
       }, []);
       // Save the current state to the history table
-      const [insertHistory,] = await promisePool.query(named(`
+      await promisePool.query(named(`
         INSERT INTO ${dbconfig.guests_history_table}
-        SELECT * FROM ${dbconfig.guests_table}
-        WHERE invite_id = :inviteId AND id IN (:guestIdsToUpdate)
+        SELECT null, g.* FROM ${dbconfig.guests_table} g
+        WHERE invite_id = :inviteId AND guest_id IN (:guestIdsToUpdate)
       `)({
           inviteId: guestData.invite.invite_id,
           guestIdsToUpdate: guestIdsToUpdate
         })
       );
-      return false;
+
+      // Add the note to the invite table if there is one
+      if (guestData.invite.note && guestData.invite.note.length > 0) {
+        await promisePool.query(named(`
+              UPDATE ${dbconfig.invites_table}
+              SET note = :note
+              WHERE invite_id = :inviteId
+              LIMIT 1;
+            `)({
+            note: guestData.invite.note,
+            inviteId: guestData.invite.invite_id
+          })
+        );
+      }
+
+      // Update the guest values
+      for (const guest of guestData.guests) {
+        const [updateGuest,] = await promisePool.query(named(`
+            UPDATE ${dbconfig.guests_table}
+            SET attending = :attending, 
+                attending_welcome_event = :attendingWelcomeEvent,
+                attending_after_party = :attendingAfterParty,
+                timestamp = NOW()
+            WHERE guest_id = :guestId and invite_id = :inviteId
+            LIMIT 1;
+          `)({
+            attending: guest.attending,
+            attendingWelcomeEvent: guest.attending_welcome_event,
+            attendingAfterParty: guest.attending_after_party,
+            guestId: guest.guest_id,
+            inviteId: guestData.invite.invite_id
+          })
+        );
+        if (updateGuest.affectedRows !== 1) {
+          return false;
+        }
+      }
+
+      return true;
     // } catch(e) {
     //   return false;
     // }

@@ -1,7 +1,7 @@
 <div data-tj-rsvp class="tj--bg-floral-white tj--padding-vert-5 tj--min-height-100vh-minus-nav">
   <div class="tj--max-width-510 tj--margin-hor-auto" v-cloak>
     <div class="tj--font-size-32 tj--text-align-center tj--font-blacksword tj--margin-bottom-1 tj--line-height-1-5">{{ RSVP }}</div>
-    <div v-if="!foundGuests">
+    <div v-if="!foundGuests && !rsvped">
       <div class="tj--font-size-24 tj--text-align-center tj--font-blacksword tj--margin-bottom-1 tj--line-height-1-5">{{ FindYourInvitation }}</div>
       <div class="tj--margin-top-5 tj--text-align-center tj--line-height-1-5 tj--margin-hor-auto">
         <div v-if="attemptedNotFound" class="tj--padding-1 tj--margin-bottom-2">
@@ -179,7 +179,7 @@
                        tj--padding-vert-1
                        tj--padding-hor-2
                        tj--border-radius-3"
-                v-on:click="gotBackToSearch">Go Back</button>
+                v-on:click="goBackToSearch">Go Back</button>
         <button class="tj--margin-left-auto
                        tj-button
                        tj-button--parisian-sky

@@ -43,7 +43,7 @@ const createDatabase = async() => {
     `attending` BOOLEAN, \
     `attending_welcome_event` BOOLEAN, \
     `attending_after_party` BOOLEAN, \
-    `timestamp` TIMESTAMP NOT NULL, \
+    `timestamp` TIMESTAMP NULL, \
         PRIMARY KEY (`guest_id`), \
     UNIQUE INDEX `id_UNIQUE` (`guest_id` ASC), \
     FOREIGN KEY (`invite_id`) \
@@ -59,7 +59,7 @@ const createDatabase = async() => {
     `attending` BOOLEAN, \
     `attending_welcome_event` BOOLEAN, \
     `attending_after_party` BOOLEAN, \
-    `timestamp` TIMESTAMP NOT NULL, \
+    `timestamp` TIMESTAMP NULL, \
         PRIMARY KEY (`guest_history_id`), \
     UNIQUE INDEX `id_UNIQUE` (`guest_history_id` ASC))'
   ];

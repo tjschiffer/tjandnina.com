@@ -5,27 +5,31 @@ import vuejsStorage from 'vuejs-storage'
 
 vue.use(vuejsStorage);
 
+const getDefaultData = () => {
+  return {
+    attempted: false,
+    error: false,
+    firstNameForEasterEgg: null,
+    loading: false,
+    rsvped: false,
+    inviteFormData: {
+      firstName: null,
+      lastName: null,
+      zipCode: null,
+      _csrf: null
+    },
+    guestData: {
+      invite: {},
+      guests: []
+    }
+  };
+};
+
 export default () => {
   document.querySelectorAll('[data-tj-rsvp]').forEach((rsvp) => {
     new vue({
       el: rsvp,
-      data: {
-        attempted: false,
-        error: false,
-        firstNameForEasterEgg: null,
-        loading: false,
-        rsvped: false,
-        inviteFormData: {
-          firstName: null,
-          lastName: null,
-          zipCode: null,
-          _csrf: null
-        },
-        guestData: {
-          invite: {},
-          guests: []
-        }
-      },
+      data: getDefaultData,
       computed: {
         attemptedNotFound() {
           return this.error || (this.attempted && this.guestData.guests.length === 0);
@@ -75,12 +79,15 @@ export default () => {
           }
           this.guestData.guests[index].attending_after_party = newValue;
         },
-        gotBackToSearch() {
+        goBackToSearch() {
           this.attempted = false;
           this.guestData = {
             invite: {},
             guests: []
           }
+        },
+        resetData() {
+
         },
         async submitRsvp() {
           this.error = false;
@@ -90,15 +97,20 @@ export default () => {
               this.error = true;
               return;
             }
-            this.rsvped = true;
+            // Reset the data to the default values but with rsvped = true
+            // This will show the thank you message then reset rsvped
+            // to false on page load since it is not stored in vuejs-storage
+            const newData = getDefaultData();
+            newData.rsvped = true;
+            this.$data = newData;
           } catch (err) {
             this.error = true;
           }
-          this.attempted = true;
         },
       },
       storage: {
-        keys: ['attempted','rsvped','error','firstNameForEasterEgg','inviteFormData','guestData'],
+        // Keep all keys except rsvped so the thank you screen is not persistent
+        keys: ['attempted','error','firstNameForEasterEgg','inviteFormData','guestData'],
         namespace: 'tj-rsvp'
       }
     });
