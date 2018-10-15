@@ -4,7 +4,7 @@ const urls = require('./urls');
 const path = require('path');
 const csrf = require('csurf');
 
-const weddingInvites = require('../wedding-invites/wedding-invites');
+const weddingInvites = require('./wedding-invites/wedding-invites');
 
 const csrfProtection = csrf({ cookie: true });
 

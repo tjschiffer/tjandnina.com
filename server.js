@@ -11,7 +11,7 @@ const secrets = require('./config/secrets');
 const path = require('path');
 var favicon = require('serve-favicon');
 
-require('./passport/passport')(passport); // pass passport for configuration
+require('./app/passport/passport')(passport); // pass passport for configuration
 
 // set up our express application
 app.use(morgan('dev')); // log every request to the console

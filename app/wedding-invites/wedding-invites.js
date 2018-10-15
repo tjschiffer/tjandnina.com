@@ -1,6 +1,6 @@
 const mysql = require('mysql2');
 const named = require('yesql').mysql;
-const dbconfig = require('../config/database');
+const dbconfig = require('../../config/database');
 
 const pool = mysql.createPool(dbconfig.connection);
 

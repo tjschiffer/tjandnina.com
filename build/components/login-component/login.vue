@@ -1,6 +1,9 @@
 <template>
   <div>
-    <form v-on:submit.prevent="sumbitForm">
+    <div v-if="loading" class="tj--text-align-center tj--margin-top-5">
+      <loading-dots></loading-dots>
+    </div>
+    <form v-else v-on:submit.prevent="sumbitForm">
       <div class="tj--width-half tj--width-full--tab tj--margin-hor-auto tj--padding-hor-1">
         <div v-if="errorMessage"
              v-text="errorMessage"
@@ -51,6 +54,7 @@
 
 <script>
   import axios from 'axios'
+  import loadingDots from '../../vue-components/loading-dots'
   const defaultErrorMessage = 'An unknown error has occurred.';
 
   export default {
@@ -61,13 +65,18 @@
           username: null,
           password: null,
           remember: null,
-          _csrf: null, // Note _ is reserved for internal vue methods, csurf uses req.body._csrf; bind using this.$data._csrf
+          _csrf: null,
         },
-        errorMessage: null
+        errorMessage: null,
+        loading: false
       }
+    },
+    components: {
+      loadingDots
     },
     methods: {
       async sumbitForm() {
+        this.loading = true;
         try {
           const csrfResponse = await axios.get('/csrf');
           this.loginFormData._csrf = csrfResponse.data.csrf;
@@ -75,11 +84,13 @@
           const loginResponse = await axios.post('/login' + window.location.search, this.$data.loginFormData);
           if (loginResponse.data.errorMessage) {
             this.errorMessage = loginResponse.data.errorMessage;
+            this.loading = false;
             return;
           }
           window.location.href = loginResponse.data.redirectUrl;
         } catch(err) {
           this.errorMessage = defaultErrorMessage;
+          this.loading = false;
         }
       }
     }

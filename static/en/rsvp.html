@@ -8,13 +8,13 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script defer src="/js/main.js?1539197967594"></script>
+  <script defer src="/js/main.js?1539623656157"></script>
 
-  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1539197967519">
+  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1539623656039">
 
 </head>
 <body>
-<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1539197967519">
+<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1539623656039">
 
 <div data-tj-navigation
     class="tj-navigation
@@ -115,7 +115,7 @@
                 tj--position-right
                 tj--height-full
                 tj--padding-bottom-1">
-      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539197967519">
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539623656039">
 
 <div class="tj-navigation-language-chooser
             tj-grid-flex
@@ -148,7 +148,7 @@
                 tj--position-top
                 tj--position-left
                 tj--height-full">
-      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539197967519">
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539623656039">
 
 <div class="tj-navigation-language-chooser
             tj-grid-flex
@@ -297,7 +297,10 @@
 <div data-tj-rsvp class="tj--bg-floral-white tj--padding-vert-5 tj--min-height-100vh-minus-nav">
   <div class="tj--max-width-510 tj--margin-hor-auto" v-cloak>
     <div class="tj--font-size-32 tj--text-align-center tj--font-blacksword tj--margin-bottom-1 tj--line-height-1-5">RSVP</div>
-    <div v-if="!foundGuests && !rsvped">
+    <div v-if="loading" class="tj--text-align-center tj--margin-top-5">
+      <loading-dots></loading-dots>
+    </div>
+    <div v-else-if="!foundGuests && !rsvped">
       <div class="tj--font-size-24 tj--text-align-center tj--font-blacksword tj--margin-bottom-1 tj--line-height-1-5">Find Your Invitation</div>
       <div class="tj--margin-top-5 tj--text-align-center tj--line-height-1-5 tj--margin-hor-auto">
         <div v-if="attemptedNotFound" class="tj--padding-1 tj--margin-bottom-2">
@@ -305,7 +308,8 @@
                       tj--bg-red
                       tj--border-dark-gray
                       tj--font-dark-gray
-                      tj--padding-1
+                      tj--padding-vert-1
+                      tj--padding-hor-2
                       tj--text-align-center">
             Your invite was not found. Please use your name as indicated on the invite<span v-if="firstNameForEasterEgg === 'Chris'" class="tj--font-style-italic"> Christopher</span>.
             You may also email us at <a href="mailto:tjandnina2019@gmail.com"
@@ -313,7 +317,7 @@
           </div>
         </div>
         <form v-on:submit.prevent="findRsvp">
-          <div class="tj-grid-flex tj-grid-flex--wrap tj-grid-flex--justify-center tj--width-full">
+          <div class="tj-grid-flex tj-grid-flex--wrap tj-grid-flex--justify-center">
             <div class="tj-grid-flex__cell-1-2
                         tj-grid-flex__cell-1-1--tab
                         tj-grid-flex
@@ -367,8 +371,7 @@
         </form>
       </div>
     </div>
-    <div v-else-if="foundGuests && !rsvped" class="tj--margin-top-5
-                                                   tj--line-height-1-5">
+    <div v-else-if="foundGuests && !rsvped" class="tj--line-height-1-5">
       <div v-if="error" class="tj--padding-1 tj--margin-bottom-2">
         <div class="tj--border-radius-3
                     tj--bg-red
@@ -382,7 +385,7 @@
         </div>
       </div>
       <div v-for="(guest, index) in guestData.guests">
-        <div class="tj--margin-top-3 tj--text-align-center tj--font-size-26 tj--font-blacksword"
+        <div class="tj--margin-top-2 tj--text-align-center tj--font-size-26 tj--font-blacksword"
              v-text="guest.first_name + ' ' + guest.last_name"></div>
         <div class="tj-grid-flex tj-grid-flex--align-end tj-grid-flex--justify-center tj-grid-flex--wrap-mob">
           <div class="tj-grid-flex__cell-1-3 tj-grid-flex__cell-1-1--mob tj--padding-hor-2 tj--text-align-center tj--margin-bottom-2">
@@ -440,7 +443,7 @@
                               tj--padding-hor-2
                               tj--border-radius-left-3
                               tj--border-right-none"
-                        v-bind:class="guest.attending === 1 ? 'tj-button--parisian-sky' : 'tj--border-dark-gray-1'"
+                        v-bind:class="guest.attending_after_party === 1 ? 'tj-button--parisian-sky' : 'tj--border-dark-gray-1'"
                         v-on:click="updateGuestAttendingAfterParty(index, 1)">Accept</button>
                 <div v-bind:class="guest.attending_after_party === null ? 'tj--border-dark-gray-left-1' : 'tj--border-parisian-sky-left-1'"></div>
                 <button class="tj-button
@@ -485,16 +488,21 @@
                 v-on:click="submitRsvp">Submit</button>
       </div>
     </div>
-    <div v-else-if="rsvped" class="tj--margin-top-5
-                                   tj--text-align-center
+    <div v-else-if="rsvped" class="tj--text-align-center
                                    tj--line-height-1-5
-                                   tj--width-half
-                                   tj--width-full--mob
-                                   tj--margin-hor-auto">
-      Thanks! Now scram.
+                                   tj--margin-hor-auto
+                                   tj--padding-hor-1">
+      <div class="tj--font-blacksword tj--font-size-26 tj--margin-bottom-2">Thank you!</div>
+      <div v-if="atLeastOneAttending">
+        We can't wait to celebrate with you.
+      </div>
+      <div v-else>
+        { Placeholder }
+      </div>
     </div>
   </div>
 </div>
+
 <div class="tj--padding-vert-5 tj--text-align-center tj--font-dark-gray">
   &copy; 2018 T.J. Schiffer
 </div>

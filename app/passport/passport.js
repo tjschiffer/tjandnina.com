@@ -2,7 +2,7 @@ const localStrategy = require('passport-local').Strategy;
 const mysql = require('mysql2');
 const named = require('yesql').mysql;
 const argon2 = require('argon2');
-const dbconfig = require('../config/database');
+const dbconfig = require('../../config/database');
 
 const connection = mysql.createConnection(dbconfig.connection);
 
@@ -10,13 +10,13 @@ module.exports = function(passport) {
   // Passport needs ability to serialize and unserialize users out of session
 
   // Used to serialize the user for the session
-  passport.serializeUser(function(user, done) {
+  passport.serializeUser((user, done) => {
     done(null, user.user_id);
   });
 
   // Used to deserialize the user
-  passport.deserializeUser(function(id, done) {
-    connection.query(named("SELECT * FROM users WHERE id = :id")({id: id}), function(err, rows){
+  passport.deserializeUser((userId, done) => {
+    connection.query(named("SELECT * FROM users WHERE user_id = :userId")({userId: userId}), function(err, rows){
       done(err, rows[0]);
     });
   });
