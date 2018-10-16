@@ -1,8 +1,45 @@
 const mysql = require('mysql2');
 const named = require('yesql').mysql;
 const dbconfig = require('../../config/database');
+const nodemailer = require('nodemailer');
+const mustache = require('mustache');
+const fs = require('fs');
+const path = require('path');
+const util = require('util');
 
 const pool = mysql.createPool(dbconfig.connection);
+
+/**
+ * Send an email with the RSVP information
+ *
+ * @param guests
+ */
+const sendRsvpEmail = async (guests) => {
+  const guestData = guests.map(guest => {
+    guest.attending = guest.attending === 1 ? 'Yes' : 'No';
+    guest.attending_welcome_event = guest.attending_welcome_event === 1 ? 'Yes' : 'No';
+    guest.attending_after_party = guest.attending_after_party === 1 ? 'Yes' : 'No';
+    return guest;
+  });
+  try {
+    const readFile = util.promisify(fs.readFile);
+    const emailTemplate = await readFile(path.join(__dirname, 'rsvp-email-template.mustache'), 'utf8');
+    const emailContent = mustache.render(emailTemplate, {guests: guestData});
+
+    const transporter = nodemailer.createTransport({
+      sendmail: true
+    });
+    transporter.sendMail({
+      to: 'tjschiffer@gmail.com',
+      subject: 'Message',
+      text: emailContent
+    }).then().catch(err => {
+      console.log(err);
+    });
+  } catch(e) {
+    console.log(e);
+  }
+};
 
 module.exports = {
   /**
@@ -42,6 +79,7 @@ module.exports = {
         guests: guests
       }
     } catch(e) {
+      console.log(e);
       return false;
     }
   },
@@ -56,7 +94,9 @@ module.exports = {
    * @returns {Promise<*>}
    */
   submitInvite: async (guestData) => {
-    // try {
+    sendRsvpEmail(guestData.guests);
+    return false;
+    try {
       const promisePool = pool.promise();
       // Confirm with the database that the invite supplied
       // by the request exists (protects against fake requests)
@@ -145,8 +185,9 @@ module.exports = {
       }
 
       return true;
-    // } catch(e) {
-    //   return false;
-    // }
+    } catch(e) {
+      console.log(e);
+      return false;
+    }
   }
 };

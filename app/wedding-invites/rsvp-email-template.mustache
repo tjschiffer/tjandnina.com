@@ -1,0 +1,14 @@
+
+The following guests have RSVP'ed to tjandnina.com:
+
+{{# guests }}
+  {{ first_name }} {{ last_name }}
+      Attending Wedding? {{ attending }}
+      {{# attending_welcome_event }}
+      Attending Welcome Event? {{ attending_welcome_event }}
+      {{/ attending_welcome_event }}
+      {{# attending_after_party }}
+      Attending Welcome Event? {{ attending_after_party }}
+      {{/ attending_after_party }}
+
+{{/ guests }}
