@@ -63,7 +63,6 @@ export default () => {
             this.guestData.invite = findInviteResponse.data.guestData.invite || {};
             this.guestData.guests = findInviteResponse.data.guestData.guests || [];
           } catch (err) {
-            console.log(err);
             this.error = true;
           }
           this.attempted = true;
