@@ -95,7 +95,6 @@ module.exports = {
    */
   submitInvite: async (guestData) => {
     sendRsvpEmail(guestData.guests);
-    return false;
     try {
       const promisePool = pool.promise();
       // Confirm with the database that the invite supplied
