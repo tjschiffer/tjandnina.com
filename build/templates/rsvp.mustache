@@ -8,13 +8,13 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script defer src="/js/main.js?1539655933093"></script>
+  <script defer src="/js/main.js?1539716802735"></script>
 
-  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1539655933080">
+  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1539716802028">
 
 </head>
 <body>
-<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1539655933080">
+<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1539716802028">
 
 <div data-tj-navigation
     class="tj-navigation
@@ -115,7 +115,7 @@
                 tj--position-right
                 tj--height-full
                 tj--padding-bottom-1">
-      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539655933080">
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539716802028">
 
 <div class="tj-navigation-language-chooser
             tj-grid-flex
@@ -148,7 +148,7 @@
                 tj--position-top
                 tj--position-left
                 tj--height-full">
-      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539655933080">
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1539716802028">
 
 <div class="tj-navigation-language-chooser
             tj-grid-flex
@@ -379,6 +379,16 @@
                     tj--text-align-center">
           {{ RsvpError }} <a href="mailto:tjandnina2019@gmail.com"
                                       class="tj--text-decoration-none tj--font-black">tjandnina2019@gmail.com</a>
+        </div>
+      </div>
+      <div v-if="missingInput" class="tj--padding-1 tj--margin-bottom-2">
+        <div class="tj--border-radius-3
+                    tj--bg-red
+                    tj--border-dark-gray
+                    tj--font-dark-gray
+                    tj--padding-1
+                    tj--text-align-center">
+          {{ FillOutAllResponses }}
         </div>
       </div>
       <div v-for="(guest, index) in guestData.guests">

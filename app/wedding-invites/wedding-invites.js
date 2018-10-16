@@ -1,6 +1,7 @@
 const mysql = require('mysql2');
 const named = require('yesql').mysql;
 const dbconfig = require('../../config/database');
+const config = require('../../config/config');
 const nodemailer = require('nodemailer');
 const mustache = require('mustache');
 const fs = require('fs');
@@ -13,25 +14,36 @@ const pool = mysql.createPool(dbconfig.connection);
  * Send an email with the RSVP information
  *
  * @param guests
+ * @param invite
  */
-const sendRsvpEmail = async (guests) => {
-  const guestData = guests.map(guest => {
-    guest.attending = guest.attending === 1 ? 'Yes' : 'No';
-    guest.attending_welcome_event = guest.attending_welcome_event === 1 ? 'Yes' : 'No';
-    guest.attending_after_party = guest.attending_after_party === 1 ? 'Yes' : 'No';
-    return guest;
-  });
+const sendRsvpEmail = async (guests, invite) => {
+  if (!config.sendEmails) {
+    return;
+  }
   try {
+    const guestData = guests.map(guest => {
+      const rsvpData = {
+        attending: guest.attending === 1 ? 'Yes' : 'No'
+      };
+      if (invite.invite_welcome_event) {
+        rsvpData.attending_welcome_event = guest.attending_welcome_event === 1 ? 'Yes' : 'No';
+      }
+      if (invite.invite_after_party) {
+        rsvpData.attending_after_party = guest.attending_after_party === 1 ? 'Yes' : 'No';
+      }
+      return Object.assign({}, guest, rsvpData);
+    });
+
     const readFile = util.promisify(fs.readFile);
-    const emailTemplate = await readFile(path.join(__dirname, 'rsvp-email-template.mustache'), 'utf8');
+    const emailTemplate = await readFile(path.join(__dirname, './rsvp-email-template.mustache'), 'utf8');
     const emailContent = mustache.render(emailTemplate, {guests: guestData});
 
     const transporter = nodemailer.createTransport({
       sendmail: true
     });
     transporter.sendMail({
-      to: 'tjschiffer@gmail.com',
-      subject: 'Message',
+      to: 'tjandnina2019@gmail.com',
+      subject: 'RSVP',
       text: emailContent
     }).then().catch(err => {
       console.log(err);
@@ -94,7 +106,6 @@ module.exports = {
    * @returns {Promise<*>}
    */
   submitInvite: async (guestData) => {
-    sendRsvpEmail(guestData.guests);
     try {
       const promisePool = pool.promise();
       // Confirm with the database that the invite supplied
@@ -130,6 +141,7 @@ module.exports = {
           return guest;
         });
       }
+      sendRsvpEmail(guestData.guests, invite).then();
 
       const guestIdsToUpdate = guestData.guests.reduce((guestIdsToUpdate, guest) => {
         guestIdsToUpdate.push(guest.guest_id);

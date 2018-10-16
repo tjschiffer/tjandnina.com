@@ -14,6 +14,7 @@ const getDefaultData = () => {
     firstNameForEasterEgg: null,
     loading: false,
     rsvped: false,
+    missingInput: false,
     inviteFormData: {
       firstName: null,
       lastName: null,
@@ -103,7 +104,27 @@ export default () => {
           }
           this.atLeastOneAttending = false;
         },
+        validateGuestData() {
+          if (!this.guestData.invite) {
+            return;
+          }
+
+          for (const guest of this.guestData.guests) {
+            if (guest.attending === null ||
+              (this.guestData.invite.invite_welcome_event === 1 && guest.attending_welcome_event === null) ||
+              (this.guestData.invite.invite_after_party === 1 && guest.attending_welcome_event === null)) {
+              this.missingInput = true;
+              return;
+            }
+          }
+          this.missingInput = false;
+        },
         async submitRsvp() {
+          this.validateGuestData();
+          if (this.missingInput) {
+            return;
+          }
+
           this.error = false;
           this.loading = true;
           try {
