@@ -35,7 +35,24 @@
         "T.J.'s tip: avoid the touristy Champs-Elysees and prefer a walk around la place de la Concorde."
       ]
     },
-    "FindYourInvitation": "Find Your Invitation"
+    "FindYourInvitation": "Find Your Invitation",
+    "InviteNotFound": "Your invite was not found. Please use your name as indicated on the invite<span v-if=\"firstNameForEasterEgg === 'Chris'\" class=\"tj--font-style-italic\"> Christopher</span>. You may also email us at <a href=\"mailto:tjandnina2019@gmail.com\"class=\"tj--text-decoration-none tj--font-black\">tjandnina2019@gmail.com</a>",
+    "FirstName": "First Name",
+    "LastName": "Last Name",
+    "ZipCode": "Zip Code",
+    "Search": "Search",
+    "RsvpError": "An error has occurred. Please make sure you are connected to the internet. You may also email us at",
+    "Attending": "Attending?",
+    "AttendingWelcomeEvent":"<div>Attending</div><div>Welcome Event?</div>",
+    "AttendingAfterParty":"<div>Attending</div><div>After Party?</div>",
+    "Accept": "Accept",
+    "Regret": "Regret",
+    "AdditionalInformation": "Any additional information",
+    "GoBack": "Go Back",
+    "Submit": "Submit",
+    "ThankYou": "Thank you!",
+    "CantWait": "We can't wait to celebrate with you!",
+    "MissYou": "We'll miss you!"
   },
   "fr": {
     "Home": "Page d'Accueil",
@@ -48,6 +65,23 @@
     "CocktailAttire": "Tenue de Cocktail",
     "WeddingDay": "Cérémonie et Réception",
     "ContactUs": "N'hésitez pas à nous écrire si vous avez des questions !",
-    "FindYourInvitation": "Find Your Invitationaire"
+    "FindYourInvitation": "Cherchez votre invitation",
+    "InviteNotFound": "Nous ne trouvons pas votre invitation. Entrez votre nom comme il apparaît sur l'invitation. En cas de problème, écrivez nous à l'adresse suivante <a href=\"mailto:tjandnina2019@gmail.com\"class=\"tj--text-decoration-none tj--font-black\">tjandnina2019@gmail.com</a>",
+    "FirstName": "Prénom",
+    "LastName": "Nom de famille",
+    "ZipCode": "Code postal",
+    "Search": "Chercher",
+    "RsvpError": "An error has occurred. Please make sure you are connected to the internet. You may also email us at",
+    "Attending": "Comptez sur moi!",
+    "AttendingWelcomeEvent":"<div>Comptez sur moi pour l'événement de bienvenue</div>",
+    "AttendingAfterParty":"<div>Comptez sur moi pour l'After Party aussi</div>",
+    "Accept": "Oui",
+    "Regret": "Non",
+    "AdditionalInformation": "Notes",
+    "GoBack": "Retour",
+    "Submit": "OK",
+    "ThankYou": "Merci!",
+    "CantWait": "Nous avons hâte de vous voir!",
+    "MissYou": "Vous allez nous manquer!"
   }
 }
