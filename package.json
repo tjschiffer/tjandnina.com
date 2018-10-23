@@ -25,7 +25,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
-    "cross-env": "^5.1.6",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
     "multi-language-site-generator": "git+https://github.com/tjschiffer/multi-language-site-generator.git",
