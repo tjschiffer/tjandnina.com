@@ -1,9 +1,9 @@
 const path = require('path');
 const fs = require('fs');
 
-const templatePath = path.join(__dirname, './tpl.login.mustache');
+const templatePath = path.join(__dirname, './tpl.invites.mustache');
 
-const loginComponent = function() {
+const invitesComponent = function() {
 
   /**
    *
@@ -16,4 +16,4 @@ const loginComponent = function() {
   };
 };
 
-module.exports = loginComponent;
+module.exports = invitesComponent;

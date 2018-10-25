@@ -1,26 +1,48 @@
 <template>
   <div>
-    <div v-if="loading" class="tj--text-align-center tj--margin-top-5">
+    <div v-if="errorMessage"
+         v-text="errorMessage"
+         class="tj--width-full
+                    tj--border-radius-3
+                    tj--bg-red
+                    tj--border-dark-gray
+                    tj--font-dark-gray
+                    tj--padding-1
+                    tj--text-align-center
+                    tj--margin-bottom-2">
+    </div>
+    <div v-else-if="loading" class="tj--text-align-center tj--margin-top-5">
       <loading-dots></loading-dots>
     </div>
-    <table></table>
+    <table v-else></table>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
   import loadingDots from '../../vue-components/loading-dots'
+  const defaultErrorMessage = 'An unknown error has occurred.';
 
   export default {
-    name: 'tjandnina-invites',
+    name: 'invites',
     data() {
       return {
         invites: [],
-        loading: true
+        loading: true,
+        errorMessage: null
       }
     },
     components: {
       loadingDots
+    },
+    async beforeCreate() {
+      try {
+        const invitesResponse = await axios.post('/invites');
+        this.invites = invitesResponse.data.invitesWithGuests;
+      } catch(err) {
+        this.errorMessage = defaultErrorMessage;
+      }
+      this.loading = false;
     },
     methods: {
       async sumbitForm() {
