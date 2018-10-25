@@ -200,5 +200,30 @@ module.exports = {
       console.log(e);
       return false;
     }
-  }
+  },
+
+  /**
+   * Get invite data for the admin site /invites
+   */
+  getAllInvitesWithGuests: async () => {
+    try {
+      const promisePool = pool.promise();
+      const [invites,] = await promisePool.query(`
+        SELECT invite_id, zip_code, note FROM ${dbconfig.invites_table}
+      `);
+      const [guests,] = await promisePool.query(`
+        SELECT invite_id, first_name, last_name, attending, attending_welcome_event, attending_after_party FROM guests
+      `);
+      return invites.reduce((invitesWithGuests, invite) => {
+        invite.guests = guests.filter(guest => {
+          return guest.invite_id === invite.invite_id
+        });
+        invitesWithGuests.push(invite);
+        return invitesWithGuests;
+      }, []);
+    } catch(e) {
+      console.log(e);
+      return false;
+    }
+  },
 };
