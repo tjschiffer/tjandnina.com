@@ -15,7 +15,7 @@ module.exports = (app, passport) => {
   app.get(urls.login, (req, res) => {
     // If the user is already authenticated, redirect to redirect url or invites
     if (req.isAuthenticated()) {
-      res.redirect(req.query.redirectUrl || urls.invites);
+      res.redirect(querystring.escape(req.query.redirectUrl) || urls.invites);
     }
 
     res.sendFile(path.join(__dirname, '../static/login.html'));
@@ -74,7 +74,7 @@ module.exports = (app, passport) => {
     csrfProtection,
     (req, res) => {
       const inviteFormData = req.body;
-      if (!inviteFormData.firstName || !inviteFormData.lastName || !inviteFormData.zipCode) {
+      if (!inviteFormData.firstName || !inviteFormData.lastName) {
         return res.status(404).send({ error: 'Not found' });
       }
       weddingInvites.findInvite(inviteFormData).then(guestData => {
@@ -88,12 +88,28 @@ module.exports = (app, passport) => {
       if (!guestData.invite || !guestData.guests || !guestData.guests.length === 0) {
         return res.status(404).send({ error: 'Not found' });
       }
-      weddingInvites.submitInvite(guestData).then((result) => {
+      weddingInvites.submitInvite(guestData).then(result => {
         if (!result) {
           return res.status(404).send({ error: 'Not found' });
         }
         res.send({success: result});
       });
+    });
+
+  app.get(urls.invites,
+    //isLoggedIn,
+    (req, res) => {
+      weddingInvites.getAllInvitesWithGuests().then(invitesWithGuests => {
+        return res.send({ success: true, invitesWithGuests: invitesWithGuests});
+      })
+    });
+
+  app.post(urls.invites,
+    //isLoggedIn,
+    (req, res) => {
+      weddingInvites.getAllInvitesWithGuests().then(invitesWithGuests => {
+        return res.send({ success: true, invitesWithGuests: invitesWithGuests});
+      })
     });
   
   // 404 Since no other routes have been hit
