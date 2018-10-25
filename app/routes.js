@@ -99,9 +99,7 @@ module.exports = (app, passport) => {
   app.get(urls.invites,
     //isLoggedIn,
     (req, res) => {
-      weddingInvites.getAllInvitesWithGuests().then(invitesWithGuests => {
-        return res.send({ success: true, invitesWithGuests: invitesWithGuests});
-      })
+      res.sendFile(path.join(__dirname, '../static/invites.html'));
     });
 
   app.post(urls.invites,
