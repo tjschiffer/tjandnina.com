@@ -19,6 +19,7 @@ const photosComponent = new (require('./components/photos-component/photos-compo
 const rsvpComponent = new (require('./components/rsvp-component/rsvp-component'))();
 const landingPageComponent = new (require('./components/language-chooser-component/language-chooser-component'))();
 const loginComponent = new (require('./components/login-component/login-component'))();
+const invitesomponent = new (require('./components/invites-component/invites-component'))();
 
 const templateLanguageDataPath = path.join(__dirname, './templates/languageData.json');
 
@@ -158,7 +159,32 @@ async.series([
             });
           });
         });
-    }
+    },
+  // Render invites page
+  cb => {
+    layoutComponent
+      .setDefineLanguage(false)
+      .setHeadComponent(headComponent.setTitle('T.J. & Nina | Invites'))
+      .setContentComponent(invitesomponent)
+      .setNavigationComponent(navigationComponent
+        .setIsOverlay(false)
+        .setActiveLink(null)
+        .setShowNavigationLanguageChooser(false))
+      .setFooterComponent(footerComponent)
+      .render((err, renderedTemplate) => {
+        if (err) console.error(err.stack || err);
+        // Special case for login page since it is being forced with en data
+        fs.readFile(templateLanguageDataPath, 'utf-8', (err, languageData) => {
+          if (err) console.error(err.stack || err);
+          const englishData = JSON.parse(languageData)['en'];
+          englishData['language'] = 'en';
+          const loginPage = mustache.render(renderedTemplate, englishData);
+          fs.writeFile(path.join(__dirname, '../static/invites.html'), loginPage, err => {
+            cb(err);
+          });
+        });
+      });
+  }
   ],
   (err) => {
     if(err) console.error(err.stack || err);
