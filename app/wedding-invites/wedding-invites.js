@@ -64,7 +64,8 @@ module.exports = {
       const promisePool = pool.promise();
       const [invites,] = await promisePool.query(named(`
         SELECT i.* FROM ${dbconfig.guests_table} g
-        JOIN ${dbconfig.invites_table} i ON g.invite_id = i.invite_id AND i.zip_code = :zipCode
+        JOIN ${dbconfig.invites_table} i ON g.invite_id = i.invite_id 
+          AND IF(:zipCode is NULL,  i.zip_code IS NULL, i.zip_code = :zipCode)
         WHERE g.first_name = :firstName AND g.last_name = :lastName
         LIMIT 1
       `)(
