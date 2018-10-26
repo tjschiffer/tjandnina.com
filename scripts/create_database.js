@@ -28,7 +28,7 @@ const createDatabase = async() => {
     'CREATE TABLE `' + dbconfig.connection.database + '`.`' + dbconfig.invites_table + '` ( \
     `invite_id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
     `hash` CHAR(32) NOT NULL, \
-    `zip_code` VARCHAR(20) NOT NULL, \
+    `zip_code` VARCHAR(20), \
     `invite_welcome_event` BOOLEAN NOT NULL, \
     `invite_after_party` BOOLEAN NOT NULL, \
     `note` TEXT, \
