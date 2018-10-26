@@ -1,9 +1,16 @@
+@font-face {
+  font-family: 'Aleo';
+  src: url(/fonts/aleo.regular.woff2) format('woff2');
+}
 body, html {
-  font-family: Helvetica, sans-serif;
   ::-webkit-scrollbar {
     display: none;
   }
   box-sizing: border-box;
+}
+
+body {
+  font-family: 'Aleo', serif;
 }
 
 *, *:before, *:after {
@@ -12,15 +19,15 @@ body, html {
 
 @font-face {
   font-family: 'Blacksword';
-  src: url(/fonts/Blacksword.woff2) format('woff2');
+  src: url(/fonts/blacksword.woff2) format('woff2');
 }
 
 @import 'mixins';
 @import 'normalize';
-// Load helpers first to allow override
-@import 'helpers';
 @import 'grid-flex';
-@import '../components/hero-image-component/hero-image';
-@import '../components/navigation-component/navigation';
-@import '../components/language-chooser-component/language-chooser';
-@import '../components/navigation-language-chooser-component/navigation-language-chooser';
+@import 'input';
+@import 'button';
+// Load helpers after modules to allow override of default styles
+@import 'helpers';
+// Load vue helpers last to make sure v-cloak is not overridden
+@import 'vue-helpers';

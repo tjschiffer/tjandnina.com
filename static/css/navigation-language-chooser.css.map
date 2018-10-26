@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "navigation-language-chooser.css",
+	"sources": [
+		"../../build/components/navigation-language-chooser-component/navigation-language-chooser.scss"
+	],
+	"names": [],
+	"mappings": "AACA,AAAA,qCAAqC,CAAC;EACpC,UAAU,EAAE,4BAA4B;EACxC,uBAAuB,EAAE,KAAK;EAC9B,oBAAoB,EAAE,KAAK;EAC3B,eAAe,EAAE,KAAK;EACtB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI,GACb"
+}

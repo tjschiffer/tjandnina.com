@@ -1,11 +1,12 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html lang="{{ language }}">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>T.J. &amp; Nina</title>
-  <link rel="icon" type="image/png" href="/favicon.png"/>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72237523-2"></script>
   <script>
@@ -20,11 +21,14 @@
     gtag('config', 'UA-72237523-2');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script src="/js/main.js"></script>
+  <script defer src="/js/main.js?1540592102433"></script>
 
-  <link rel="stylesheet" href="/css/main.css?1536254225635">
+  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1540592102399">
+
 </head>
 <body>
+<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1540592102399">
+
 <div data-tj-navigation
     class="tj-navigation
            tj--z-index-10
@@ -39,7 +43,7 @@
                 tj--width-full
                 tj--font-size-20
                 tj--font-weight-light">
-      <a href="index.html"
+      <a href="/{{ language }}/index.html"
          class="tj-navigation__link
               tj-grid-flex
               tj-grid-flex--align-center
@@ -59,7 +63,7 @@
         </div>
 
       </a>
-      <a href="details.html"
+      <a href="/{{ language }}/details.html"
          class="tj-navigation__link
               tj-grid-flex
               tj-grid-flex--align-center
@@ -74,7 +78,7 @@
         </div>
 
       </a>
-      <a href="registry.html"
+      <a href="/{{ language }}/registry.html"
          class="tj-navigation__link
               tj-grid-flex
               tj-grid-flex--align-center
@@ -89,7 +93,7 @@
         </div>
 
       </a>
-      <a href="photos.html"
+      <a href="/{{ language }}/photos.html"
          class="tj-navigation__link
               tj-grid-flex
               tj-grid-flex--align-center
@@ -104,13 +108,30 @@
         </div>
 
       </a>
+      <a href="/{{ language }}/rsvp.html"
+         class="tj-navigation__link
+              tj-grid-flex
+              tj-grid-flex--align-center
+              tj--padding-hor-3
+              tj--text-decoration-none
+              tj--font-white">
+        <div class="tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj--height-full
+                    tj--position-relative">
+          <div>{{ RSVP }}</div>
+        </div>
+
+      </a>
     </nav>
     <div class="tj--position-absolute
                 tj--position-top
                 tj--position-right
                 tj--height-full
                 tj--padding-bottom-1">
-      <div class="tj-navigation-language-chooser
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1540592102399">
+
+<div class="tj-navigation-language-chooser
             tj-grid-flex
             tj-grid-flex--align-center
             tj--height-full
@@ -141,7 +162,9 @@
                 tj--position-top
                 tj--position-left
                 tj--height-full">
-      <div class="tj-navigation-language-chooser
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1540592102399">
+
+<div class="tj-navigation-language-chooser
             tj-grid-flex
             tj-grid-flex--align-center
             tj--height-full
@@ -187,11 +210,10 @@
                 tj--font-weight-light
                 tj--border-bottom-white-1">
       <a v-on:click="close"
-         href="index.html"
+         href="/{{ language }}/index.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
                 tj-grid-flex--justify-center
-                tj--display-block
                 tj--text-decoration-none
                 tj--font-white
                 tj--border-bottom-transparent-1">
@@ -207,11 +229,10 @@
         </div>
       </a>
       <a v-on:click="close"
-         href="details.html"
+         href="/{{ language }}/details.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
                 tj-grid-flex--justify-center
-                tj--display-block
                 tj--text-decoration-none
                 tj--font-white
                 tj--border-bottom-transparent-1">
@@ -222,11 +243,10 @@
         </div>
       </a>
       <a v-on:click="close"
-         href="registry.html"
+         href="/{{ language }}/registry.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
                 tj-grid-flex--justify-center
-                tj--display-block
                 tj--text-decoration-none
                 tj--font-white
                 tj--border-bottom-transparent-1">
@@ -237,11 +257,10 @@
         </div>
       </a>
       <a v-on:click="close"
-         href="photos.html"
+         href="/{{ language }}/photos.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
                 tj-grid-flex--justify-center
-                tj--display-block
                 tj--text-decoration-none
                 tj--font-white
                 tj--border-bottom-transparent-1">
@@ -249,6 +268,20 @@
                     tj-grid-flex--align-center
                     tj--position-relative">
           <div>{{ Photos }}</div>
+        </div>
+      </a>
+      <a v-on:click="close"
+         href="/{{ language }}/rsvp.html"
+         class="tj-navigation__link-mob
+                tj-grid-flex
+                tj-grid-flex--justify-center
+                tj--text-decoration-none
+                tj--font-white
+                tj--border-bottom-transparent-1">
+        <div class="tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj--position-relative">
+          <div>{{ RSVP }}</div>
         </div>
       </a>
       <div class="tj--position-absolute
@@ -265,6 +298,8 @@
     </nav>
   </div>
 </div>
+
+<link rel="stylesheet" href="&#x2F;css&#x2F;hero-image.css?1540592102399">
 
 <div class="tj-hero-image
             tj-grid-flex

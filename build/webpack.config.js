@@ -1,13 +1,20 @@
 const path = require('path');
 const webpack = require('webpack');
+require('babel-polyfill');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
-  entry: [path.join(__dirname, '../build/main.js')],
+  entry: ['babel-polyfill', path.join(__dirname, '../build/main.js')],
   output: {
-    path: path.join(__dirname, '../js/'),
+    path: path.join(__dirname, '../static/js/'),
     publicPath: '/build/',
     filename: 'main.js'
   },
+  plugins: [
+    new VueLoaderPlugin()
+  ],
+  mode: process.env.NODE_ENV,
   module: {
     rules: [
       {
@@ -48,12 +55,12 @@ module.exports = {
         }
       },
       {
-        test: /\.js$/,
+        test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['babel-preset-env']
+            presets: ['@babel/preset-env']
           }
         }
       },
@@ -92,11 +99,8 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
+    new UglifyJSPlugin({
+      sourceMap: true
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
