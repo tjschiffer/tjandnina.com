@@ -1,5 +1,10 @@
 <template>
   <div>
+    <div>
+      Filter by Name: <input v-model="filters.name"/>
+    </div>
+
+
     <div v-if="errorMessage"
          v-text="errorMessage"
          class="tj--width-full
@@ -20,7 +25,7 @@
             v-text="headerKey.display"
             class="tj--border-dark-gray-1 tj--text-align-center tj--padding-1"></th>
       </tr>
-      <template v-for="invite in invites">
+      <template v-for="invite in filteredInvites">
         <tr>
           <td v-for="headerKey in headerKeysInvites"
               v-text="invite[headerKey.key]"
@@ -86,6 +91,13 @@
     },
   ];
 
+  const defaultFilters = {
+      name: undefined,
+      attending: undefined,
+      attending_after_party: undefined,
+      attending_welcome_event: undefined
+  };
+
   export default {
     name: 'invites',
     data() {
@@ -94,7 +106,8 @@
         loading: true,
         errorMessage: null,
         headerKeysInvites: headerKeysInvites,
-        headerKeysGuests: headerKeysGuests
+        headerKeysGuests: headerKeysGuests,
+        filters: defaultFilters
       }
     },
     components: {
@@ -103,12 +116,16 @@
     computed: {
       allHeaderKeys() {
         return this.headerKeysInvites.concat(this.headerKeysGuests);
+      },
+      filteredInvites() {
+        return this.invites;
       }
     },
     async beforeCreate() {
       try {
         const invitesResponse = await axios.post('/invites');
         this.invites = invitesResponse.data.invitesWithGuests;
+        this.filteredInvites = invitesResponse.data.invitesWithGuests;
       } catch(err) {
         this.errorMessage = defaultErrorMessage;
       }

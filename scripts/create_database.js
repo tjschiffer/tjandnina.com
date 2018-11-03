@@ -72,7 +72,7 @@ const createDatabase = async() => {
   const inviteData = await new Promise(resolve => {
     fs.readFile('./config/invites.csv', 'utf-8', async (err, data) => {
       const pInsertValuesRows = data
-        .split('\n') // Split the rows
+        .split('\r\n') // Split the rows
         .slice(1, data.length - 1) // Remove the header row
         .map(async row => { // Create the secure hash for the row
           const hash = await argon2.hash(row);
@@ -93,7 +93,7 @@ const createDatabase = async() => {
   const guestData = await new Promise(resolve => {
     fs.readFile('./config/guests.csv', 'utf-8', async (err, data) => {
       const insertValues = data
-        .split('\n') // Split the rows
+        .split('\r\n') // Split the rows
         .slice(1, data.length - 1) // Remove the header row
         .join('),\n(') // Rejoin the array with '(,('
         .replace(new RegExp(',,', 'g'), ',NULL,'); // Replace any empty values with null;

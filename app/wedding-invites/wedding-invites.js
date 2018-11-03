@@ -62,6 +62,7 @@ module.exports = {
   findInvite: async (inviteFormData) => {
     try {
       const promisePool = pool.promise();
+      console.log(inviteFormData.zipCode);
       const [invites,] = await promisePool.query(named(`
         SELECT i.* FROM ${dbconfig.guests_table} g
         JOIN ${dbconfig.invites_table} i ON g.invite_id = i.invite_id 
@@ -72,7 +73,7 @@ module.exports = {
         {
           firstName: inviteFormData.firstName,
           lastName: inviteFormData.lastName,
-          zipCode: inviteFormData.zipCode
+          zipCode: inviteFormData.zipCode || null
         }
       ));
       if (invites.length === 0) {

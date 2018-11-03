@@ -14,7 +14,7 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin()
   ],
-  mode: process.env.NODE_ENV,
+  mode: process.env.NODE_ENV || 'development',
   module: {
     rules: [
       {
