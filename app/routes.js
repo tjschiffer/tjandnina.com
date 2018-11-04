@@ -42,7 +42,7 @@ module.exports = (app, passport) => {
         req.logIn(user, err => {
           if (err) { return next(err); }
           // If the query string has a redirectUrl, else go to invites
-          res.send({redirectUrl: req.query.redirectUrl || urls.invites});
+          res.send({redirectUrl: querystring.unescape(req.query.redirectUrl) || urls.invites});
         });
       })(req, res, next);
   });
