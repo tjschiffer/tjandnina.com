@@ -1,7 +1,96 @@
 <template>
   <div>
-    <div>
-      Filter by Name: <input v-model="filters.name"/>
+    <div class="tj-grid-flex">
+      <div class="tj-grid-flex__cell-1-3
+                  tj-grid-flex
+                  tj-grid-flex--align-center
+                  tj--margin-bottom-2">
+        <label for="filters.name" class="tj--white-space-no-wrap tj--margin-right-1">Filter by Name:</label>
+        <div class="tj-grid-flex__cell"><input id="filters.name"
+                                               type="text"
+                                               class="tj-input tj--width-full"
+                                               v-model="filters.name"></div>
+      </div>
+    </div>
+    <div class="tj-grid-flex
+                tj-grid-flex--align-center
+                tj--margin-bottom-2">
+      <span class="tj--white-space-no-wrap tj--margin-right-1">Attending:</span>
+      <div>
+        <label class="tj--padding-hor-1"><input
+            type="radio"
+            name="attending"
+            v-bind:value="1"
+            v-model="filters.attending"> Yes</label>
+        <label class="tj--padding-hor-1"><input
+            type="radio"
+            name="attending"
+            v-bind:value="0"
+            v-model="filters.attending"> No</label>
+        <label class="tj--padding-hor-1"><input
+            type="radio"
+            name="attending"
+            v-bind:value="null"
+            v-model="filters.attending"> Has Not Responded</label>
+      </div>
+    </div>
+    <div class="tj-grid-flex
+                tj-grid-flex--align-center
+                tj--margin-bottom-2">
+      <span class="tj--white-space-no-wrap tj--margin-right-1">Attending Welcome Event:</span>
+      <div>
+        <label class="tj--padding-hor-1"><input
+            type="radio"
+            name="attending_welcome_event"
+            v-bind:value="1"
+            v-model="filters.attending_welcome_event"> Yes</label>
+        <label class="tj--padding-hor-1"><input
+            type="radio"
+            name="attending_welcome_event"
+            v-bind:value="0"
+            v-model="filters.attending_welcome_event"> No</label>
+        <label class="tj--padding-hor-1"><input
+            type="radio"
+            name="attending_welcome_event"
+            v-bind:value="null"
+            v-model="filters.attending_welcome_event"> Has Not Responded</label>
+      </div>
+    </div>
+    <div class="tj-grid-flex
+                tj-grid-flex--align-center
+                tj--margin-bottom-2">
+      <span class="tj--white-space-no-wrap tj--margin-right-1">Attending After Party:</span>
+      <div>
+        <label class="tj--padding-hor-1"><input
+            type="radio"
+            name="attending_after_party"
+            v-bind:value="1"
+            v-model="filters.attending_after_party"> Yes</label>
+        <label class="tj--padding-hor-1"><input
+            type="radio"
+            name="attending_after_party"
+            v-bind:value="0"
+            v-model="filters.attending_after_party"> No</label>
+        <label class="tj--padding-hor-1"><input
+            type="radio"
+            name="attending_after_party"
+            v-bind:value="null"
+            v-model="filters.attending_after_party"> Has Not Responded</label>
+      </div>
+    </div>
+
+    <div class="tj-grid-flex tj-grid-flex--align-center tj--margin-bottom-2">
+      <div>
+        <button class="tj-button
+                       tj-button--parisian-sky
+                       tj--border-radius-3
+                       tj--padding-hor-2
+                       tj--padding-vert-1"
+                v-on:click="clearFilters">Clear Filters</button>
+      </div>
+      <div class="tj--margin-left-auto tj--padding-hor-2">
+        Guest Count: {{ guestCount }}
+      </div>
     </div>
 
 
@@ -80,22 +169,24 @@
       type: 'yes|no'
     },
     {
-      key: 'attending_after_party',
-      display: 'Attending After Party',
-      type: 'yes|no'
-    },
-    {
       key: 'attending_welcome_event',
       display: 'Attending Welcome Event',
       type: 'yes|no'
     },
+    {
+      key: 'attending_after_party',
+      display: 'Attending After Party',
+      type: 'yes|no'
+    }
   ];
 
-  const defaultFilters = {
+  const defaultFilters = () => {
+    return {
       name: undefined,
-      attending: undefined,
+        attending: undefined,
       attending_after_party: undefined,
       attending_welcome_event: undefined
+    }
   };
 
   export default {
@@ -107,7 +198,7 @@
         errorMessage: null,
         headerKeysInvites: headerKeysInvites,
         headerKeysGuests: headerKeysGuests,
-        filters: defaultFilters
+        filters: defaultFilters()
       }
     },
     components: {
@@ -118,14 +209,43 @@
         return this.headerKeysInvites.concat(this.headerKeysGuests);
       },
       filteredInvites() {
-        return this.invites;
+        const _this = this;
+        return this.invites.reduce((filteredInvites, invite) => {
+          const filteredGuests = invite.guests.filter(guest => {
+            const fullNameLowerCase = (guest.first_name + ' ' + guest.last_name).toLowerCase();
+            if (_this.filters.name && fullNameLowerCase.indexOf(_this.filters.name.toLowerCase()) === -1) {
+              return false;
+            }
+
+            for (const key of Object.keys(_this.filters)) {
+              if (key === 'name' || _this.filters[key] === undefined) {
+                continue;
+              }
+              if (_this.filters[key] !== guest[key]) {
+                return false;
+              }
+            }
+
+            return true;
+          });
+
+          if (filteredGuests.length > 0) {
+            filteredInvites.push(Object.assign({}, invite, { guests: filteredGuests }))
+          }
+
+          return filteredInvites;
+        }, []);
+      },
+      guestCount() {
+        return this.filteredInvites.reduce((guestCount, invite) => {
+          return guestCount + invite.guests.length;
+        }, 0);
       }
     },
     async beforeCreate() {
       try {
         const invitesResponse = await axios.post('/invites');
         this.invites = invitesResponse.data.invitesWithGuests;
-        this.filteredInvites = invitesResponse.data.invitesWithGuests;
       } catch(err) {
         this.errorMessage = defaultErrorMessage;
       }
@@ -140,6 +260,9 @@
           return 'Yes';
         }
         return val;
+      },
+      clearFilters() {
+        this.filters = defaultFilters();
       }
     }
   }
