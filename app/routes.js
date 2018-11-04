@@ -103,7 +103,7 @@ module.exports = (app, passport) => {
     });
 
   app.post(urls.invites,
-    //isLoggedIn,
+    isLoggedIn,
     (req, res) => {
       weddingInvites.getAllInvitesWithGuests().then(invitesWithGuests => {
         return res.send({ success: true, invitesWithGuests: invitesWithGuests});
