@@ -10,6 +10,7 @@ const flash = require('connect-flash');
 const secrets = require('./config/secrets');
 const path = require('path');
 var favicon = require('serve-favicon');
+const config = require('./config/config');
 
 require('./app/passport/passport')(passport); // pass passport for configuration
 
@@ -21,8 +22,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-// expose all the static file folders
-app.use('/', express.static(path.join(__dirname, 'static')));
+// expose all the static file folders, with cache as defined in the config
+app.use('/', express.static(path.join(__dirname, 'static'), { maxAge: config["cache-control"] || 0 }));
 
 app.use(favicon(path.join(__dirname, 'favicon.ico')));
 
