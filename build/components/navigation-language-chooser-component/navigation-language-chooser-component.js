@@ -17,11 +17,13 @@ const navigationLanguageChooserComponent = function () {
       languages: [
         {
           url: '/fr',
-          flagPath: '/img/franceflag.svg'
+          flagPath: '/img/franceflag.svg',
+          title: 'Français'
         },
         {
           url: '/en',
-          flagPath: '/img/americaflag.svg'
+          flagPath: '/img/americaflag.svg',
+          title: 'English'
         }
       ]
     };
