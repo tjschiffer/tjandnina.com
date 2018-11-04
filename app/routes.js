@@ -97,7 +97,7 @@ module.exports = (app, passport) => {
     });
 
   app.get(urls.invites,
-    //isLoggedIn,
+    isLoggedIn,
     (req, res) => {
       res.sendFile(path.join(__dirname, '../static/invites.html'));
     });
