@@ -15,7 +15,7 @@ module.exports = (app, passport) => {
   app.get(urls.login, (req, res) => {
     // If the user is already authenticated, redirect to redirect url or invites
     if (req.isAuthenticated()) {
-      res.redirect(querystring.escape(req.query.redirectUrl) || urls.invites);
+      res.redirect(req.query.redirectUrl ? querystring.unescape(req.query.redirectUrl) : urls.invites);
     }
 
     res.sendFile(path.join(__dirname, '../static/login.html'));
@@ -42,7 +42,9 @@ module.exports = (app, passport) => {
         req.logIn(user, err => {
           if (err) { return next(err); }
           // If the query string has a redirectUrl, else go to invites
-          res.send({redirectUrl: querystring.unescape(req.query.redirectUrl) || urls.invites});
+          const redirectUrl = req.query.redirectUrl ? querystring.unescape(req.query.redirectUrl) : urls.invites;
+          console.log(redirectUrl);
+          res.send({redirectUrl: redirectUrl});
         });
       })(req, res, next);
   });
