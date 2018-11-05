@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import invitesApp from './invites.vue'
 
 export default () => {
-  document.querySelectorAll('[data-tj-invites]').forEach((login) => {
+  document.querySelectorAll('[data-tj-invites]').forEach(async (login) => {
+    const invitesApp = await import('./invites.vue');
     new Vue({
       el: login,
       render: h => h(invitesApp)
