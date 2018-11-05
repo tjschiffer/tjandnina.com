@@ -2,13 +2,13 @@ const path = require('path');
 const webpack = require('webpack');
 require('babel-polyfill');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   entry: ['babel-polyfill', path.join(__dirname, '../build/main.js')],
   output: {
     path: path.join(__dirname, '../static/js/'),
-    publicPath: '/build/',
+    publicPath: '/js/',
     filename: 'main.js'
   },
   plugins: [
