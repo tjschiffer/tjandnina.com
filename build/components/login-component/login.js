@@ -5,7 +5,7 @@ export default () => {
     const loginApp = await import('./login.vue');
     new Vue({
       el: login,
-      render: h => h(loginApp)
+      render: h => h(loginApp.default)
     });
   });
 };
