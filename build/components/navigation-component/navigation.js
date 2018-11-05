@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import vuejsStorage from 'vuejs-storage'
 
-vue.use(vuejsStorage);
+Vue.use(vuejsStorage);
 
 export default () => {
   document.querySelectorAll('[data-tj-navigation]').forEach((navigation) => {
