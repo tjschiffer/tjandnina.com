@@ -3,17 +3,19 @@
  *
  * This code is largely based on https://developers.google.com/gmail/api/quickstart/nodejs?refresh=1
  */
-
+const path = require('path');
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/gmail.send'];
-const TOKEN_PATH = 'token.json';
+const TOKEN_PATH = path.join(__dirname, './token.json');
+
+var path = require('path');
 
 // Load client secrets from a local file.
-fs.readFile('credentials.json', (err, content) => {
+fs.readFile(path.join(__dirname, '../../config/gmail_credentials.json'), (err, content) => {
     if (err) return console.log('Error loading client secret file:', err);
     // Authorize a client with credentials, then call the Gmail API.
     authorize(JSON.parse(content), confirm_authorized);
