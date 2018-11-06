@@ -1,10 +1,9 @@
-import vue from 'vue'
+import Vue from 'vue'
 import axios from 'axios'
-import loadingDots from '../../vue-components/loading-dots'
 
 import vuejsStorage from 'vuejs-storage'
 
-vue.use(vuejsStorage);
+Vue.use(vuejsStorage);
 
 const getDefaultData = () => {
   return {
@@ -29,8 +28,9 @@ const getDefaultData = () => {
 };
 
 export default () => {
-  document.querySelectorAll('[data-tj-rsvp]').forEach((rsvp) => {
-    new vue({
+  document.querySelectorAll('[data-tj-rsvp]').forEach(async (rsvp) => {
+    const loadingDots = await import('../../vue-components/loading-dots');
+    new Vue({
       el: rsvp,
       data: getDefaultData,
       computed: {
