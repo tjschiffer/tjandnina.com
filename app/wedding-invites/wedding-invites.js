@@ -2,7 +2,8 @@ const mysql = require('mysql2');
 const named = require('yesql').mysql;
 const dbconfig = require('../../config/database');
 const config = require('../../config/config');
-const nodemailer = require('nodemailer');
+// const nodemailer = require('nodemailer');
+const {google} = require('googleapis');
 const mustache = require('mustache');
 const fs = require('fs');
 const path = require('path');
@@ -38,16 +39,18 @@ const sendRsvpEmail = async (guests, invite) => {
     const emailTemplate = await readFile(path.join(__dirname, './rsvp-email-template.mustache'), 'utf8');
     const emailContent = mustache.render(emailTemplate, {guests: guestData});
 
-    const transporter = nodemailer.createTransport({
-      sendmail: true
-    });
-    transporter.sendMail({
-      to: 'tjandnina2019@gmail.com',
-      subject: 'RSVP',
-      text: emailContent
-    }).then().catch(err => {
-      console.log(err);
-    });
+    // const transporter = nodemailer.createTransport({
+    //   sendmail: true
+    // });
+    // transporter.sendMail({
+    //   to: 'tjandnina2019@gmail.com',
+    //   subject: 'RSVP',
+    //   text: emailContent
+    // }).then().catch(err => {
+    //   console.log(err);
+    // });
+
+
   } catch(e) {
     console.log(e);
   }
