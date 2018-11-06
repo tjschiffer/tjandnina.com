@@ -12,8 +12,6 @@ const {google} = require('googleapis');
 const SCOPES = ['https://www.googleapis.com/auth/gmail.send'];
 const TOKEN_PATH = path.join(__dirname, './token.json');
 
-var path = require('path');
-
 // Load client secrets from a local file.
 fs.readFile(path.join(__dirname, '../../config/gmail_credentials.json'), (err, content) => {
     if (err) return console.log('Error loading client secret file:', err);
