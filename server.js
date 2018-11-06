@@ -1,4 +1,4 @@
-// require('module-alias/register'); // module aliases
+require('module-alias/register'); // module aliases
 const express = require('express');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');

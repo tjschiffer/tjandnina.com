@@ -1,14 +1,13 @@
-const mysql = require('mysql2');
 const named = require('yesql').mysql;
-const dbconfig = require('../../config/database');
 const config = require('../../config/config');
-const sendEmail = require('../gmail/sendEmail.mjs');
 const mustache = require('mustache');
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
+const pool = require('../database');
+const dbconfig = require('../../config/database');
 
-const pool = mysql.createPool(dbconfig.connection);
+const sendEmail = require('../gmail/sendEmail.mjs');
 
 /**
  * Send an email with the RSVP information
@@ -38,7 +37,7 @@ const sendRsvpEmail = async (guests, invite) => {
     const emailTemplate = await readFile(path.join(__dirname, './rsvp-email-template.mustache'), 'utf8');
     const emailContent = mustache.render(emailTemplate, {guests: guestData});
 
-    sendEmail('tjandnina@gmail.com', 'tschiffer@gmail.com', 'RSVP', emailContent);
+    sendEmail('tjandnina2019@gmail.com', 'tjandnina2019@gmail.com', 'RSVP', emailContent);
 
   } catch(e) {
     console.log(e);
@@ -53,8 +52,7 @@ module.exports = {
    */
   findInvite: async (inviteFormData) => {
     try {
-      const promisePool = pool.promise();
-      const [invites,] = await promisePool.query(named(`
+      const [invites,] = await pool.promisePool.query(named(`
         SELECT i.* FROM ${dbconfig.guests_table} g
         JOIN ${dbconfig.invites_table} i ON g.invite_id = i.invite_id 
           AND IF(:zipCode is NULL,  i.zip_code IS NULL, i.zip_code = :zipCode)
@@ -71,7 +69,7 @@ module.exports = {
         return {};
       }
       const invite = invites[0];
-      const [guests,] = await promisePool.query(named(`
+      const [guests,] = await pool.promisePool.query(named(`
         SELECT guest_id, invite_id, first_name, last_name, attending, attending_welcome_event, attending_after_party FROM guests g 
         WHERE invite_id = :inviteId
       `)(
@@ -100,11 +98,10 @@ module.exports = {
    */
   submitInvite: async (guestData) => {
     try {
-      const promisePool = pool.promise();
       // Confirm with the database that the invite supplied
       // by the request exists (protects against fake requests)
       // and also get if the user is authorized to RSVP to special events
-      const [invites,] = await promisePool.query(named(`
+      const [invites,] = await pool.promisePool.query(named(`
         SELECT  i.invite_welcome_event, i.invite_after_party FROM ${dbconfig.invites_table} i
         WHERE i.invite_id = :id AND i.hash = :hash
         LIMIT 1
@@ -141,7 +138,7 @@ module.exports = {
         return guestIdsToUpdate;
       }, []);
       // Save the current state to the history table
-      await promisePool.query(named(`
+      await pool.promisePool.query(named(`
         INSERT INTO ${dbconfig.guests_history_table}
         SELECT null, g.* FROM ${dbconfig.guests_table} g
         WHERE invite_id = :inviteId AND guest_id IN (:guestIdsToUpdate)
@@ -153,7 +150,7 @@ module.exports = {
 
       // Add the note to the invite table if there is one
       if (guestData.invite.note && guestData.invite.note.length > 0) {
-        await promisePool.query(named(`
+        await pool.queryPromise(named(`
               UPDATE ${dbconfig.invites_table}
               SET note = :note
               WHERE invite_id = :inviteId
@@ -167,7 +164,7 @@ module.exports = {
 
       // Update the guest values
       for (const guest of guestData.guests) {
-        const [updateGuest,] = await promisePool.query(named(`
+        const [updateGuest,] = await pool.promisePool.query(named(`
             UPDATE ${dbconfig.guests_table}
             SET attending = :attending, 
                 attending_welcome_event = :attendingWelcomeEvent,
@@ -200,11 +197,10 @@ module.exports = {
    */
   getAllInvitesWithGuests: async () => {
     try {
-      const promisePool = pool.promise();
-      const [invites,] = await promisePool.query(`
+      const [invites,] = await pool.promisePool.query(`
         SELECT invite_id, zip_code, note FROM ${dbconfig.invites_table}
       `);
-      const [guests,] = await promisePool.query(`
+      const [guests,] = await pool.promisePool.query(`
         SELECT invite_id, first_name, last_name, attending, attending_welcome_event, attending_after_party FROM guests
       `);
       return invites.reduce((invitesWithGuests, invite) => {

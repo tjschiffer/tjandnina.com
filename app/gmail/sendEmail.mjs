@@ -1,4 +1,3 @@
-require('module-alias/register'); // module aliases
 /**
  * Used to send emails through
  * an already authorized gmail account
@@ -50,7 +49,7 @@ const authorize = async function authorize() {
     return oAuth2Client;
 };
 
-const sendMail = async (sender, address, subject, message) => {
+const sendMail = async (address, sender, subject, message) => {
     const auth = await authorize();
     if (!auth) {
         return false;

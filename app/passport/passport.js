@@ -1,10 +1,7 @@
 const localStrategy = require('passport-local').Strategy;
-const mysql = require('mysql2');
 const named = require('yesql').mysql;
 const argon2 = require('argon2');
-const dbconfig = require('../../config/database');
-
-const connection = mysql.createConnection(dbconfig.connection);
+const pool = require('../database');
 
 module.exports = function(passport) {
   // Passport needs ability to serialize and unserialize users out of session
@@ -16,7 +13,7 @@ module.exports = function(passport) {
 
   // Used to deserialize the user
   passport.deserializeUser((userId, done) => {
-    connection.query(named("SELECT * FROM users WHERE user_id = :userId")({userId: userId}), function(err, rows){
+    pool.query(named("SELECT * FROM users WHERE user_id = :userId")({userId: userId}), function(err, rows){
       done(err, rows[0]);
     });
   });
@@ -27,7 +24,7 @@ module.exports = function(passport) {
     new localStrategy({passReqToCallback: true}, (req, username, password, done) => {
       // find a user whose email is the same as the forms email
       // we are checking to see if the user trying to login already exists
-      connection.query(named("SELECT * FROM users WHERE username = :username")({username: username}), function(err, rows) {
+      pool.query(named("SELECT * FROM users WHERE username = :username")({username: username}), function(err, rows) {
         if (err)
           return done(err);
         if (rows.length) {
@@ -60,7 +57,7 @@ module.exports = function(passport) {
   passport.use(
     'local-login',
     new localStrategy({passReqToCallback: true}, (req, username, password, done) => {
-      connection.query(named("SELECT * FROM users WHERE username = :username")({username: username}), function(err, rows){
+      pool.query(named("SELECT * FROM users WHERE username = :username")({username: username}), function(err, rows){
         if (err)
           return done(err);
         if (!rows.length) {
