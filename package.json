@@ -12,26 +12,6 @@
     "start": "node ./server"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "vue": "^2.5.16",
-    "vuejs-storage": "^2.4.0"
-  },
-  "devDependencies": {
-    "ajv": "^6.5.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.7.0",
-    "cross-env": "^5.2.0",
-    "css-loader": "^0.28.7",
-    "file-loader": "^1.1.4",
-    "multi-language-site-generator": "git+https://github.com/tjschiffer/multi-language-site-generator.git",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^6.0.6",
-    "vue-loader": "^13.0.5",
-    "vue-template-compiler": "^2.5.16",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1"
-=======
     "argon2": "^0.17.2",
     "body-parser": "^1.13.1",
     "build-url": "^1.0.11",
@@ -51,7 +31,6 @@
     "passport-local": "^1.0.0",
     "serve-favicon": "^2.5.0",
     "yesql": "^3.1.5"
->>>>>>> 01420851799c3c207842ab34cdabbc08fca72455
   },
   "_moduleAliases": {
     "@root": ".",
