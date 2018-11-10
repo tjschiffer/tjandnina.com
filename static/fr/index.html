@@ -21,13 +21,13 @@
     gtag('config', 'UA-72237523-2');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script defer src="/js/main.js?1541885444524"></script>
+  <script defer src="/js/main.js?1541888240904"></script>
 
-  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1541885444502">
+  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1541888240881">
 
 </head>
 <body>
-<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1541885444502">
+<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1541888240881">
 
 <div data-tj-navigation
     class="tj-navigation
@@ -129,7 +129,7 @@
                 tj--position-right
                 tj--height-full
                 tj--padding-bottom-1">
-      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1541885444502">
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1541888240881">
 
 <div class="tj-navigation-language-chooser
             tj-grid-flex
@@ -159,14 +159,15 @@
     </div>
   </div>
   <div class="tj--hide-desktop tj--height-full tj--width-full tj--border-bottom-white-1">
-    <div v-if="open"
-         v-cloak
-         class="tj-navigation__language-chooser-mob
-                tj--position-absolute
-                tj--position-top
-                tj--position-left
-                tj--height-full">
-      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1541885444502">
+    <transition name="tj-navigation__language-chooser-mob-">
+      <div v-if="open"
+           v-cloak
+           class="tj-navigation__language-chooser-mob
+                  tj--position-absolute
+                  tj--position-top
+                  tj--position-left
+                  tj--height-full">
+        <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1541888240881">
 
 <div class="tj-navigation-language-chooser
             tj-grid-flex
@@ -193,7 +194,8 @@
        style="background-image: url('&#x2F;img&#x2F;americaflag.svg')"></div>
   </a>
 </div>
-    </div>
+      </div>
+    </transition>
     <div v-on:click="toggleOpen"
         class="tj--position-absolute
                tj--position-right
@@ -209,7 +211,8 @@
         <div class="tj-navigation__mob-menu-line tj--border-white-1 tj--margin-hor-1 tj--border-radius-3"></div>
       </div>
     </div>
-    <nav v-if="open"
+    <transition name="tj-navigation__links-mob-">
+      <nav v-if="open"
          v-cloak
          class="tj-navigation__links-mob
                 tj--position-absolute
@@ -304,11 +307,12 @@
              style="background-image: url('/img/paris.jpg')"></div>
       </div>
     </nav>
+    </transition>
   </div>
 </div>
 
 <main role="main">
-  <link rel="stylesheet" href="&#x2F;css&#x2F;hero-image.css?1541885444502">
+  <link rel="stylesheet" href="&#x2F;css&#x2F;hero-image.css?1541888240881">
 
 <div class="tj-hero-image
             tj-grid-flex
