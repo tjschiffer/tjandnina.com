@@ -29,7 +29,6 @@ const getDefaultData = () => {
 
 export default () => {
   document.querySelectorAll('[data-tj-rsvp]').forEach(async (rsvp) => {
-    const loadingDots = await import('../../vue-components/loading-dots');
     new Vue({
       el: rsvp,
       data: getDefaultData,
@@ -42,7 +41,7 @@ export default () => {
         },
       },
       components: {
-        loadingDots
+        'loading-dots': () => import('../../vue-components/loading-dots')
       },
       methods: {
         async findRsvp() {
