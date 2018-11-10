@@ -1,3 +1,4 @@
+<%& styleTag %>
 <div class="tj-navigation-language-chooser
             tj-grid-flex
             tj-grid-flex--align-center
@@ -5,10 +6,12 @@
             tj--padding-hor-3
             tj--z-index-10">
   <%# languages %>
-  <a href="<% url %>/{{ templateOutput }}" class="tj-grid-flex
-                             tj-grid-flex--align-center
-                             tj--padding-hor-2
-                             tj--height-full">
+  <a href="<% url %>/{{ templateOutput }}"
+     title="<% title %>"
+     class="tj-grid-flex
+            tj-grid-flex--align-center
+            tj--padding-hor-2
+            tj--height-full">
     <div class="tj-navigation-language-chooser__flag tj--border-radius-3"
        style="background-image: url('<% flagPath %>')"></div>
   </a>

@@ -1,7 +1,8 @@
 const path = require('path');
 const fs = require('fs');
-const mustache = require('mustache');
 const async = require('async');
+const mustache = require('mustache');
+const styleTagComponent = new (require('../style-tag-component/style-tag-component'))();
 
 const navigationLanguageChooserComponent = new (require(path.join(__dirname, '../navigation-language-chooser-component/navigation-language-chooser-component.js')))();
 
@@ -15,8 +16,19 @@ const navigationComponent = function () {
    */
   this.render = cb => {
     const _this = this;
+    styleTagComponent.setStylesheetPath('/css/navigation.css');
     async.parallel({
+      styleTag: cb => {
+        styleTagComponent.render((err, renderedTemplate) => {
+          cb(err, renderedTemplate);
+        });
+      },
       navigationLanguageChooser: cb => {
+        // Do not render the NavigationLanguageChooserComponent if it is not to be shown
+        if (!_this.getShowNavigationLanguageChooser()) {
+          cb();
+          return;
+        }
         navigationLanguageChooserComponent.render(cb);
       }
     }, (err, view) => {
@@ -50,6 +62,10 @@ const navigationComponent = function () {
       {
         linkAddress: 'photos.html',
         linkName: 'Photos'
+      },
+      {
+        linkAddress: 'rsvp.html',
+        linkName: 'RSVP'
       }
     ];
     const _this = this;
@@ -71,10 +87,34 @@ const navigationComponent = function () {
     return this;
   };
 
+  /**
+   *
+   * @param activeLink
+   * @return {navigationComponent}
+   */
   this.setActiveLink = activeLink => {
     this.activeLink = activeLink;
     return this;
-  }
+  };
+
+  /**
+   *
+   * @param showNavigationLanguageChooser
+   * @return {navigationComponent}
+   */
+  this.setShowNavigationLanguageChooser = showNavigationLanguageChooser => {
+    this.showNavigationLanguageChooser = showNavigationLanguageChooser;
+    return this;
+  };
+
+  /**
+   * Default to showing the NavigationLanguageChooser
+   *
+   * @return {(function())|*|boolean}
+   */
+  this.getShowNavigationLanguageChooser = () => {
+    return this.showNavigationLanguageChooser === undefined ? true : this.showNavigationLanguageChooser;
+  };
 };
 
 module.exports = navigationComponent;

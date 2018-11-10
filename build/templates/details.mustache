@@ -1,30 +1,21 @@
 <!doctype html>
-<html class="no-js" lang="{{ language }}">
+<html lang="{{ language }}">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>T.J. &amp; Nina | {{ Details }}</title>
-  <link rel="icon" type="image/png" href="/favicon.png"/>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72237523-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-72237523-2');
-  </script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script src="/js/main.js"></script>
+  <script defer src="/js/main.js?1541881669664"></script>
 
-  <link rel="stylesheet" href="/css/main.css?1540260864883">
+  <link rel="stylesheet" href="&#x2F;css&#x2F;main.css?1541881669411">
+
 </head>
 <body>
+<link rel="stylesheet" href="&#x2F;css&#x2F;navigation.css?1541881669411">
+
 <div data-tj-navigation
     class="tj-navigation
            tj--z-index-10
@@ -38,7 +29,7 @@
                 tj--width-full
                 tj--font-size-20
                 tj--font-weight-light">
-      <a href="index.html"
+      <a href="/{{ language }}/index.html"
          class="tj-navigation__link
               tj-grid-flex
               tj-grid-flex--align-center
@@ -53,7 +44,7 @@
         </div>
 
       </a>
-      <a href="details.html"
+      <a href="/{{ language }}/details.html"
          class="tj-navigation__link
               tj-grid-flex
               tj-grid-flex--align-center
@@ -73,7 +64,7 @@
         </div>
 
       </a>
-      <a href="registry.html"
+      <a href="/{{ language }}/registry.html"
          class="tj-navigation__link
               tj-grid-flex
               tj-grid-flex--align-center
@@ -88,7 +79,7 @@
         </div>
 
       </a>
-      <a href="photos.html"
+      <a href="/{{ language }}/photos.html"
          class="tj-navigation__link
               tj-grid-flex
               tj-grid-flex--align-center
@@ -103,29 +94,50 @@
         </div>
 
       </a>
+      <a href="/{{ language }}/rsvp.html"
+         class="tj-navigation__link
+              tj-grid-flex
+              tj-grid-flex--align-center
+              tj--padding-hor-3
+              tj--text-decoration-none
+              tj--font-white">
+        <div class="tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj--height-full
+                    tj--position-relative">
+          <div>{{ RSVP }}</div>
+        </div>
+
+      </a>
     </nav>
     <div class="tj--position-absolute
                 tj--position-top
                 tj--position-right
                 tj--height-full
                 tj--padding-bottom-1">
-      <div class="tj-navigation-language-chooser
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1541881669411">
+
+<div class="tj-navigation-language-chooser
             tj-grid-flex
             tj-grid-flex--align-center
             tj--height-full
             tj--padding-hor-3
             tj--z-index-10">
-  <a href="&#x2F;fr/{{ templateOutput }}" class="tj-grid-flex
-                             tj-grid-flex--align-center
-                             tj--padding-hor-2
-                             tj--height-full">
+  <a href="&#x2F;fr/{{ templateOutput }}"
+     title="Français"
+     class="tj-grid-flex
+            tj-grid-flex--align-center
+            tj--padding-hor-2
+            tj--height-full">
     <div class="tj-navigation-language-chooser__flag tj--border-radius-3"
        style="background-image: url('&#x2F;img&#x2F;franceflag.svg')"></div>
   </a>
-  <a href="&#x2F;en/{{ templateOutput }}" class="tj-grid-flex
-                             tj-grid-flex--align-center
-                             tj--padding-hor-2
-                             tj--height-full">
+  <a href="&#x2F;en/{{ templateOutput }}"
+     title="English"
+     class="tj-grid-flex
+            tj-grid-flex--align-center
+            tj--padding-hor-2
+            tj--height-full">
     <div class="tj-navigation-language-chooser__flag tj--border-radius-3"
        style="background-image: url('&#x2F;img&#x2F;americaflag.svg')"></div>
   </a>
@@ -140,23 +152,29 @@
                 tj--position-top
                 tj--position-left
                 tj--height-full">
-      <div class="tj-navigation-language-chooser
+      <link rel="stylesheet" href="&#x2F;css&#x2F;navigation-language-chooser.css?1541881669411">
+
+<div class="tj-navigation-language-chooser
             tj-grid-flex
             tj-grid-flex--align-center
             tj--height-full
             tj--padding-hor-3
             tj--z-index-10">
-  <a href="&#x2F;fr/{{ templateOutput }}" class="tj-grid-flex
-                             tj-grid-flex--align-center
-                             tj--padding-hor-2
-                             tj--height-full">
+  <a href="&#x2F;fr/{{ templateOutput }}"
+     title="Français"
+     class="tj-grid-flex
+            tj-grid-flex--align-center
+            tj--padding-hor-2
+            tj--height-full">
     <div class="tj-navigation-language-chooser__flag tj--border-radius-3"
        style="background-image: url('&#x2F;img&#x2F;franceflag.svg')"></div>
   </a>
-  <a href="&#x2F;en/{{ templateOutput }}" class="tj-grid-flex
-                             tj-grid-flex--align-center
-                             tj--padding-hor-2
-                             tj--height-full">
+  <a href="&#x2F;en/{{ templateOutput }}"
+     title="English"
+     class="tj-grid-flex
+            tj-grid-flex--align-center
+            tj--padding-hor-2
+            tj--height-full">
     <div class="tj-navigation-language-chooser__flag tj--border-radius-3"
        style="background-image: url('&#x2F;img&#x2F;americaflag.svg')"></div>
   </a>
@@ -186,11 +204,10 @@
                 tj--font-weight-light
                 tj--border-bottom-white-1">
       <a v-on:click="close"
-         href="index.html"
+         href="/{{ language }}/index.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
                 tj-grid-flex--justify-center
-                tj--display-block
                 tj--text-decoration-none
                 tj--font-white
                 tj--border-bottom-transparent-1">
@@ -201,11 +218,10 @@
         </div>
       </a>
       <a v-on:click="close"
-         href="details.html"
+         href="/{{ language }}/details.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
                 tj-grid-flex--justify-center
-                tj--display-block
                 tj--text-decoration-none
                 tj--font-white
                 tj--border-bottom-transparent-1">
@@ -221,11 +237,10 @@
         </div>
       </a>
       <a v-on:click="close"
-         href="registry.html"
+         href="/{{ language }}/registry.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
                 tj-grid-flex--justify-center
-                tj--display-block
                 tj--text-decoration-none
                 tj--font-white
                 tj--border-bottom-transparent-1">
@@ -236,11 +251,10 @@
         </div>
       </a>
       <a v-on:click="close"
-         href="photos.html"
+         href="/{{ language }}/photos.html"
          class="tj-navigation__link-mob
                 tj-grid-flex
                 tj-grid-flex--justify-center
-                tj--display-block
                 tj--text-decoration-none
                 tj--font-white
                 tj--border-bottom-transparent-1">
@@ -248,6 +262,20 @@
                     tj-grid-flex--align-center
                     tj--position-relative">
           <div>{{ Photos }}</div>
+        </div>
+      </a>
+      <a v-on:click="close"
+         href="/{{ language }}/rsvp.html"
+         class="tj-navigation__link-mob
+                tj-grid-flex
+                tj-grid-flex--justify-center
+                tj--text-decoration-none
+                tj--font-white
+                tj--border-bottom-transparent-1">
+        <div class="tj-grid-flex
+                    tj-grid-flex--align-center
+                    tj--position-relative">
+          <div>{{ RSVP }}</div>
         </div>
       </a>
       <div class="tj--position-absolute
@@ -270,17 +298,17 @@
               tj--overflow-hidden
               tj--z-index-neg-1">
     <div class="tj--navigation__background
-                tj--width-full"
-                style="background-image: url('/img/paris.jpg')"></div>
+                tj--width-full"></div>
   </div>
 </div>
 
-<div class="tj--bg-floral-white tj--padding-vert-5">
+<main role="main">
+  <div class="tj--bg-floral-white tj--padding-vert-5">
   <div class="tj--max-width-1020 tj--margin-hor-auto tj--padding-hor-1 tj--min-height-100vh-minus-nav">
     <div class="tj--width-half tj--width-full--mob tj--margin-hor-auto tj--padding-1 tj--bg-white">
-      <img class="tj--max-width-full tj--display-block" src="/img/shangri-la.jpg" />
+      <img class="tj--max-width-full tj--display-block" src="/img/shangri-la.jpg" alt="photo of Shangri La"/>
     </div>
-    <div class="tj--margin-top-5 tj--text-align-center tj--line-height-1-5 tj--padding-hor-1">
+    <div class="tj--margin-top-5 tj--text-align-center tj--line-height-1-5 tj--padding-hor-1 tj--width-half tj--width-full--mob tj--margin-hor-auto">
       <div class="tj--font-size-32 tj--font-blacksword tj--margin-bottom-1">{{ WeddingDay }}</div>
       <div>{{ WeddingDate }}</div>
       <div>Shangri-La Hotel</div>
@@ -327,13 +355,16 @@
     <div class="tj--margin-top-5 tj--text-align-center tj--line-height-1-5 tj--padding-hor-1">
       <div class="tj--font-size-32 tj--font-blacksword tj--margin-bottom-1">Contact</div>
       <div>{{ ContactUs }}</div>
-      <div><a href="mailto:tjandnina2019@gmail.com" class="tj--text-decoration-none tj--font-black">tjandnina2019@gmail.com</a></div>
+      <div><a href="mailto:tjandnina2019@gmail.com" class="tj--plain-link">tjandnina2019@gmail.com</a></div>
     </div>
 
   </div>
 </div>
+</main>
+<footer>
 <div class="tj--padding-vert-5 tj--text-align-center tj--font-dark-gray">
   &copy; 2018 T.J. Schiffer
 </div>
+</footer>
 </body>
 </html>

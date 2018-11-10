@@ -1,10 +1,14 @@
 <!doctype html>
-<html class="no-js" lang="<%# defineLanguage %>{{ language }}<%/ defineLanguage %>">
+<html lang="<%# defineLanguage %>{{ language }}<%/ defineLanguage %>">
 
 <%& head %>
 <body>
 <%& navigation %>
-<%& content %>
+<main role="main">
+  <%& content %>
+</main>
+<footer>
 <%& footer %>
+</footer>
 </body>
 </html>

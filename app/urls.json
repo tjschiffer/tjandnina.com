@@ -1,0 +1,8 @@
+{
+  "login": "/login",
+  "logout": "/logout",
+  "homepage": "/",
+  "invites": "/invites",
+  "findInvite": "/findInvite",
+  "submitInvite": "/submitInvite"
+}

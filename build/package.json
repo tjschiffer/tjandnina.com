@@ -1,0 +1,35 @@
+{
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node build.js",
+    "build": "cross-env NODE_ENV=production node build.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "vue": "^2.5.17",
+    "vuejs-storage": "^3.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "ajv": "^6.5.4",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.0",
+    "csurf": "^1.9.0",
+    "file-loader": "^2.0.0",
+    "multi-language-site-generator": "git+https://github.com/tjschiffer/multi-language-site-generator.git",
+    "node-sass": "^4.9.4",
+    "sass-loader": "^7.1.0",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.23.1"
+  },
+  "browserslist": [
+    "> 0.5% in US"
+  ]
+}

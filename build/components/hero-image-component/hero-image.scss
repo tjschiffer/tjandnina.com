@@ -1,3 +1,4 @@
+@import '../../scss/mixins';
 
 @include keyframes(de-blur) {
   from { filter: blur(20px); }
@@ -19,8 +20,10 @@
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+  left: 0;
   // Remove the edge bleed caused by blur
   transform: scale(1.05);
+  top: 0;
 }
 
 .tj-hero-image__image--deblur {

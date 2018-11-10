@@ -24,9 +24,9 @@ const photosComponent = function() {
    */
   this.getPhotosColumns = () => {
     return [
-      Array.from(Array(2).keys()).map(i => '/img/tjandnina/' + (i + 1).toString() + '.jpg'),
-      Array.from(Array(5).keys()).map(i => '/img/tjandnina/' + (i + 3).toString() + '.jpg'),
-      Array.from(Array(4).keys()).map(i => '/img/tjandnina/' + (i + 8).toString() + '.jpg')
+      Array.from(Array(2).keys()).map(i => '/img/tjandnina/' + (i + 1).toString()),
+      Array.from(Array(5).keys()).map(i => '/img/tjandnina/' + (i + 3).toString()),
+      Array.from(Array(4).keys()).map(i => '/img/tjandnina/' + (i + 8).toString())
     ];
   }
 
