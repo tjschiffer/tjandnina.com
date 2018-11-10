@@ -25,6 +25,16 @@ $navigation-height: 60px;
 
 .tj-navigation__links-mob {
   top: $navigation-height;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.tj-navigation__links-mob--enter-active, .tj-navigation__links-mob--leave-active {
+  transition: max-height 0.1s ease-in-out;
+}
+
+.tj-navigation__links-mob--enter, .tj-navigation__links-mob--leave-to {
+  max-height: 0;
 }
 
 .tj-navigation__link-mob {
@@ -33,6 +43,14 @@ $navigation-height: 60px;
 
 .tj-navigation__language-chooser-mob {
   height: $navigation-height;
+}
+
+.tj-navigation__language-chooser-mob--enter-active, .tj-navigation__language-chooser-mob--leave-active {
+  transition: opacity 0.1s ease-in-out;
+}
+
+.tj-navigation__language-chooser-mob--enter, .tj-navigation__language-chooser-mob--leave-to {
+  opacity: 0;
 }
 
 @include bp-tablet {
