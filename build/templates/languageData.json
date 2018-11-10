@@ -35,6 +35,7 @@
         "T.J.'s tip: avoid the touristy Champs-Elysees and prefer a walk around la place de la Concorde."
       ]
     },
+    "RegistryMessage": "Your presence at our wedding is gift enough, but if you wish to buy us something, we are registered at <a class=\"tj--plain-link\" target=\"_blank\" href=\"//www.zola.com/registry/tjandnina\">Zola</a> and <a class=\"tj--plain-link\" target=\"_blank\" href=\"//www.amazon.com/wedding/tj-s-nina-k-paris-february-2019/registry/3KO7VABW8C3ME\">Amazon</a>.",
     "FindYourInvitation": "Find Your Invitation",
     "InviteNotFound": "Your invite was not found. Please use your name as indicated on the invite<span v-if=\"firstNameForEasterEgg === 'Chris'\" class=\"tj--font-style-italic\"> Christopher</span>. You may also email us at <a href=\"mailto:tjandnina2019@gmail.com\"class=\"tj--text-decoration-none tj--font-black\">tjandnina2019@gmail.com</a>",
     "FirstName": "First Name",
@@ -66,6 +67,7 @@
     "CocktailAttire": "Tenue de Cocktail",
     "WeddingDay": "Cérémonie et Réception",
     "ContactUs": "N'hésitez pas à nous écrire si vous avez des questions !",
+    "RegistryMessage": "Notre plus beau cadeau sera votre présence. Toutefois, si vous souhaitez nous offrir quelque chose, notre liste de mariage est disponible ici: <a class=\"tj--plain-link\" target=\"_blank\" href=\"//www.zola.com/registry/tjandnina\">Zola</a> et <a class=\"tj--plain-link\" target=\"_blank\" href=\"//www.amazon.com/wedding/tj-s-nina-k-paris-february-2019/registry/3KO7VABW8C3ME\">Amazon</a>.",
     "FindYourInvitation": "Cherchez votre invitation",
     "InviteNotFound": "Nous ne trouvons pas votre invitation. Entrez votre nom comme il apparaît sur l'invitation. En cas de problème, écrivez nous à l'adresse suivante <a href=\"mailto:tjandnina2019@gmail.com\"class=\"tj--text-decoration-none tj--font-black\">tjandnina2019@gmail.com</a>",
     "FirstName": "Prénom",
