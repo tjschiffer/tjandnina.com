@@ -111,7 +111,7 @@ export default () => {
           for (const guest of this.guestData.guests) {
             if (guest.attending === null ||
               (this.guestData.invite.invite_welcome_event === 1 && guest.attending_welcome_event === null) ||
-              (this.guestData.invite.invite_after_party === 1 && guest.attending_welcome_event === null)) {
+              (this.guestData.invite.invite_after_party === 1 && guest.attending_after_party === null)) {
               this.missingInput = true;
               return;
             }
