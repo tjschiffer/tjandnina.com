@@ -6,6 +6,6 @@ our wedding website with minimal server load. Currently running on a Google Clou
 
 Static pages are built using `/build/build.js` using a layout/component pattern. Templates are rendered twice, once from the components and then again for each langauge using [tjschiffer/multi-language-site-generator](https://github.com/tjschiffer/multi-language-site-generator).
 
-Guests can RSVP using their name and zipcode, which gets stored in the db and emailed to site admin using the gmial api.
+Guests can RSVP using their name and zipcode, which gets stored in the db and emailed to site admin using the gmail api.
 
 The admin page at `/invites` shows the satus of the guests and allows for filtering of guests by name and status (RSVP yes, no, ot not responded).
