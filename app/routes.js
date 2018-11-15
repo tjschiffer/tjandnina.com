@@ -111,6 +111,11 @@ module.exports = (app, passport) => {
         return res.send({ success: true, invitesWithGuests: invitesWithGuests});
       })
     });
+
+  // Redirect /repo to the github repository for this website
+  app.get('/repo', (req, res) => {
+    return res.redirect(301, '//github.com/tjschiffer/tjandnina.com');
+  });
   
   // 404 Since no other routes have been hit
   app.use((req, res) => {

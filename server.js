@@ -10,7 +10,7 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const secrets = require('./config/secrets');
 const path = require('path');
-var favicon = require('serve-favicon');
+const favicon = require('serve-favicon');
 const config = require('./config/config');
 
 require('./app/passport/passport')(passport); // pass passport for configuration
