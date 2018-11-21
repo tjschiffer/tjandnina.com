@@ -150,7 +150,7 @@ module.exports = {
 
       // Add the note to the invite table if there is one
       if (guestData.invite.note && guestData.invite.note.length > 0) {
-        await pool.queryPromise(named(`
+        await pool.promisePool.query(named(`
               UPDATE ${dbconfig.invites_table}
               SET note = :note
               WHERE invite_id = :inviteId
