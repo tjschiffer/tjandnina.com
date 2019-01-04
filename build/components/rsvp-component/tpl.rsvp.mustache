@@ -32,7 +32,7 @@
                                                      class="tj-input tj--width-full"
                                                      name="firstName"
                                                      required
-                                                     v-model="inviteFormData.firstName"></div>
+                                                     v-model.trim="inviteFormData.firstName"></div>
             </div>
             <div class="tj-grid-flex__cell-1-2
                         tj-grid-flex__cell-1-1--tab
@@ -46,7 +46,7 @@
                                                      class="tj-input tj--width-full"
                                                      name="lastName"
                                                      required
-                                                     v-model="inviteFormData.lastName"></div>
+                                                     v-model.trim="inviteFormData.lastName"></div>
             </div>
             <div class="tj-grid-flex__cell-2-5
                         tj-grid-flex__cell-1-1--tab
@@ -59,7 +59,7 @@
                                                      type="text"
                                                      class="tj-input tj--width-full"
                                                      name="zipCode"
-                                                     v-model="inviteFormData.zipCode"></div>
+                                                     v-model.trim="inviteFormData.zipCode"></div>
             </div>
           </div>
           <div class="tj--text-align-right tj--padding-hor-1">
