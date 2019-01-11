@@ -1,13 +1,12 @@
-const path = require('path');
-const fs = require('fs');
-const async = require('async');
-const mustache = require('mustache');
-const styleTagComponent = new (require('../style-tag-component/style-tag-component'))();
+const path = require('path')
+const fs = require('fs')
+const async = require('async')
+const mustache = require('mustache')
+const styleTagComponent = new (require('../style-tag-component/style-tag-component'))()
 
-const templatePath = path.join(__dirname, './tpl.navigation-language-chooser.mustache');
+const templatePath = path.join(__dirname, './tpl.navigation-language-chooser.mustache')
 
 const navigationLanguageChooserComponent = function () {
-
   /**
    *
    * @param cb
@@ -26,29 +25,29 @@ const navigationLanguageChooserComponent = function () {
           title: 'English'
         }
       ]
-    };
+    }
 
-    styleTagComponent.setStylesheetPath('/css/navigation-language-chooser.css');
+    styleTagComponent.setStylesheetPath('/css/navigation-language-chooser.css')
     async.parallel({
-        styleTag: cb => {
-          styleTagComponent.render((err, renderedTemplate) => {
-            cb(err, renderedTemplate);
-          });
-        }
-      }, (err, view) => {
-        if (err) {
-          cb(err)
-        }
-        view = Object.assign(view, _view);
-
-        fs.readFile(templatePath, 'utf-8', (err, template) => {
-          mustache.parse(template, ['<%', '%>']);
-          const rendered = mustache.render(template, view);
-          cb(err, rendered);
-        });
+      styleTag: cb => {
+        styleTagComponent.render((err, renderedTemplate) => {
+          cb(err, renderedTemplate)
+        })
       }
-    );
-  };
-};
+    }, (err, view) => {
+      if (err) {
+        cb(err)
+      }
+      view = Object.assign(view, _view)
 
-module.exports = navigationLanguageChooserComponent;
+      fs.readFile(templatePath, 'utf-8', (err, template) => {
+        mustache.parse(template, ['<%', '%>'])
+        const rendered = mustache.render(template, view)
+        cb(err, rendered)
+      })
+    }
+    )
+  }
+}
+
+module.exports = navigationLanguageChooserComponent

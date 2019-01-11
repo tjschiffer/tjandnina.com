@@ -1,13 +1,19 @@
 <template>
   <div class="tj--font-blacksword">
-    <span class="dot">.</span><span class="dot dot-1">.</span><span class="dot dot-2">.</span>
+    <span class="dot">
+      .
+    </span><span class="dot dot-1">
+      .
+    </span><span class="dot dot-2">
+      .
+    </span>
   </div>
 </template>
 
 <script>
-  export default {
-    name: "loading-dots"
-  }
+export default {
+  name: 'LoadingDots'
+}
 </script>
 
 <style lang="scss" scoped>
