@@ -1,6 +1,6 @@
-var mysql = require('mysql2')
+const mysql = require('mysql2')
 const dbconfig = require('../config/database')
-var pool = mysql.createPool(dbconfig.connection)
+const pool = mysql.createPool(dbconfig.connection)
 
 pool.getConnection((err, connection) => {
   if (err) {
