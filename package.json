@@ -10,7 +10,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "lint": "npx eslint --ext .js,.vue server.js ./app ./build"
+    "lint": "npx eslint --ext .js,.vue,.mjs server.js ./app ./build"
   },
   "dependencies": {
     "argon2": "^0.19.3",
