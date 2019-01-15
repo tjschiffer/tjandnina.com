@@ -172,7 +172,7 @@
       <tr>
         <th
           v-for="headerKey in allHeaderKeys"
-          :key="headerKey"
+          :key="headerKey.key"
           class="tj--border-dark-gray-1 tj--text-align-center tj--padding-1"
           v-text="headerKey.display"
         />
@@ -183,14 +183,14 @@
         <tr :key="invite.invite_id">
           <td
             v-for="headerKey in headerKeysInvites"
-            :key="headerKey"
+            :key="headerKey.key"
             :rowspan="invite.guests.length"
             class="tj--border-dark-gray-1 tj--text-align-center tj--padding-1"
             v-text="invite[headerKey.key]"
           />
           <td
             v-for="headerKey in headerKeysGuests"
-            :key="headerKey"
+            :key="headerKey.key"
             class="tj--border-dark-gray-1 tj--text-align-center tj--padding-1"
             v-text="convertToBool(headerKey.type, invite.guests[0][headerKey.key])"
           />
@@ -201,7 +201,7 @@
         >
           <td
             v-for="headerKey in headerKeysGuests"
-            :key="headerKey"
+            :key="headerKey.key"
             class="tj--border-dark-gray-1 tj--text-align-center tj--padding-1"
             v-text="convertToBool(headerKey.type, guest[headerKey.key])"
           />
@@ -286,19 +286,18 @@ export default {
       return this.headerKeysInvites.concat(this.headerKeysGuests)
     },
     filteredInvites () {
-      const _this = this
       return this.invites.reduce((filteredInvites, invite) => {
         const filteredGuests = invite.guests.filter(guest => {
           const fullNameLowerCase = (guest.first_name + ' ' + guest.last_name).toLowerCase()
-          if (_this.filters.name && fullNameLowerCase.indexOf(_this.filters.name.toLowerCase()) === -1) {
+          if (this.filters.name && fullNameLowerCase.indexOf(this.filters.name.toLowerCase()) === -1) {
             return false
           }
 
-          for (const key of Object.keys(_this.filters)) {
-            if (key === 'name' || _this.filters[key] === undefined) {
+          for (const key of Object.keys(this.filters)) {
+            if (key === 'name' || this.filters[key] === undefined) {
               continue
             }
-            if (_this.filters[key] !== guest[key]) {
+            if (this.filters[key] !== guest[key]) {
               return false
             }
           }
