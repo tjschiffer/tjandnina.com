@@ -1,8 +1,8 @@
-const path = require('path');
-const webpack = require('webpack');
-require('babel-polyfill');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const path = require('path')
+const webpack = require('webpack')
+require('babel-polyfill')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: ['babel-polyfill', path.join(__dirname, '../build/main.js')],
@@ -22,7 +22,7 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader'
-        ],
+        ]
       },
       {
         test: /\.scss$/,
@@ -30,7 +30,7 @@ module.exports = {
           'vue-style-loader',
           'css-loader',
           'sass-loader'
-        ],
+        ]
       },
       {
         test: /\.vue$/,
@@ -83,10 +83,10 @@ module.exports = {
     hints: false
   },
   devtool: '#eval-source-map'
-};
+}
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map';
+  module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({

@@ -1,23 +1,22 @@
-const path = require('path');
-const fs = require('fs');
-const mustache = require('mustache');
+const path = require('path')
+const fs = require('fs')
+const mustache = require('mustache')
 
-const templatePath = path.join(__dirname, './tpl.style-tag.mustache');
+const templatePath = path.join(__dirname, './tpl.style-tag.mustache')
 
-const styleTagComponent = function() {
-
+const styleTagComponent = function () {
   /**
    *
    * @param cb
    */
   this.render = cb => {
-    const _this = this;
+    const _this = this
     fs.readFile(templatePath, 'utf-8', (err, template) => {
-      mustache.parse(template, ['<%', '%>']);
-      const rendered = mustache.render(template, _this);
-      cb(err, rendered);
-    });
-  };
+      mustache.parse(template, ['<%', '%>'])
+      const rendered = mustache.render(template, _this)
+      cb(err, rendered)
+    })
+  }
 
   /**
    *
@@ -25,17 +24,17 @@ const styleTagComponent = function() {
    * @returns {headComponent}
    */
   this.setStylesheetPath = title => {
-    this.stylesheetPath = title;
-    return this;
-  };
+    this.stylesheetPath = title
+    return this
+  }
 
   /**
    *
    * @returns {string}
    */
   this.getStylesheetPath = () => {
-    return this.stylesheetPath || '';
-  };
+    return this.stylesheetPath || ''
+  }
 
   /**
    * Bump the static tag on every build
@@ -43,8 +42,8 @@ const styleTagComponent = function() {
    * @returns {string}
    */
   this.getStaticTag = () => {
-    return (new Date()).getTime().toString();
-  };
-};
+    return (new Date()).getTime().toString()
+  }
+}
 
-module.exports = styleTagComponent;
+module.exports = styleTagComponent
