@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 // expose all the static file folders, with cache as defined in the config
-app.use('/', express.static(path.join(__dirname, 'static'), { maxAge: config['cache-control'] || 0 }))
+app.use('/', express.static(path.join(__dirname, 'static'), {maxAge: config['cache-control'] || 0, dotfiles: 'allow'}))
 
 app.use(favicon(path.join(__dirname, 'favicon.ico')))
 
