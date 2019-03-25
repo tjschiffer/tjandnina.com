@@ -1,54 +1,41 @@
-const path = require('path')
-const webpack = require('webpack')
-require('babel-polyfill')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const path = require("path");
+const webpack = require("webpack");
+require("babel-polyfill");
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
-  entry: ['babel-polyfill', path.join(__dirname, '../build/main.js')],
+  entry: ["babel-polyfill", path.join(__dirname, "../build/main.js")],
   output: {
-    path: path.join(__dirname, '../static/js/'),
-    publicPath: '/js/',
-    filename: 'main.js'
+    path: path.join(__dirname, "../js/"),
+    publicPath: "/js/",
+    filename: "main.js"
   },
-  plugins: [
-    new VueLoaderPlugin()
-  ],
-  mode: process.env.NODE_ENV || 'development',
+  plugins: [new VueLoaderPlugin()],
+  mode: process.env.NODE_ENV || "development",
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          'css-loader'
-        ]
+        use: ["vue-style-loader", "css-loader"]
       },
       {
         test: /\.scss$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
+        use: ["vue-style-loader", "css-loader", "sass-loader"]
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
+        loader: "vue-loader",
         options: {
           loaders: {
             // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
             // the "scss" and "sass" values for the lang attribute to the right configs here.
             // other preprocessors should work out of the box, no loader config like this necessary.
-            'scss': [
-              'vue-style-loader',
-              'css-loader',
-              'sass-loader'
-            ],
-            'sass': [
-              'vue-style-loader',
-              'css-loader',
-              'sass-loader?indentedSyntax'
+            scss: ["vue-style-loader", "css-loader", "sass-loader"],
+            sass: [
+              "vue-style-loader",
+              "css-loader",
+              "sass-loader?indentedSyntax"
             ]
           }
           // other vue-loader options go here
@@ -56,23 +43,23 @@ module.exports = {
       },
       {
         test: /\.m?js$/,
-        loader: 'babel-loader',
+        loader: "babel-loader",
         exclude: /node_modules/
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
+        loader: "file-loader",
         options: {
-          name: '[name].[ext]?[hash]'
+          name: "[name].[ext]?[hash]"
         }
       }
     ]
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      vue$: "vue/dist/vue.esm.js"
     },
-    extensions: ['*', '.js', '.vue', '.json']
+    extensions: ["*", ".js", ".vue", ".json"]
   },
   devServer: {
     historyApiFallback: true,
@@ -82,15 +69,15 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
-}
+  devtool: "#eval-source-map"
+};
 
-if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
+if (process.env.NODE_ENV === "production") {
+  module.exports.devtool = "#source-map";
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
-      'process.env': {
+      "process.env": {
         NODE_ENV: '"production"'
       }
     }),
@@ -100,5 +87,5 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
-  ])
+  ]);
 }

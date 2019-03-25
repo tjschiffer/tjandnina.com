@@ -9,27 +9,14 @@
   },
   "main": "server.js",
   "scripts": {
-    "start": "node server",
     "lint": "npx eslint --ext .js,.vue,.mjs server.js ./app ./build"
   },
   "dependencies": {
-    "argon2": "^0.19.3",
-    "body-parser": "^1.13.1",
-    "build-url": "^1.0.11",
-    "connect-flash": "^0.1.1",
-    "cookie-parser": "^1.3.5",
-    "csurf": "^1.9.0",
-    "express": "^4.13.0",
     "express-session": "^1.11.3",
     "googleapis": "^34.0.0",
     "module-alias": "^2.1.0",
     "morgan": "^1.9.1",
-    "mustache": "^3.0.1",
-    "mysql2": "^1.6.1",
-    "passport": "^0.2.2",
-    "passport-local": "^1.0.0",
-    "serve-favicon": "^2.5.0",
-    "yesql": "^3.1.5"
+    "mustache": "^3.0.1"
   },
   "_moduleAliases": {
     "@root": ".",

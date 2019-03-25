@@ -1,80 +1,86 @@
-const path = require('path')
-const fs = require('fs')
-const async = require('async')
-const mustache = require('mustache')
-const styleTagComponent = new (require('../style-tag-component/style-tag-component'))()
+const path = require("path");
+const fs = require("fs");
+const async = require("async");
+const mustache = require("mustache");
+const styleTagComponent = new (require("../style-tag-component/style-tag-component"))();
 
-const navigationLanguageChooserComponent = new (require(path.join(__dirname, '../navigation-language-chooser-component/navigation-language-chooser-component.js')))()
+const navigationLanguageChooserComponent = new (require(path.join(
+  __dirname,
+  "../navigation-language-chooser-component/navigation-language-chooser-component.js"
+)))();
 
-const templatePath = path.join(__dirname, './tpl.navigation.mustache')
+const templatePath = path.join(__dirname, "./tpl.navigation.mustache");
 
-const navigationComponent = function () {
+const navigationComponent = function() {
   /**
    *
    * @param cb
    */
   this.render = cb => {
-    const _this = this
-    styleTagComponent.setStylesheetPath('/css/navigation.css')
-    async.parallel({
-      styleTag: cb => {
-        styleTagComponent.render((err, renderedTemplate) => {
-          cb(err, renderedTemplate)
-        })
-      },
-      navigationLanguageChooser: cb => {
-        // Do not render the NavigationLanguageChooserComponent if it is not to be shown
-        if (!_this.getShowNavigationLanguageChooser()) {
-          cb()
-          return
+    const _this = this;
+    styleTagComponent.setStylesheetPath("/css/navigation.css");
+    async.parallel(
+      {
+        styleTag: cb => {
+          styleTagComponent.render((err, renderedTemplate) => {
+            cb(err, renderedTemplate);
+          });
+        },
+        navigationLanguageChooser: cb => {
+          // Do not render the NavigationLanguageChooserComponent if it is not to be shown
+          if (!_this.getShowNavigationLanguageChooser()) {
+            cb();
+            return;
+          }
+          navigationLanguageChooserComponent.render(cb);
         }
-        navigationLanguageChooserComponent.render(cb)
-      }
-    }, (err, view) => {
-      if (err) {
-        cb(err)
-      }
-      view = Object.assign(view, _this)
+      },
+      (err, view) => {
+        if (err) {
+          cb(err);
+        }
+        view = Object.assign(view, _this);
 
-      fs.readFile(templatePath, 'utf-8', (err, template) => {
-        mustache.parse(template, ['<%', '%>'])
-        const rendered = mustache.render(template, view)
-        cb(err, rendered)
-      })
-    })
-  }
+        fs.readFile(templatePath, "utf-8", (err, template) => {
+          mustache.parse(template, ["<%", "%>"]);
+          const rendered = mustache.render(template, view);
+          cb(err, rendered);
+        });
+      }
+    );
+  };
 
   this.navigationLinks = () => {
     const navigationLinks = [
       {
-        linkAddress: 'index.html',
-        linkName: 'Home'
+        linkAddress: "index.html",
+        linkName: "Home"
       },
       {
-        linkAddress: 'details.html',
-        linkName: 'Details'
+        linkAddress: "details.html",
+        linkName: "Details"
       },
       {
-        linkAddress: 'registry.html',
-        linkName: 'Registry'
+        linkAddress: "registry.html",
+        linkName: "Registry"
       },
       {
-        linkAddress: 'photos.html',
-        linkName: 'Photos'
-      },
-      {
-        linkAddress: 'rsvp.html',
-        linkName: 'RSVP'
+        linkAddress: "photos.html",
+        linkName: "Photos"
       }
-    ]
-    const _this = this
+      // {
+      //   linkAddress: 'rsvp.html',
+      //   linkName: 'RSVP'
+      // }
+    ];
+    const _this = this;
     return navigationLinks.map(link => {
       if (link.linkName === _this.activeLink) {
-        link.isActive = true
+        link.isActive = true;
       }
-      return link
-    })
-  }
+      return link;
+    });
+  };
 
   /**
    *
@@ -82,9 +88,9 @@ const navigationComponent = function () {
    * @returns {navigationComponent}
    */
   this.setIsOverlay = isOverlay => {
-    this.isOverlay = isOverlay
-    return this
-  }
+    this.isOverlay = isOverlay;
+    return this;
+  };
 
   /**
    *
@@ -92,9 +98,9 @@ const navigationComponent = function () {
    * @return {navigationComponent}
    */
   this.setActiveLink = activeLink => {
-    this.activeLink = activeLink
-    return this
-  }
+    this.activeLink = activeLink;
+    return this;
+  };
 
   /**
    *
@@ -102,9 +108,9 @@ const navigationComponent = function () {
    * @return {navigationComponent}
    */
   this.setShowNavigationLanguageChooser = showNavigationLanguageChooser => {
-    this.showNavigationLanguageChooser = showNavigationLanguageChooser
-    return this
-  }
+    this.showNavigationLanguageChooser = showNavigationLanguageChooser;
+    return this;
+  };
 
   /**
    * Default to showing the NavigationLanguageChooser
@@ -112,8 +118,10 @@ const navigationComponent = function () {
    * @return {(function())|*|boolean}
    */
   this.getShowNavigationLanguageChooser = () => {
-    return this.showNavigationLanguageChooser === undefined ? true : this.showNavigationLanguageChooser
-  }
-}
+    return this.showNavigationLanguageChooser === undefined
+      ? true
+      : this.showNavigationLanguageChooser;
+  };
+};
 
-module.exports = navigationComponent
+module.exports = navigationComponent;

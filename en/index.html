@@ -1,40 +1,28 @@
 <!doctype html>
-<html lang="">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>T.J. &amp; Nina | Login</title>
+  <title>T.J. &amp; Nina</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72237523-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-72237523-2');
-  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script defer src="/js/main.js?1547768896716"></script>
+  <script defer src="/js/main.js?1553523018296"></script>
 
-  <link rel="stylesheet" href="/css/main.css?1547768896716">
+  <link rel="stylesheet" href="/css/main.css?1553523018268">
 
 </head>
 <body>
-<link rel="stylesheet" href="/css/navigation.css?1547768896716">
+<link rel="stylesheet" href="/css/navigation.css?1553523018269">
 
 <div data-tj-navigation
     class="tj-navigation
            tj--z-index-10
            tj--width-full
-           tj--position-relative
-           ">
+           tj--position-absolute
+           tj--position-top
+">
   <div class="tj--hide-tablet tj--height-full tj--width-full">
     <nav class="tj-grid-flex
                 tj-grid-flex--justify-center
@@ -54,6 +42,11 @@
                     tj--height-full
                     tj--position-relative">
           <div>Home</div>
+        <div class="tj--position-absolute
+                    tj--width-full
+                    tj--position-left
+                    tj--position-bottom
+                    tj--border-bottom-white-3"></div>
         </div>
 
       </a>
@@ -102,28 +95,39 @@
         </div>
 
       </a>
-      <a href="/en/rsvp.html"
-         class="tj-navigation__link
-              tj-grid-flex
-              tj-grid-flex--align-center
-              tj--padding-hor-3
-              tj--text-decoration-none
-              tj--font-white">
-        <div class="tj-grid-flex
-                    tj-grid-flex--align-center
-                    tj--height-full
-                    tj--position-relative">
-          <div>RSVP</div>
-        </div>
-
-      </a>
     </nav>
     <div class="tj--position-absolute
                 tj--position-top
                 tj--position-right
                 tj--height-full
                 tj--padding-bottom-1">
-      
+      <link rel="stylesheet" href="/css/navigation-language-chooser.css?1553523018269">
+
+<div class="tj-navigation-language-chooser
+            tj-grid-flex
+            tj-grid-flex--align-center
+            tj--height-full
+            tj--padding-hor-3
+            tj--z-index-10">
+  <a href="&#x2F;fr/index.html"
+     title="Français"
+     class="tj-grid-flex
+            tj-grid-flex--align-center
+            tj--padding-hor-2
+            tj--height-full">
+    <div class="tj-navigation-language-chooser__flag tj--border-radius-3"
+       style="background-image: url('&#x2F;img&#x2F;franceflag.svg')"></div>
+  </a>
+  <a href="&#x2F;en/index.html"
+     title="English"
+     class="tj-grid-flex
+            tj-grid-flex--align-center
+            tj--padding-hor-2
+            tj--height-full">
+    <div class="tj-navigation-language-chooser__flag tj--border-radius-3"
+       style="background-image: url('&#x2F;img&#x2F;americaflag.svg')"></div>
+  </a>
+</div>
     </div>
   </div>
   <div class="tj--hide-desktop tj--height-full tj--width-full tj--border-bottom-white-1">
@@ -135,7 +139,33 @@
                   tj--position-top
                   tj--position-left
                   tj--height-full">
-        
+        <link rel="stylesheet" href="/css/navigation-language-chooser.css?1553523018269">
+
+<div class="tj-navigation-language-chooser
+            tj-grid-flex
+            tj-grid-flex--align-center
+            tj--height-full
+            tj--padding-hor-3
+            tj--z-index-10">
+  <a href="&#x2F;fr/index.html"
+     title="Français"
+     class="tj-grid-flex
+            tj-grid-flex--align-center
+            tj--padding-hor-2
+            tj--height-full">
+    <div class="tj-navigation-language-chooser__flag tj--border-radius-3"
+       style="background-image: url('&#x2F;img&#x2F;franceflag.svg')"></div>
+  </a>
+  <a href="&#x2F;en/index.html"
+     title="English"
+     class="tj-grid-flex
+            tj-grid-flex--align-center
+            tj--padding-hor-2
+            tj--height-full">
+    <div class="tj-navigation-language-chooser__flag tj--border-radius-3"
+       style="background-image: url('&#x2F;img&#x2F;americaflag.svg')"></div>
+  </a>
+</div>
       </div>
     </transition>
     <div v-on:click="toggleOpen"
@@ -174,6 +204,11 @@
                     tj-grid-flex--align-center
                     tj--position-relative">
           <div>Home</div>
+          <div class="tj--position-absolute
+                      tj--width-full
+                      tj--position-left
+                      tj--position-bottom
+                      tj--border-bottom-white-3"></div>
         </div>
       </a>
       <a v-on:click="close"
@@ -218,20 +253,6 @@
           <div>Photos</div>
         </div>
       </a>
-      <a v-on:click="close"
-         href="/en/rsvp.html"
-         class="tj-navigation__link-mob
-                tj-grid-flex
-                tj-grid-flex--justify-center
-                tj--text-decoration-none
-                tj--font-white
-                tj--border-bottom-transparent-1">
-        <div class="tj-grid-flex
-                    tj-grid-flex--align-center
-                    tj--position-relative">
-          <div>RSVP</div>
-        </div>
-      </a>
       <div class="tj--position-absolute
                   tj--position-top
                   tj--width-full
@@ -246,29 +267,23 @@
     </nav>
     </transition>
   </div>
-  <div class="tj--position-absolute
-              tj--position-top
-              tj--width-full
-              tj--height-full
-              tj--overflow-hidden
-              tj--z-index-neg-1">
-    <div class="tj--navigation__background
-                tj--width-full"></div>
-  </div>
 </div>
 
 <main role="main">
-  <div class="tj--bg-floral-white tj--padding-vert-5">
-  <div class="tj--max-width-1020 tj--margin-hor-auto tj--padding-hor-1 tj--min-height-100vh-minus-nav">
-    <div class="tj--font-size-32 tj--font-blacksword tj--margin-bottom-1 tj--text-align-center">Login</div>
-    <div class="tj--margin-top-5
-                tj--line-height-1-5
-                tj--padding-hor-1
-                tj--width-half
-                tj--width-full--mob
-                tj--margin-hor-auto">
-      <div data-tj-login></div>
-    </div>
+  <link rel="stylesheet" href="/css/hero-image.css?1553523018269">
+
+<div class="tj-hero-image
+            tj-grid-flex
+            tj-grid-flex--align-center
+            tj-grid-flex--justify-center
+            tj--position-relative
+            tj--overflow-hidden">
+  <div class="tj-hero-image__image
+              tj-hero-image__image--deblur
+              tj--position-absolute
+              tj--height-full
+              tj--width-full" style="background-image: url('/img/paris.jpg')"></div>
+  <div class="tj-hero-image__logo tj--max-width-full tj--position-relative tj--z-index-1" style="background-image: url('/img/TJNina.png')">
   </div>
 </div>
 </main>

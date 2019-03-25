@@ -2,8 +2,8 @@
 	"version": 3,
 	"file": "language-chooser.css",
 	"sources": [
-		"../../build/components/language-chooser-component/language-chooser.scss",
-		"../../build/scss/mixins.scss"
+		"../build/components/language-chooser-component/language-chooser.scss",
+		"../build/scss/mixins.scss"
 	],
 	"names": [],
 	"mappings": "AAEA,AAAA,oBAAoB,CAAC;EACnB,aAAa,EAAE,KAAK;EACpB,SAAS,EAAE,KAAK;EAChB,KAAK,EAAE,IAAI,GACZ;;AAED,AAAA,+BAA+B,CAAC;EAC9B,MAAM,EAAE,KAAK,GACd;;AAED,AAAA,gCAAgC,CAAC;EAC/B,UAAU,EAAE,4BAA4B;EACxC,uBAAuB,EAAE,KAAK;EAC9B,oBAAoB,EAAE,KAAK;EAC3B,eAAe,EAAE,KAAK;EACtB,MAAM,EAAE,UAAU;EAClB,IAAI,EAAE,CAAC;EAEP,SAAS,EAAE,WAAW;EACtB,GAAG,EAAE,CAAC,GACP;;AAED,AAAA,8BAA8B,CAAC;EAC7B,aAAa,EAAE,GAAG;EAClB,cAAc,EAAE,GAAG,GACpB;;ACnBC,MAAM,MAAM,MAAM,MAAM,SAAS,EAAE,KAAK;EDsBxC,AAAA,gCAAgC,CAAC;IAE/B,SAAS,EAAE,UAAU,GACtB;;ACnBD,MAAM,MAAM,MAAM,MAAM,SAAS,EAAE,KAAK;EDuBxC,AAAA,oBAAoB,CAAC;IACnB,aAAa,EAAE,IAAI,GACpB"
