@@ -8,4 +8,4 @@ Static pages are built using `/build/build.js` using a layout/component pattern.
 
 Guests can RSVP using their name and zipcode, which gets stored in the db and emailed to site admin using the gmail api.
 
-The admin page at `/invites` shows the satus of the guests and allows for filtering of guests by name and status (RSVP yes, no, ot not responded).
+The admin page at `/invites` shows the satus of the guests and allows for filtering of guests by name and status (RSVP yes, no, or not responded).
